@@ -1,2 +1,2 @@
 # CoccoGasperini
-Engineering software 2 - PROJECT
+Software Engineering 2 - PROJECT
