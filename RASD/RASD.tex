@@ -6,7 +6,6 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
-
 \author{Davide Cocco - 944122\\
 	Marco Gasperini - 944922}
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
@@ -30,8 +29,28 @@
 	\newpage
 
 \section{INTRODUCTION}
-\subsection{Purpose:here we include	the goals of the project} 
-\subsection{Scope:	here	we	include	an analysis	of	the	world	and	of	the	shared	phenomena} 
+\subsection{Purpose} 
+This document will contain the \texttt{Requirements Analysis and Specification Document} for SafeStreets, a crowd-sourced application that will allow users to notify traffic violations to authorities, and authorities themselves to simplify the process of enforcing laws for these offences through a data mining system.
+ 
+\subsection{Scope}
+The software will be dedicated to civilians and authorities: through a mobile application, civilians will have the possibility to report a violation by submitting pictures, position, date and the license plate of the offender to the authorities in an effort to improve their communities, while officers can use the data mining system to facilitate the process of law enforcement. Authorities will be supplied with a web application with the ability to confirm the officers' accounts or add new officers, and will be supported with a data mining system to highlight areas with high violation frequency, repeated offenders, and signal to the officers an offence to direct them.
+A data warehouse will be thus implemented, and repeated reports of violations could also lead to automated traffic tickets being released at the discretion of the authorities.
+A two agent authentication will be used to verify the officers' identity: either the officer subscribes and is verified by his authority, or the authority adds the officer, who is sent a verification code through e-mail.
+\subsubsection{Goals}
+\begin{itemize}
+\item Allow future users to easily register and login. 
+\item Allow users to notify authorities of traffic violations through the use of the camera.
+\item Store relevant info about the violation in the data warehouse.
+\item Allow only authorities to visualize relevant data for law enforcement purposes.
+\item Implement optionally usable functionality for automated traffic ticket compilation and sending.
+\item Guarantee privacy to both civilians and authorities.
+\item Guarantee security: 
+\begin{itemize}
+	\item discard and discourage false reports;
+	\item block unauthentic officer registrations;
+    \item only allow authorities to visualize processed data helpful for law enforcement.
+\end{itemize}
+\end{itemize}
 \subsection{Definitions,	Acronyms,	Abbreviations} 
 \subsection{Revision history} 
 \subsection{Reference	Documents} 
@@ -39,8 +58,20 @@
 \section{OVERALL	DESCRIPTION}
 \subsection{Product	perspective:	here	we	include	 further	details	on	 the	 shared	phenomena	and	a	
 domain	model	(class	diagrams	and	statecharts)} 
-\subsection{Product	functions:	here	we	include	the	most	important	requirements} 
-\subsection{User	characteristics:	here	we	include	anything	that	is	relevant	to	clarify	their	needs} 
+\subsection{Product	functions}
+The goals to be accomplished require the following functions:
+ \begin{itemize}
+\item \texttt{Registration and login management:} while civilians will be able to register and login in standard fashion, officers will be confirmed by their corresponding authorities after sending their identification, or authorities will add them prompting an automatic message containing a confirmation number which will be used by the officers. 
+\item \texttt{Violation reporting:} allow users to send various pictures representing the offence with the corresponding date and location (both manually and via GPS) to the authority which will process them.
+\item  \texttt{Data storage, mining and visualization:} store all the relevent data from the reporting procedure to process it through ETL and present it to the authority to assist them in law enforcement. 
+\item  \texttt{Automated ticket emission:} at the discretion of authorities and in the presence of multiple reports of the same violation, a traffic ticket can be automatically compiled by this function and sent to the offender.
+\end{itemize}
+\subsection{User	characteristics}
+ \begin{itemize}
+\item \texttt{Civilians:} users unaffiliated to law enforcement authorities who are interested in improving their community, they are only able to report violations but don't have access to mined data. They're required to login so they can eventually be excluded in case of security violations (like sending false reports).
+\item \texttt{Officers:} they're registered through their authority listing them through the web application and receiving a confirmation number, or by themselves and later being confirmed by the authority. They're both able to see the mined data and to report violations.
+\item  \texttt{Authority:} they're manually registered through SafeStreets employees and their work is managed in office through a web application. They can add new officers or confirm self-registered ones, and they're able to see the processed data and enable automatic ticket emission.
+\end{itemize}
 \subsection{Assumptions, dependencies and	constraints:	here	we	include domain	assumptions	} 
 \section{SPECIFIC	REQUIREMENTS: Here	we	include	more	details	on	all	aspects	in	Section	2	if	they	
 can	be	useful	for	the	development	team}
@@ -58,7 +89,9 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsubsection{Any	other	constraint} 
 \subsection{Software	System	Attributes} 
 \subsubsection{Reliability}
+The system must always be online and ready to process requests and load them into the data warehouse.
 \subsubsection{Availability}
+As many requests as possible should be processed, but it is not vital that everyone of them is.
 \subsubsection{Security}
 \subsubsection{Maintainability}
 \subsubsection{Portability}
@@ -68,8 +101,31 @@ itself,	what	can	be	proved with	it, and	why	what	is	proved is	important	given	th
 hand. To	show	 the	soundness	and	correctness	of	the model,	 this	section	can	show	some
 worlds	obtained	by	running	it,	and/or	the	results	of	the	checks	performed	on	meaningful	
 assertions}
-\section{EFFORT	SPENT: In	this	section	you	will	include	information	about	the	number	of	hours	each	
-group	member	has	worked	for	this	document.}
+\section{EFFORT	SPENT}
+\begin{itemize}
+\item {Davide Cocco}
+ \begin{center}
+			\begin{tabular}{| c | c | c |}
+				\hline
+				Day & Subject & Hours \\ \hline
+				15/10/2019 & Purpose, Scope, Goals, Product functions, User charateristics & 2.5 \\
+				\hline
+				Total & & ** \\
+				\hline
+			\end{tabular}
+		\end{center}
+\item {Marco Gasperini}
+\begin{center}
+			\begin{tabular}{| c | c | c |}
+				\hline
+				Day & Subject & Hours \\ \hline
+				15/10/2019 & Purpose, Scope, Goals, Product functions, User charateristics & 2.5 \\
+				\hline
+				Total & & ** \\
+				\hline
+			\end{tabular}
+\end{center}
+\end{itemize}
 \section{REFERENCES}
 
 
