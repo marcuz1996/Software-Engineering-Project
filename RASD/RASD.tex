@@ -30,49 +30,89 @@
 
 \section{INTRODUCTION}
 \subsection{Purpose} 
-This document will contain the \texttt{Requirements Analysis and Specification Document} for SafeStreets, a crowd-sourced application that will allow users to notify traffic violations to authorities, and authorities themselves to simplify the process of enforcing laws for these offences through a data mining system.
+This document will contain the \texttt{Requirements Analysis and Specification Document} for SafeStreets, a crowd-sourced application that will allow users to notify traffic violations to authorities, and authorities themselves to assist them in enforcing laws for these offences through a data mining system. The software will not be designed to substitute the existing system, but rather to improve its efficiency.
  
 \subsection{Scope}
-The software will be dedicated to civilians and authorities: through a mobile application, civilians will have the possibility to report a violation by submitting pictures, position, date and the license plate of the offender to the authorities in an effort to improve their communities, while officers can use the data mining system to facilitate the process of law enforcement. Authorities will be supplied with a web application with the ability to confirm the officers' accounts or add new officers, and will be supported with a data mining system to highlight areas with high violation frequency, repeated offenders, and signal to the officers an offence to direct them.
+The software will be dedicated to civilians and authorities: through a mobile application, civilians will have the possibility to report a violation by submitting pictures, position, date and the license plate of the offender to the authorities in an effort to improve their communities, while officers can use the data mining system, which updates a map periodically with new reports  highlights areas with high violation frequency, to facilitate the process of law enforcement by locating offences and releasing tickets. Authorities will be supplied with a web application with the ability to add new officers, and will also have access to the aforementioned system.
 A data warehouse will be thus implemented, and repeated reports of violations could also lead to automated traffic tickets being released at the discretion of the authorities.
-A two agent authentication will be used to verify the officers' identity: either the officer subscribes and is verified by his authority, or the authority adds the officer, who is sent a verification code through e-mail.
+A two factor authentication will be used to verify the officers' identity, and a unique code will be required for the releasing of tickets.
 \subsubsection{Goals}
 \begin{itemize}
 \item Allow future users to easily register and login. 
 \item Allow users to notify authorities of traffic violations through the use of the camera.
 \item Store relevant info about the violation in the data warehouse.
 \item Allow only authorities to visualize relevant data for law enforcement purposes.
-\item Implement optionally usable functionality for automated traffic ticket compilation and sending.
-\item Guarantee privacy to both civilians and authorities.
+\item Assist authorities in the process of law enforcement:
+\begin{itemize}
+	\item implement togglable functionality for automated traffic ticket compilation and sending;
+	\item the officer's client GUI must show reports in real time and high violation frequency areas;
+\end{itemize}
 \item Guarantee security: 
 \begin{itemize}
-	\item discard and discourage false reports;
-	\item block unauthentic officer registrations;
-    \item only allow authorities to visualize processed data helpful for law enforcement.
+	\item allow discarding of invalid reports;
+	\item avoid unauthentic officer registrations by design;
+	\item block people who came in possession of an officer's device to cause any damage;
+    \item only allow authorities to visualize processed data helpful for law enforcement;
+	\item ban users who abuse of the violation reporting system.
 \end{itemize}
+\item Guarantee privacy to both civilians and authorities.
 \end{itemize}
 \subsection{Definitions,	Acronyms,	Abbreviations} 
+\subsubsection{Definitions}
+ \begin{itemize}
+\item \texttt{Violation | Offence:} we will strictly refer to any kind of static traffic violation, especially parking violations. 
+\end{itemize}
+\subsubsection{Acronyms}
+\begin{itemize}
+\item \texttt{HFVZ:} high violation frequency zone.
+\item \texttt{GPS:} global positioning system.
+\end{itemize}
 \subsection{Revision history} 
 \subsection{Reference	Documents} 
 \subsection{Document	Structure} 
+\begin{enumerate}
+			\item \texttt{Introduction}: the first section is a general description of the system's scope and its goals. It also includes the revision history of the document and its references. Definitions and abbreviations used along the paper will be provided.
+			\item \texttt{Overall Description}: this section includes shared phenomena, requirements and domain assumptions. It also clarifies users' needs.
+			\item \texttt{Specific Requirements}: this section includes all the requirements, both functional and non functional.
+			\item \texttt{Formal Analysis Using Alloy}: it includes the Alloy model of the described system.
+			\item \texttt{Effort Spent}: this section includes information about the hours spent to compile this document.
+			\item \texttt{References}: this section includes references about papers/documents used to support this document.
+		\end{enumerate}
 \section{OVERALL	DESCRIPTION}
 \subsection{Product	perspective:	here	we	include	 further	details	on	 the	 shared	phenomena	and	a	
 domain	model	(class	diagrams	and	statecharts)} 
 \subsection{Product	functions}
 The goals to be accomplished require the following functions:
  \begin{itemize}
-\item \texttt{Registration and login management:} while civilians will be able to register and login in standard fashion, officers will be confirmed by their corresponding authorities after sending their identification, or authorities will add them prompting an automatic message containing a confirmation number which will be used by the officers. 
-\item \texttt{Violation reporting:} allow users to send various pictures representing the offence with the corresponding date and location (both manually and via GPS) to the authority which will process them.
-\item  \texttt{Data storage, mining and visualization:} store all the relevent data from the reporting procedure to process it through ETL and present it to the authority to assist them in law enforcement. 
-\item  \texttt{Automated ticket emission:} at the discretion of authorities and in the presence of multiple reports of the same violation, a traffic ticket can be automatically compiled by this function and sent to the offender.
+\item \texttt{Registration and login management:} while civilians will be able to register and login in standard fashion through email and password, officers will be added by authorities through their client: an automatically generated password will be sent to their email, and they will be able to access through their badge ID and such password. This way it is impossible for civilians to log in as an officer, as they would have to know both the badge number and the password contained in the officer's personal email.
+\item \texttt{Violation reporting:} allow users (both civilians and officers) to choose between a set of offences and send various pictures representing it, with the corresponding date and location (via GPS and system timestamping) to the authority which will process them and discard incoherent or wrong ones. Photos can only be taken in real time and not uploaded to avoid manipulations.
+\item \texttt{Ban requesting and issuing:} if authorities receive undescriptive photos or in any shape or form useless reports, they can send a request from the authorities' GUI to the SafeStreets HQ's server to ban the abusing user.
+\item  \texttt{Data storage, mining and visualization:} store all the relevent data from the reporting procedure to process it through ETL and present it to the authority to assist them in law enforcement. The most important functionality will be periodically updating the map in the officers' and authorities' GUIs with new violations and hightlightings of HVFZs, and also listing repetead offenders. 
+\item  \texttt{Automated ticket emission:} officers can locate violations through the map, and through a unique code sent to the authority, sign an automatically compilated ticket which will be emitted and sent via email to the Vehicle Licensing Agency. The code is to make sure that even if the officer's mobile is stolen while he's logged in, the thief cannot emit tickets.
 \end{itemize}
-\subsection{User	characteristics}
+\subsection{User characteristics}
  \begin{itemize}
-\item \texttt{Civilians:} users unaffiliated to law enforcement authorities who are interested in improving their community, they are only able to report violations but don't have access to mined data. They're required to login so they can eventually be excluded in case of security violations (like sending false reports).
-\item \texttt{Officers:} they're registered through their authority listing them through the web application and receiving a confirmation number, or by themselves and later being confirmed by the authority. They're both able to see the mined data and to report violations.
-\item  \texttt{Authority:} they're manually registered through SafeStreets employees and their work is managed in office through a web application. They can add new officers or confirm self-registered ones, and they're able to see the processed data and enable automatic ticket emission.
+\item \texttt{Visitors:} users who haven't yet registered or logged in, they are only able to register as a civilian or log as a civilian (through email and password) or as an officer (through Badge ID and password issued by the authority).
+\item \texttt{Civilians:} users unaffiliated to law enforcement authorities who are interested in improving their community, they are only able to report violations but don't have access to mined data (except the updated map with HVFZs). They're required to login so they can eventually be excluded in case of security violations.
+\item \texttt{Officers:} they're registered through their authority listing by their badge ID them through the web application and receiving a password. They're able to see the mined data, report violations, and sign the automated tickets.
+\item  \texttt{Authority:} they're manually registered by SafeStreets personnel, and their work is managed in office through an officer using a web application. They can add new officers or confirm self-registered ones, and they're able to see the processed data, enable automatic ticket emissions, receive violation reports and thus discriminate between valid and invalid ones. They can request bans which the SafeStreets server will take care of issuing and can see every officer connected to the application.
 \end{itemize}
-\subsection{Assumptions, dependencies and	constraints:	here	we	include domain	assumptions	} 
+\subsection{Domain assumptions} 
+\begin{itemize}
+\item {\textbf[}\textbf{D1}{\textbf]}: The officer's Badge ID is assumed to be unique.
+\item {\textbf[}\textbf{D2}{\textbf]}: Users are assumed to provide a valid email.
+\item {\textbf[}\textbf{D3}{\textbf]}: At least one of the city's authorities' server is always online to process reports.
+\item {\textbf[}\textbf{D4}{\textbf]}: Users' devices support the Mobile Application.
+\item {\textbf[}\textbf{D5}{\textbf]}: Users' devices are connected to the Internet, their camera and GPS work correctly.
+\item {\textbf[}\textbf{D6}{\textbf]}: Email from the authority containing the officer's password is always received correctly.
+\item {\textbf[}\textbf{D7}{\textbf]}: Authorities' devices support the web application.
+\item {\textbf[}\textbf{D8}{\textbf]}: Authorities correctly receive the great majority of reports.
+\item {\textbf[}\textbf{D9}{\textbf]}: Officers not on another duty tend to verify the validity of reports and sign tickets.
+\item {\textbf[}\textbf{D10}{\textbf]}: Officers only sign correct tickets.
+\item {\textbf[}\textbf{D11}{\textbf]}: The users compile reports correctly most of the times (photo and type of offense).
+\item {\textbf[}\textbf{D12}{\textbf]}: Timestamps and location are compiled correctly by the device with very good accuracy.
+\item {\textbf[}\textbf{D13}{\textbf]}: Only the officer knows his personal pin that allows him to proceed in ticket compilation.
+\end{itemize}
 \section{SPECIFIC	REQUIREMENTS: Here	we	include	more	details	on	all	aspects	in	Section	2	if	they	
 can	be	useful	for	the	development	team}
 \subsection{External	Interface	Requirements} 
@@ -80,6 +120,28 @@ can	be	useful	for	the	development	team}
 \subsubsection{Hardware	Interfaces}
 \subsubsection{Software	Interfaces}
 \subsubsection{Communication	Interfaces}
+\subsection{Scenarios}
+This section describes some of the scenarios in which SafeStreets may be used. Scenarios omit steps already described in previous ones: 
+
+\subsubsection{User registration}
+Giancarlo saw the advertisement of SafeStreets and decided to download the mobile application to report a car that always parks on the sidewalk outside his house and blocks the passage of pedestrians. After downloading and launching the new app, he is asked to fill a registration form in which he must insert his email address and a password. After clicking the "Sign In" button he receives an email with a link to confirm his registration, which he clicks to finalize his registration. From now on he can login and report offences with the "Report" button in the main screen.
+
+\subsubsection{Correct violation reporting}
+Mary just logged in as a civilian to report a double-parked car. Since it's her first use of the application, she's asked to allow SafeStreets to access her GPS and camera, to which she complies. She clicks "Report" on his main screen and chooses a violation from the modal which pops up. The app then opens her camera asking to take a photo of the vehicle showing the offence being committed. Then she's asked to frame the license plate with her camera, and the supervised learning algorithm scans the various frames looking for an interpretation for the image. The app then associates the report with a timestamp and a GPS position, and sends it to one of the authorities' servers. After a couple of minutes, Mary receives a notification in the app's notification section informing her her report was correctly accepted and processed.
+
+\subsubsection{Wrong violation reporting}
+Simon decides to use the app to report his neighbour's vehicle because he doesn't like him. He sends a photo which in fact doesn't show any violation being committed. Arthur, a policeman who's working with the SafeStreets web application at his barracks, receives the report and notices there's clearly no violation being committed in the photo, and clicks on the "Warn" button which alerts the SafeStreets server of an invalid report, and discards the report immediately after. After a couple of minutes, Simon receives a notification telling him he's been forbidden from using the reporting function for a month.
+
+\subsubsection{Officer registration}
+Billy is a policeman whose barrack has just installed the SafeStreets application and data server. He received an email notifying him that he may be enabled to utilize the service. After a while, he receives an email from his barrack's SafeStreet client containing an automatically generated code. By entering his badge ID and this code in the officer login section of the mobile application, Billy is now able to login when he desires by using the code as password. Once logged in, Billy will have to enter a 5-digit pin that will allow him to make a traffic ticket signed by him when he receives a report.
+Bill now sees the map of his surroundings, periodically updated with new traffic offence reports and with HFVZ highlighted. 
+
+\subsubsection{Correct Ticket Emission}
+John was on patrol this morning and checked on the SafeStreets App if there was any report in his vicinity. As soon as he logged in he noticed a reported violation in the map, about 250 meters from his position. John clicks the "Accept" button on the tooltip to confirm to other active officers he's checking the authenticity of the violation, and avoiding any other one of replicating this task. He now sees the photos of the reporting and the type of offence. Once he's near the vehicle, a "Confirm" button pops up. John checks that the vehicle is effectively committing a violation and the license plate matches the one in his screen. Once John clicks it and enters his secret 5 digit pin his authority's server will be able to place his signature into an automatically generated ticket that will be sent to the Vehicle Licensing Authority. Now the violation tooltip can disappear and John goes on with his duties.
+
+\subsubsection{Wrong report discarded by an officer}
+Gabriele, who is an officer, is walking towards an offence reported from SafeStreets. As soon as he arrives there, he realizes that the report sent involved a car parked on the pedestrian crossing which is no longer there. So he decides click on the "Delete" button which subsequently communicates to the authorities' server to remove it from the map.
+
 \subsection{Functional	 Requirements:	 Definition	 of	 use	 case	 diagrams,	 use	 cases	 and	 associated	
 sequence/activity	diagrams,	and	mapping	on	requirements} 
 \subsection{Performance	Requirements} 
@@ -89,12 +151,16 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsubsection{Any	other	constraint} 
 \subsection{Software	System	Attributes} 
 \subsubsection{Reliability}
-The system must always be online and ready to process requests and load them into the data warehouse.
+The system should always be able to process reports and store them in the data warehouse, but according to *G1* the priority is assisting law enforcers and not substituting the existing procedures, thus transient and occasional deviations can be accepted.  Reports can be processed by multiple authorities' servers if the previous one fail (e.g. every police barrack has a server), so replication will be used to guarantee both availability and reliability.
 \subsubsection{Availability}
-As many requests as possible should be processed, but it is not vital that everyone of them is.
+The system must fullfil all the registration, login requests and reports whenever needed, only a small percentage of requests missed (around 0.1\%) can be tolerated. 
 \subsubsection{Security}
+Officers information is stored in the authorities' data server and not in SafeStreets', which only hosts civilian accounts. Through the badge-password authentication and the fact that only authorities can add officers, it will be impossible for civilians to log in as officers, and even if in some way someone who is not an officer is able to access to an officer account, he will not be able to do any substantial harm because of the pin required to sign tickets. A timeout will also automatically log the officer out. Authorities can see in real time every active officer through their client, so they also may be able to notice inconsistencies. Invalid reports will be discarded at the authority's client, and users will not be allowed to upload images to make sure every report photo is taken in real time and not manipulated. Similarly, the license plate will be scanned through an accurate supervised learning algorith run on the client so that it can not be input by a fraudolent user: officers will have the duty to later check the correctness of the plate number when signing the ticket.
+The system will also guarantee to not spread any kind of data to third parties to accomplish goal *G7*.
 \subsubsection{Maintainability}
-\subsubsection{Portability}
+Best practices and design patterns of Object Oriented Programming along with documentation upkeep will be thoroughly followed to make sure the application is easily customizable and modifiable by SafeStreets' developers.
+\subsubsection{Scalability}
+The architecture must be simply scalable as the number of users grows over time. Except civilian account management, which is handled by SafeStreets' server and should not require too much complexity, functions are mostly provided by the authorities' servers which grow in number with the population of the considered city (e.g. the bigger the city the more numerous the barracks, and therefore the number of servers), thus the architecture will be scalable by design. In any case, the number of reports per day should never exceed a few thousands even in heavily populated cities.
 \section{FORMAL	ANALYSIS	USING	ALLOY: This	section	should include	a	brief	presentation	of the	
 main	objectives	driving	the	formal	modeling	activity, as	well	as	a	description	of the	model	
 itself,	what	can	be	proved with	it, and	why	what	is	proved is	important	given	the	problem	at	
@@ -109,6 +175,7 @@ assertions}
 				\hline
 				Day & Subject & Hours \\ \hline
 				15/10/2019 & Purpose, Scope, Goals, Product functions, User charateristics & 2.5 \\
+				18/10/2019 & Domain assumpions, Scenarios, Software attributes, Functional requirements and updates  & 4\\
 				\hline
 				Total & & ** \\
 				\hline
@@ -120,6 +187,7 @@ assertions}
 				\hline
 				Day & Subject & Hours \\ \hline
 				15/10/2019 & Purpose, Scope, Goals, Product functions, User charateristics & 2.5 \\
+				18/10/2019 & Domain assumpions, Scenarios, Software attributes, Functional requirements and updates  & 4\\
 				\hline
 				Total & & ** \\
 				\hline
