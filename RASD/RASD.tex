@@ -61,14 +61,29 @@ A two factor authentication will be used to verify the officers' identity, and a
 \subsubsection{Definitions}
  \begin{itemize}
 \item \texttt{Violation | Offence:} we will strictly refer to any kind of static traffic violation, especially parking violations. 
+\item \texttt{Authority:} a law enforcement authority which is manages traffic violations, it could be the local police, the traffic wardens etc. We will refer with this term also to the personnel which operates the web application in the authorities' headquarters.
 \end{itemize}
 \subsubsection{Acronyms}
 \begin{itemize}
 \item \texttt{HFVZ:} high violation frequency zone.
 \item \texttt{GPS:} global positioning system.
 \end{itemize}
+\subsubsection{Abbreviations}
+\begin{itemize}
+				\item {[Gn]}: n-goal.
+				\item {[Rn]}: n-requirment.
+				\item {[Dn]}: n-domain assumption
+				\item {App}: application.
+			\end{itemize}
 \subsection{Revision history} 
 \subsection{Reference	Documents} 
+\begin{itemize}
+				\item Specification Document "Mandatory Project Assignment A.Y. 2019/2020"
+				\item 830-1993 - IEEE Recommended Practice for Software Requirements
+				\item "Appunti di Sistemi Informativi per il Settore dell'Informazione" A.Y. 2018/2019
+				\item Alloy Language Reference "http://alloytools.org/download/alloy-language-reference.pdf"
+				\item UML diagrams: https://www.uml-­diagrams.org/
+			\end{itemize}
 \subsection{Document	Structure} 
 \begin{enumerate}
 			\item \texttt{Introduction}: the first section is a general description of the system's scope and its goals. It also includes the revision history of the document and its references. Definitions and abbreviations used along the paper will be provided.
@@ -95,6 +110,7 @@ The goals to be accomplished require the following functions:
 \item \texttt{Visitors:} users who haven't yet registered or logged in, they are only able to register as a civilian or log as a civilian (through email and password) or as an officer (through Badge ID and password issued by the authority).
 \item \texttt{Civilians:} users unaffiliated to law enforcement authorities who are interested in improving their community, they are only able to report violations but don't have access to mined data (except the updated map with HVFZs). They're required to login so they can eventually be excluded in case of security violations.
 \item \texttt{Officers:} they're registered through their authority listing by their badge ID them through the web application and receiving a password. They're able to see the mined data, report violations, and sign the automated tickets.
+\item \texttt{Users:} we will use this name only as a general way to refer to both registered officers and civilians when we're describing actions they are both able to perform in the same way (like compiling violation reports).
 \item  \texttt{Authority:} they're manually registered by SafeStreets personnel, and their work is managed in office through an officer using a web application. They can add new officers or confirm self-registered ones, and they're able to see the processed data, enable automatic ticket emissions, receive violation reports and thus discriminate between valid and invalid ones. They can request bans which the SafeStreets server will take care of issuing and can see every officer connected to the application.
 \end{itemize}
 \subsection{Domain assumptions} 
@@ -107,11 +123,12 @@ The goals to be accomplished require the following functions:
 \item {\textbf[}\textbf{D6}{\textbf]}: Email from the authority containing the officer's password is always received correctly.
 \item {\textbf[}\textbf{D7}{\textbf]}: Authorities' devices support the web application.
 \item {\textbf[}\textbf{D8}{\textbf]}: Authorities correctly receive the great majority of reports.
-\item {\textbf[}\textbf{D9}{\textbf]}: Officers not on another duty tend to verify the validity of reports and sign tickets.
-\item {\textbf[}\textbf{D10}{\textbf]}: Officers only sign correct tickets.
-\item {\textbf[}\textbf{D11}{\textbf]}: The users compile reports correctly most of the times (photo and type of offense).
-\item {\textbf[}\textbf{D12}{\textbf]}: Timestamps and location are compiled correctly by the device with very good accuracy.
-\item {\textbf[}\textbf{D13}{\textbf]}: Only the officer knows his personal pin that allows him to proceed in ticket compilation.
+\item {\textbf[}\textbf{D9}{\textbf]}: The web application at the authorities' location is operated by an assigned officer most of the time.
+\item {\textbf[}\textbf{D10}{\textbf]}: Officers not on another duty tend to verify the validity of reports and sign tickets.
+\item {\textbf[}\textbf{D11}{\textbf]}: Officers only sign correct tickets.
+\item {\textbf[}\textbf{D12}{\textbf]}: The users compile reports correctly most of the times (photo and type of offense).
+\item {\textbf[}\textbf{D13}{\textbf]}: Timestamps and location are compiled correctly by the device with very good accuracy.
+\item {\textbf[}\textbf{D14}{\textbf]}: Only the officer knows his personal pin that allows him to proceed in ticket compilation.
 \end{itemize}
 \section{SPECIFIC	REQUIREMENTS: Here	we	include	more	details	on	all	aspects	in	Section	2	if	they	
 can	be	useful	for	the	development	team}
@@ -144,6 +161,236 @@ Gabriele, who is an officer, is walking towards an offence reported from SafeStr
 
 \subsection{Functional	 Requirements:	 Definition	 of	 use	 case	 diagrams,	 use	 cases	 and	 associated	
 sequence/activity	diagrams,	and	mapping	on	requirements} 
+\subsection{Use cases}
+\subsubsection{Civilian Visitor Registration}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Civilian registration \\
+				\hline
+				\textbf{ACTOR} & Visitor \\
+				\hline
+				\textbf{GOALS} & [G1] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The Visitor has installed \\
+				&	the Application on his/her Mobile device \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. Fill all mandatory fields in the Civilian Registration Form\\
+				&2. The visitor clicks on "Register" button\\
+				&3. The system checks data has not been used already\\
+				&4. The system sends an email as confirmation\\
+				&5. The system saves Users' data\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The Visitor has clicked in the email's link\\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The email is already registered\\
+				&2.  Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+\newpage
+\subsubsection{Civilian Login}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Civilian Login \\
+				\hline
+				\textbf{ACTOR} & Civilian \\
+				\hline
+				\textbf{GOALS} & [G1] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The civilian is in the Civilian Login page \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The civilian enters his email\\
+				&2. The civilian enters the password\\
+				&3. The civilian clicks on "Login" button\\
+				&4. The system checks the correctness of the credentials\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The civilian has successfully logged in \\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The civilian is not registered\\
+				&2. The email is wrong\\
+				&3. The password is wrong\\
+				&4. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+
+\subsubsection{Officer Registration}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Register to SafeStreets \\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{GOALS} & [G1] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} &1.The authority has installed \\
+				&	the web application \\
+				&2. The authority has a correctly configured server \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. Launch the web application\\
+				&2. The authority personnel clicks on the \\
+				& "Register new officer" button \\
+				&3. The authority adds the officer's badge ID and email\\
+				&4. The server checks the data has not been used already \\
+				&5. The server sends an email with an \\
+				& automatically generated password to the officer\\
+				&6. The system saves the officer's data\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The email has successfully been sent to the officer\\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The badge is already registered\\
+				&2. The email is already registered\\
+				&3. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+\newpage
+\subsubsection{Officer Login}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Officer Login \\
+				\hline
+				\textbf{ACTOR} & Officer \\
+				\hline
+				\textbf{GOALS} & [G1] , [G.6.2] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} &1. The officer has downloaded the mobile application \\
+				&2.The officer has seen the password in his email\\
+				&3.The officer is in the Officer Login page \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The officer enters his badge ID\\
+				&2. The officer enters his password\\
+				&3. The officer clicks on "Login" button\\
+				&4. The system checks the correctness of the credentials\\
+				&5. The officer chooses a 5 digit pin to emit tickets \\ \hline
+				\textbf{EXIT CONDITIONS}  & The officer has successfully logged in \\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The officer is not registered\\
+				&2. The badge ID is wrong\\
+				&3. The password is wrong\\
+				&4. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+
+\subsubsection{Violation reporting}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Violation reporting \\
+				\hline
+				\textbf{ACTOR} & User \\
+				\hline
+				\textbf{GOALS} & [G2] ,[G5], [G.6.1] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} &1.The user is logged in \\
+				&2. The user has allowed the app \\
+				&to use the camera and GPS \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The user clicks on "Report"\\
+				&2. The user chooses a violation from the \\
+				& dropdown menu \\
+				&3. The user takes a pic of the vehicle and \\
+				& the violation being committed \\ \hline
+				&4. The user frames the license plate\\
+				&5. The system computes the plate number \\
+				&6. The system adds date and timestamp \\
+				& and sends the report to the authority \\ 
+				\hline
+				\textbf{EXIT CONDITIONS}  & The report has successfully been sent \\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The plate can't be recognised \\
+				&2. GPS is turned off\\
+				&3. Camera can't be used for any reason\\
+				\hline
+			\end{tabular}
+		\end{center}
+
+\subsubsection{Ticket confirmation}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Ticket confirmation \\
+				\hline
+				\textbf{ACTOR} & Officer \\
+				\hline
+				\textbf{GOALS} & [G2] ,[G5], [G.6.3] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} &1. The Officer is logged in \\
+				&2. The officer is near a reported violation \\
+				&3. The plate number matches the one \\
+				& contained in the report\\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The officer clicks on the "Confirm" button\\
+				&2. The officer inputs his pin \\
+				&3. The system checks the pin's correctness \\
+				&4. The system sends a notice to the authority \\
+				&5. The system deletes the report from the map \\ 
+				\hline
+				\textbf{EXIT CONDITIONS}  & The confirmation has successfully been sent \\ \hline
+				\textbf{EXCEPTIONS} &
+			 The pin is wrong \\
+				\hline
+			\end{tabular}
+		\end{center}
+
+\subsubsection{Report validation}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Report invalidation \\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{GOALS} & [G2] ,[G3], [G.6.1] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} &1. The Authority is in the main menu \\
+				&2. The authority received a violation report \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority checks the photo correctness\\
+				&2. The authority clicks "Validate" \\
+				&3. The system adds the report to  \\
+				& the data warehouse \\
+				&4. The system adds the report to the map \\ 
+				&5. The server sends notifications to \\
+				& active officers. \\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The report has been validated \\ \hline
+				\textbf{EXCEPTIONS} & None \\
+				\hline
+			\end{tabular}
+		\end{center}
+
+\newpage
+\subsubsection{Report invalidation with warning}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Report invalidation \\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{GOALS} & [G2] ,[G3], [G.6.1] \\
+				\hline
+				\textbf{ENTRY CONDITIONS} &1. The Authority is in the main menu \\
+				&2. The authority received a violation report \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority checks the photo correctness\\
+				&2. The authority clicks "Validate " \\
+				&3. The authority clicks on "Warn"  \\
+				&4. The server sends a ban request to \\
+				& the SafeStreets server \\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The report has been invalidated \\ \hline
+				\textbf{EXCEPTIONS} & None \\
+				\hline
+			\end{tabular}
+		\end{center}
+
 \subsection{Performance	Requirements} 
 \subsection{Design	Constraints}
 \subsubsection{Standards	compliance}
@@ -151,12 +398,12 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsubsection{Any	other	constraint} 
 \subsection{Software	System	Attributes} 
 \subsubsection{Reliability}
-The system should always be able to process reports and store them in the data warehouse, but according to *G1* the priority is assisting law enforcers and not substituting the existing procedures, thus transient and occasional deviations can be accepted.  Reports can be processed by multiple authorities' servers if the previous one fail (e.g. every police barrack has a server), so replication will be used to guarantee both availability and reliability.
+The system should always be able to process reports and store them in the data warehouse, but according to G1 the priority is assisting law enforcers and not substituting the existing procedures, thus transient and occasional deviations can be accepted.  Reports can be processed by multiple authorities' servers if the previous one fail (e.g. every police barrack has a server), so replication will be used to guarantee both availability and reliability.
 \subsubsection{Availability}
 The system must fullfil all the registration, login requests and reports whenever needed, only a small percentage of requests missed (around 0.1\%) can be tolerated. 
 \subsubsection{Security}
 Officers information is stored in the authorities' data server and not in SafeStreets', which only hosts civilian accounts. Through the badge-password authentication and the fact that only authorities can add officers, it will be impossible for civilians to log in as officers, and even if in some way someone who is not an officer is able to access to an officer account, he will not be able to do any substantial harm because of the pin required to sign tickets. A timeout will also automatically log the officer out. Authorities can see in real time every active officer through their client, so they also may be able to notice inconsistencies. Invalid reports will be discarded at the authority's client, and users will not be allowed to upload images to make sure every report photo is taken in real time and not manipulated. Similarly, the license plate will be scanned through an accurate supervised learning algorith run on the client so that it can not be input by a fraudolent user: officers will have the duty to later check the correctness of the plate number when signing the ticket.
-The system will also guarantee to not spread any kind of data to third parties to accomplish goal *G7*.
+The system will also guarantee to not spread any kind of data to third parties to accomplish goal G7.
 \subsubsection{Maintainability}
 Best practices and design patterns of Object Oriented Programming along with documentation upkeep will be thoroughly followed to make sure the application is easily customizable and modifiable by SafeStreets' developers.
 \subsubsection{Scalability}
