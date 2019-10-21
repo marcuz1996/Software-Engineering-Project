@@ -552,6 +552,45 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 		\end{center}
 
 \subsection{Sequence diagrams}
+\subsubsection{Visitor to Civilian Registration}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{Images/registration_sequence}
+				\label{fig:registration_sequence}
+			\end{figure}
+		\subsubsection{Officer Registration}
+Also includes the first login in which the 5 digit pin is compiled, to complete the registration sequence.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{Images/Off_registration}
+				\label{fig:login_sequence}
+			\end{figure}
+		\subsubsection{Correct violation report}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1.2\textwidth,height=.9\textheight]{Images/Civilian_report}
+				\label{fig:request_subscription_sequence}
+			\end{figure}
+		\subsubsection{Invalid violation with subsequent banning}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{Images/invalidation_banning}
+				\label{fig:ass_request_sequence}
+			\end{figure}
+		\subsubsection{Automated Ticket}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{Images/automated_ticket}
+				\label{fig:automated_request_sequence}
+			\end{figure}
+\newpage
+		\subsubsection{Update sending}
+Not included in the use cases because it actually involves no actors, as it is a fully automated process.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{Images/update_sending}
+				\label{fig:sampling_request_sequence}
+			\end{figure}
 
 \subsection{Performance	Requirements} 
 \subsection{Design	Constraints}
@@ -559,7 +598,7 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 		\begin{itemize}
 			\item \texttt{Mobile App}: 
 				\begin{itemize}
-					\item Smartphones: Android | iOS, Internet Connection, GPS.
+					\item Smartphones: Android or iOS, Internet Connection, GPS.
 				\end{itemize}
 			\item \texttt{Web App}: modern web browser (e.g. Google Chrome / Safari) able to support a Rich Internet Application, Internet connection.
 		\end{itemize}
