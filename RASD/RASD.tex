@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
+\usepackage{changepage}
 \author{Davide Cocco - 944122\\
 	Marco Gasperini - 944922}
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
@@ -101,6 +102,29 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 		\end{enumerate}
 \section{OVERALL	DESCRIPTION}
 \subsection{Product	perspective : UML + STATECHARTS} 
+This state diagrams describe the possibilities of each actor and how their bevahiour will be influenced by the system and externl factors.
+	\subsection{Civilian}
+			\begin{figure}[H]
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=.9\paperwidth,keepaspectratio]{Images/civilian_states}
+					\end{adjustwidth}
+				\label{fig:automated_request_sequence}
+			\end{figure}
+	\subsection{Officer}
+			\begin{figure}[H]
+				\centering
+				\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=.9\paperwidth,keepaspectratio]{Images/officer_states}
+					\end{adjustwidth}
+				\label{fig:automated_request_sequence}
+			\end{figure}
+	\subsection{Authority}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.9\textwidth,keepaspectratio]{Images/authority_states}
+				\label{fig:automated_request_sequence}
+			\end{figure}
 \subsection{Product	functions}
 The goals to be accomplished require the following functions:
  \begin{itemize}
@@ -486,8 +510,8 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 				&3. The plate number matches the one \\
 				& contained in the report\\ \hline
 				\textbf{EVENTS FLOW}  &
-				1. The officer clicks on the "Confirm" button\\
-				&2. The officer inputs his pin \\
+				1. The officer inserts his pin \\
+				&2. The officer clicks on the "Send" button\\	
 				&3. The system checks the pin's correctness \\
 				&4. The system sends a notice to the authority \\
 				&5. The system deletes the report from the map \\ 
@@ -635,6 +659,8 @@ assertions}
 				18/10/2019 & Domain assumpions, Scenarios, Software attributes, \\
 				& Use cases, Functional requirements and updates  & 6\\
 				20/10/2019 & Requirements  & 2\\	
+				21/10/2019 & Sequence Diagrams  & 2\\
+				20/10/2019 & State Diagrams  & 2\\	
 				\hline
 				Total & & ** \\
 				\hline
@@ -649,6 +675,8 @@ assertions}
 				&User charateristics & 2.5 \\
 				18/10/2019 & Domain assumpions, Scenarios, Software attributes, \\
 				& Use cases, Functional requirements and updates  & 6\\
+				20/10/2019 & Use case diagrams & 2\\	
+				22/10/2019 & Mockups & 4\\	
 				\hline
 				Total & & ** \\
 				\hline
