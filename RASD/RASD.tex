@@ -102,7 +102,16 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 		\end{enumerate}
 \section{OVERALL	DESCRIPTION}
 \subsection{Product	perspective : UML + STATECHARTS} 
-This state diagrams describe the possibilities of each actor and how their bevahiour will be influenced by the system and externl factors.
+This class diagram shows a bird's eye view of the system:
+\begin{figure}[H]
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=.9\paperwidth,keepaspectratio]{Images/class_diagram}
+					\end{adjustwidth}
+				\label{fig:automated_request_sequence}
+			\end{figure}
+\newpage
+These state diagrams describe the possibilities of each actor and how their bevahiour will be influenced by the system and externl factors.
 	\subsection{Civilian}
 			\begin{figure}[H]
 				\centering
@@ -187,6 +196,7 @@ The goals to be accomplished require the following functions:
 \item {\textbf[}\textbf{D12}{\textbf]}: Location is calculated correctly by the device with at most 5 meters range from the user's position.
 \item {\textbf[}\textbf{D13}{\textbf]}: Only the officer knows his personal pin that allows him to proceed in ticket compilation.
 \item {\textbf[}\textbf{D14}{\textbf]}: The personnel operating the Authority's client discards most of the invalid reports.
+\item {\textbf[}\textbf{D15}{\textbf]}: Every registered officer's signature is stored at the authority in an image file.
 \end{itemize}
 \section{SPECIFIC	REQUIREMENTS: Here	we	include	more	details	on	all	aspects	in	Section	2	if	they	
 can	be	useful	for	the	development	team}
@@ -298,6 +308,7 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 			\item \texttt{D11}: Officers only sign correct tickets and always check the license plate matches with the reported one.
 			\item \texttt{D12}: Location is calculated correctly by the device with at most 5 meters range from the user's position.
 			\item \texttt{D14}: The personnel operating the Authority's client discards most of the invalid reports.
+			\item \texttt{D15}: Every registered officer's signature is stored at the authority in an image file.
 	\end{itemize}
 
 \subsubsection{G5: Guarantee security.}
@@ -333,6 +344,7 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 			\item \texttt{D8}: Authorities' devices support the web application.
 			\item \texttt{D13}: Only the officer knows his personal pin that allows him to proceed in ticket compilation.
 			\item \texttt{D14}: The personnel operating the Authority's client discards most of the invalid reports.
+			\item \texttt{D15}: Every registered officer's signature is stored at the authority in an image file.
 	\end{itemize}
 
 \subsubsection{G6: Guarantee privacy to users.}
@@ -661,6 +673,7 @@ assertions}
 				20/10/2019 & Requirements  & 2\\	
 				21/10/2019 & Sequence Diagrams  & 2\\
 				20/10/2019 & State Diagrams  & 2\\	
+				24/10/2019 & Class Diagram  & 2\\	
 				\hline
 				Total & & ** \\
 				\hline
