@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{changepage}
+\usepackage{subfig}
 \author{Davide Cocco - 944122\\
 	Marco Gasperini - 944922}
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
@@ -202,6 +203,96 @@ The goals to be accomplished require the following functions:
 can	be	useful	for	the	development	team}
 \subsection{External	Interface	Requirements} 
 \subsubsection{User	Interfaces}
+The following mockups represent a basic idea of how the Mobile Application and the Web Interface are supposed to look like.
+\begin {itemize}
+	\item \textbf{Users}: they can access to complete SafeStreets functionalities through the smartphone application.					
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Main Page}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/SchermataIniziale.png}}\quad
+			\subfloat [][\emph {Login}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Login.png}}\quad
+			\subfloat [][\emph {Data update}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/UpdateData.png}}
+			\caption{Login, Registration}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Main menu}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/User_Menu.png}}\quad
+			\subfloat [][\emph {Statistics menu}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/UserStatisticsMenu.png}}
+			\caption{User's Menu}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Your reports}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/UserStatistics_Reports.png}}\quad
+			\subfloat [][\emph {HFWZ}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_HFVZ.png}}\quad
+			\subfloat [][\emph {Global Reports}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_GlobalReports.png}}	
+			\caption{User's Statistics}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {View report}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Report.png}}\quad
+			\subfloat [][\emph {Make report}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/ReportPhoto.png}}
+			\caption{Report}
+		\end{figure}
+	\item \textbf {Officer}: They can investigate the reports confirmed by authorities and choose to make or not the ticket.
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Main Page}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/SchermataIniziale.png}}\quad
+			\subfloat [][\emph {Login}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/LoginOfficer.png}}\quad
+			\subfloat [][\emph {Officer PIN}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/OfficerPIN.png}}
+			\caption{Login, Registration, PIN}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Main menu}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/MenuOfficer.png}}\quad
+			\subfloat [][\emph {Statistics menu}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/OfficerStatisticsMenu.png}}
+			\caption{Officer's Menu}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Your checks}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/OfficerStatistics_YourChecks.png}}\quad
+			\subfloat [][\emph {HFWZ}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_HFVZ.png}}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Global Reports}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_GlobalReports.png}}\quad
+			\subfloat [][\emph {Repeat Offenders}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/Statistics_RepeatViolations.png}}
+			\caption{Officer's Statistics}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Check violation}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/CheckViolation.png}}\quad
+			\subfloat [][\emph {Under investigation}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/UnderInvestigation.png}}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\subfloat [][\emph {Violation confirmed}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/ViolationConfirmed.png}}\quad
+			\subfloat [][\emph {Violation Rejected}]
+			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/ViolationNotConfirmed.png}}
+			\caption{Investigation}
+		\end{figure}
+	\item \textbf{Authority}: SafeStreets provides a Web Interface for Third Parties. Here the authorities can exploit all the functionalities at their disposal, such as the selection of wrong reports.
+\end{itemize}
 \subsubsection{Hardware	Interfaces}
 \subsubsection{Software	Interfaces}
 \subsubsection{Communication	Interfaces}
