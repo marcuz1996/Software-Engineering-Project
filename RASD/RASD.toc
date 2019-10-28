@@ -1,43 +1,72 @@
-\contentsline {section}{\numberline {1}INTRODUCTION}{3}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Purpose}{3}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Scope}{3}{subsection.1.2}% 
-\contentsline {subsubsection}{\numberline {1.2.1}Goals}{3}{subsubsection.1.2.1}% 
-\contentsline {subsection}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{4}{subsection.1.3}% 
-\contentsline {subsubsection}{\numberline {1.3.1}Definitions}{4}{subsubsection.1.3.1}% 
-\contentsline {subsubsection}{\numberline {1.3.2}Acronyms}{4}{subsubsection.1.3.2}% 
-\contentsline {subsection}{\numberline {1.4}Revision history}{4}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Reference Documents}{4}{subsection.1.5}% 
-\contentsline {subsection}{\numberline {1.6}Document Structure}{4}{subsection.1.6}% 
-\contentsline {section}{\numberline {2}OVERALL DESCRIPTION}{5}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Product perspective: here we include further details on the shared phenomena and a domain model (class diagrams and statecharts)}{5}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Product functions}{5}{subsection.2.2}% 
-\contentsline {subsection}{\numberline {2.3}User characteristics}{6}{subsection.2.3}% 
-\contentsline {subsection}{\numberline {2.4}Domain assumptions}{7}{subsection.2.4}% 
-\contentsline {section}{\numberline {3}SPECIFIC REQUIREMENTS: Here we include more details on all aspects in Section 2 if they can be useful for the development team}{8}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}External Interface Requirements}{8}{subsection.3.1}% 
-\contentsline {subsubsection}{\numberline {3.1.1}User Interfaces}{8}{subsubsection.3.1.1}% 
-\contentsline {subsubsection}{\numberline {3.1.2}Hardware Interfaces}{8}{subsubsection.3.1.2}% 
-\contentsline {subsubsection}{\numberline {3.1.3}Software Interfaces}{8}{subsubsection.3.1.3}% 
-\contentsline {subsubsection}{\numberline {3.1.4}Communication Interfaces}{8}{subsubsection.3.1.4}% 
-\contentsline {subsection}{\numberline {3.2}Scenarios}{8}{subsection.3.2}% 
-\contentsline {subsubsection}{\numberline {3.2.1}User registration}{8}{subsubsection.3.2.1}% 
-\contentsline {subsubsection}{\numberline {3.2.2}Correct violation reporting}{8}{subsubsection.3.2.2}% 
-\contentsline {subsubsection}{\numberline {3.2.3}Wrong violation reporting}{9}{subsubsection.3.2.3}% 
-\contentsline {subsubsection}{\numberline {3.2.4}Officer registration}{9}{subsubsection.3.2.4}% 
-\contentsline {subsubsection}{\numberline {3.2.5}Correct Ticket Emission}{9}{subsubsection.3.2.5}% 
-\contentsline {subsubsection}{\numberline {3.2.6}Wrong report discarded by an officer}{10}{subsubsection.3.2.6}% 
-\contentsline {subsection}{\numberline {3.3}Functional Requirements: Definition of use case diagrams, use cases and associated sequence/activity diagrams, and mapping on requirements}{10}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}Performance Requirements}{10}{subsection.3.4}% 
-\contentsline {subsection}{\numberline {3.5}Design Constraints}{10}{subsection.3.5}% 
-\contentsline {subsubsection}{\numberline {3.5.1}Standards compliance}{10}{subsubsection.3.5.1}% 
-\contentsline {subsubsection}{\numberline {3.5.2}Hardware limitations}{10}{subsubsection.3.5.2}% 
-\contentsline {subsubsection}{\numberline {3.5.3}Any other constraint}{10}{subsubsection.3.5.3}% 
-\contentsline {subsection}{\numberline {3.6}Software System Attributes}{10}{subsection.3.6}% 
-\contentsline {subsubsection}{\numberline {3.6.1}Reliability}{10}{subsubsection.3.6.1}% 
-\contentsline {subsubsection}{\numberline {3.6.2}Availability}{10}{subsubsection.3.6.2}% 
-\contentsline {subsubsection}{\numberline {3.6.3}Security}{11}{subsubsection.3.6.3}% 
-\contentsline {subsubsection}{\numberline {3.6.4}Maintainability}{11}{subsubsection.3.6.4}% 
-\contentsline {subsubsection}{\numberline {3.6.5}Scalability}{11}{subsubsection.3.6.5}% 
-\contentsline {section}{\numberline {4}FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}{12}{section.4}% 
-\contentsline {section}{\numberline {5}EFFORT SPENT}{12}{section.5}% 
-\contentsline {section}{\numberline {6}REFERENCES}{12}{section.6}% 
+\contentsline {section}{\numberline {1}INTRODUCTION}{5}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Purpose}{5}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Scope}{5}{subsection.1.2}% 
+\contentsline {subsubsection}{\numberline {1.2.1}Goals}{5}{subsubsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{6}{subsection.1.3}% 
+\contentsline {subsubsection}{\numberline {1.3.1}Definitions}{6}{subsubsection.1.3.1}% 
+\contentsline {subsubsection}{\numberline {1.3.2}Acronyms}{6}{subsubsection.1.3.2}% 
+\contentsline {subsubsection}{\numberline {1.3.3}Abbreviations}{7}{subsubsection.1.3.3}% 
+\contentsline {subsection}{\numberline {1.4}Revision history}{7}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Reference Documents}{7}{subsection.1.5}% 
+\contentsline {subsection}{\numberline {1.6}Document Structure}{7}{subsection.1.6}% 
+\contentsline {section}{\numberline {2}OVERALL DESCRIPTION}{8}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Product perspective : UML + STATECHARTS}{8}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Civilian}{9}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Officer}{9}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Authority}{9}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}Product functions}{10}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}User characteristics}{10}{subsection.2.6}% 
+\contentsline {subsection}{\numberline {2.7}Domain assumptions}{12}{subsection.2.7}% 
+\contentsline {section}{\numberline {3}SPECIFIC REQUIREMENTS: Here we include more details on all aspects in Section 2 if they can be useful for the development team}{13}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}External Interface Requirements}{13}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}User Interfaces}{13}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Hardware Interfaces}{20}{subsubsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.3}Software Interfaces}{20}{subsubsection.3.1.3}% 
+\contentsline {subsubsection}{\numberline {3.1.4}Communication Interfaces}{20}{subsubsection.3.1.4}% 
+\contentsline {subsection}{\numberline {3.2}Scenarios}{20}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}User registration}{20}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Correct violation reporting}{21}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}Wrong violation reporting}{21}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}Officer registration}{21}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.5}Correct Ticket Emission}{22}{subsubsection.3.2.5}% 
+\contentsline {subsubsection}{\numberline {3.2.6}Wrong report discarded by an officer}{22}{subsubsection.3.2.6}% 
+\contentsline {subsection}{\numberline {3.3}Functional Requirements: Definition of use case diagrams, use cases and associated sequence/activity diagrams, and mapping on requirements}{22}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Requirements}{22}{subsection.3.4}% 
+\contentsline {subsubsection}{\numberline {3.4.1}G1: Allow future users to easily register and login.}{22}{subsubsection.3.4.1}% 
+\contentsline {subsubsection}{\numberline {3.4.2}G2: Allow users to notify authorities of traffic violations through the use of the camera.}{23}{subsubsection.3.4.2}% 
+\contentsline {subsubsection}{\numberline {3.4.3}G3: Store relevant info about the violation in the data warehouse.}{24}{subsubsection.3.4.3}% 
+\contentsline {subsubsection}{\numberline {3.4.4}G4: Assist authorities in the process of law enforcement.}{24}{subsubsection.3.4.4}% 
+\contentsline {subsubsection}{\numberline {3.4.5}G5: Guarantee security.}{25}{subsubsection.3.4.5}% 
+\contentsline {subsubsection}{\numberline {3.4.6}G6: Guarantee privacy to users.}{26}{subsubsection.3.4.6}% 
+\contentsline {subsection}{\numberline {3.5}Use case Diagram}{28}{subsection.3.5}% 
+\contentsline {subsection}{\numberline {3.6}Use cases}{29}{subsection.3.6}% 
+\contentsline {subsubsection}{\numberline {3.6.1}Civilian Visitor Registration}{29}{subsubsection.3.6.1}% 
+\contentsline {subsubsection}{\numberline {3.6.2}Civilian Login}{29}{subsubsection.3.6.2}% 
+\contentsline {subsubsection}{\numberline {3.6.3}Officer Registration}{30}{subsubsection.3.6.3}% 
+\contentsline {subsubsection}{\numberline {3.6.4}Officer Login}{30}{subsubsection.3.6.4}% 
+\contentsline {subsubsection}{\numberline {3.6.5}Violation reporting}{31}{subsubsection.3.6.5}% 
+\contentsline {subsubsection}{\numberline {3.6.6}Ticket confirmation}{31}{subsubsection.3.6.6}% 
+\contentsline {subsubsection}{\numberline {3.6.7}Report validation}{32}{subsubsection.3.6.7}% 
+\contentsline {subsubsection}{\numberline {3.6.8}Report invalidation with warning}{32}{subsubsection.3.6.8}% 
+\contentsline {subsection}{\numberline {3.7}Sequence diagrams}{33}{subsection.3.7}% 
+\contentsline {subsubsection}{\numberline {3.7.1}Visitor to Civilian Registration}{33}{subsubsection.3.7.1}% 
+\contentsline {subsubsection}{\numberline {3.7.2}Officer Registration}{34}{subsubsection.3.7.2}% 
+\contentsline {subsubsection}{\numberline {3.7.3}Correct violation report}{35}{subsubsection.3.7.3}% 
+\contentsline {subsubsection}{\numberline {3.7.4}Invalid violation with subsequent banning}{36}{subsubsection.3.7.4}% 
+\contentsline {subsubsection}{\numberline {3.7.5}Automated Ticket}{37}{subsubsection.3.7.5}% 
+\contentsline {subsubsection}{\numberline {3.7.6}Update sending}{38}{subsubsection.3.7.6}% 
+\contentsline {subsection}{\numberline {3.8}Performance Requirements}{38}{subsection.3.8}% 
+\contentsline {subsection}{\numberline {3.9}Design Constraints}{38}{subsection.3.9}% 
+\contentsline {subsubsection}{\numberline {3.9.1}Hardware Limitations}{38}{subsubsection.3.9.1}% 
+\contentsline {subsubsection}{\numberline {3.9.2}Standards compliance}{39}{subsubsection.3.9.2}% 
+\contentsline {subsubsection}{\numberline {3.9.3}Hardware limitations}{39}{subsubsection.3.9.3}% 
+\contentsline {subsubsection}{\numberline {3.9.4}Any other constraint}{39}{subsubsection.3.9.4}% 
+\contentsline {subsection}{\numberline {3.10}Software System Attributes}{39}{subsection.3.10}% 
+\contentsline {subsubsection}{\numberline {3.10.1}Reliability}{39}{subsubsection.3.10.1}% 
+\contentsline {subsubsection}{\numberline {3.10.2}Availability}{39}{subsubsection.3.10.2}% 
+\contentsline {subsubsection}{\numberline {3.10.3}Security}{39}{subsubsection.3.10.3}% 
+\contentsline {subsubsection}{\numberline {3.10.4}Maintainability}{40}{subsubsection.3.10.4}% 
+\contentsline {subsubsection}{\numberline {3.10.5}Scalability}{40}{subsubsection.3.10.5}% 
+\contentsline {section}{\numberline {4}FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}{40}{section.4}% 
+\contentsline {section}{\numberline {5}EFFORT SPENT}{40}{section.5}% 
+\contentsline {section}{\numberline {6}REFERENCES}{41}{section.6}% 
