@@ -8,6 +8,9 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{changepage}
 \usepackage{subfig}
+\usepackage{placeins}
+
+
 \author{Davide Cocco - 944122\\
 	Marco Gasperini - 944922}
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
@@ -38,6 +41,26 @@ This document will contain the \texttt{Requirements Analysis and Specification D
 The software will be dedicated to civilians and authorities: through a mobile application, civilians will have the possibility to report a violation by submitting pictures, position, date and the license plate of the offender to the authorities in an effort to improve their communities, while officers can use the data mining system, which updates a map periodically with new reports and highlights areas with high violation frequency, to facilitate the process of law enforcement by locating offences and releasing tickets. Authorities will be supplied with a web application with the ability to add new officers, and will also have access to the aforementioned system.
 A data warehouse will be thus implemented, and repeated reports of violations could also lead to automated traffic tickets being released at the discretion of the authorities.
 The system will be designed to avoid any kind of voluntary or unpredictable behaviour which may result in invalid reports or wrong fines being released, with a vigorous effort to completely prevent harmful usage of the S2B rather than correcting it a posteriori.
+\subsubsection{Phenomena table}
+\FloatBarrier
+\begin{table}[h]
+    \begin{tabular}{lll}
+      \textbf{phenomenon} & \textbf{Shared} & \textbf{who controls it?} \\ \hline
+	  A traffik violation that occured & No & World \\
+	  the report of violations made by photos & Yes & World \\
+	  the registration and login of any type of user & Yes & ?? \\
+	  the selection of correct or wrong reports made by authority & Yes & World \\
+	  the arrival of an officer at the site of the violation  & No & World \\
+	  the confirmation or rejection of report by the officer & Yes & World \\
+	  the creation of reports composed by photo, date and location & No & Machine \\
+	  the creation of traffik ticket & No & Machine \\
+	  the chance to see the map of violations & Yes & Machine \\
+	  the data collection & No & Machine \\
+	  the statistics view & Yes & Machine \\
+	  sending an officer to the investigation zone & Yes & Machine \\ \hline
+    \end{tabular}
+\end{table}
+\FloatBarrier
 \subsubsection{Goals}
 \begin{itemize}
 \item {\textbf[}\textbf{G1}{\textbf]}: Allow future users to easily register and login. 
