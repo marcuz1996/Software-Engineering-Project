@@ -11,6 +11,7 @@
 \usepackage{placeins}
 
 
+
 \author{Davide Cocco - 944122\\
 	Marco Gasperini - 944922}
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
@@ -41,26 +42,30 @@ This document will contain the \texttt{Requirements Analysis and Specification D
 The software will be dedicated to civilians and authorities: through a mobile application, civilians will have the possibility to report a violation by submitting pictures, position, date and the license plate of the offender to the authorities in an effort to improve their communities, while officers can use the data mining system, which updates a map periodically with new reports and highlights areas with high violation frequency, to facilitate the process of law enforcement by locating offences and releasing tickets. Authorities will be supplied with a web application with the ability to add new officers, and will also have access to the aforementioned system.
 A data warehouse will be thus implemented, and repeated reports of violations could also lead to automated traffic tickets being released at the discretion of the authorities.
 The system will be designed to avoid any kind of voluntary or unpredictable behaviour which may result in invalid reports or wrong fines being released, with a vigorous effort to completely prevent harmful usage of the S2B rather than correcting it a posteriori.
+\newpage
 \subsubsection{Phenomena table}
 \FloatBarrier
+\begin{center}
 \begin{table}[h]
     \begin{tabular}{|l|c|c|}
     	  \hline
-      \textbf{phenomenon} & \textbf{Shared} & \textbf{who controls it?} \\ \hline
-	  A traffic violation that occured & No & World \\
-	  the report of violations made by photos & Yes & World \\
-	  the registration and login of any type of user & Yes & World \\
-	  the selection of correct or wrong reports made by authority & Yes & World \\
-	  the arrival of an officer at the site of the violation  & No & World \\
-	  the confirmation or rejection of report by the officer & Yes & World \\
-	  the creation of reports composed by photo, date and location & No & Machine \\
-	  the creation of traffic ticket & No & Machine \\
-	  the chance to see the map of violations & Yes & Machine \\
-	  the data collection & No & Machine \\
-	  the statistics view & Yes & Machine \\
-	  sending an officer to the investigation zone & Yes & Machine \\ \hline
+      \textbf{Phenomenon} & \textbf{Shared} & \textbf{Who controls it?} \\ \hline
+	  Occurrency of traffic violation & No & World \\
+	  Filing a violation report & Yes & World \\
+	  Registration and login of any type of user & Yes & World \\
+	  Selection of correct or wrong reports made by authority & Yes & World \\
+	  Arrival of an officer at the site of the violation  & No & World \\
+	  Confirmation or rejection of a report by the officer & Yes & World \\
+ 	  Requesting of bans & Yes & World \\
+	  Creation of reports composed by photo, date and location & No & Machine \\
+	  Creation of traffic tickets & No & Machine \\
+	  Collection and processing of data & No & Machine \\
+	  Presentation of relevant data about violations and offenders & Yes & Machine \\
+	  Issuing of bans & Yes & Machine \\
+	  Officer corfirming the checking of a report & Yes & Machine \\ \hline
     \end{tabular}
 \end{table}
+\end{center}
 \FloatBarrier
 \subsubsection{Goals}
 \begin{itemize}
@@ -125,8 +130,9 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 			\item \texttt{Effort Spent}: this section includes information about the hours spent to compile this document.
 			\item \texttt{References}: this section includes references about papers/documents used to support this document.
 		\end{enumerate}
+\newpage
 \section{OVERALL	DESCRIPTION}
-\subsection{Product	perspective : UML + STATECHARTS} 
+\subsection{Product	perspective} 
 This class diagram shows a bird's eye view of the system:
 \begin{figure}[H]
 				\centering
@@ -172,7 +178,7 @@ The goals to be accomplished require the following functions:
 
 \item  \texttt{Automated ticket emission:} officers can locate violations through the map, and through a unique code sent to the authority, sign an automatically compilated ticket which will be emitted and sent via email to the Vehicle Licensing Agency. The code is to make sure that even if the officer's mobile is stolen while he's logged in, the thief cannot emit tickets.
 \end{itemize}
-
+\newpage
 \subsection{User characteristics}
  \begin{itemize}
 \item \texttt{Visitors:} users who haven't yet registered or logged in the mobile application, they are only able to register as a civilian or log as a civilian (through email and password) or as an officer (through Badge ID and password issued by the authority). They interact with:
@@ -196,9 +202,10 @@ The goals to be accomplished require the following functions:
 		\end{itemize}
 
 \item \texttt{Users:} we will use this name only as a general way to refer to both registered officers and civilians when we're describing actions they are both able to perform in the same way (like compiling violation reports).
-\newpage
+
 \item  \texttt{Authorities:} they're manually registered by SafeStreets personnel, and their work is managed in office by an officer using the SafeStreets web application. They can add new officers or confirm self-registered ones, and they're able to see the processed data, enable automatic ticket emissions, receive violation reports and thus discriminate between valid and invalid ones. They can request bans which the SafeStreets server will take care of issuing and can see every officer connected to the application. They interact with: 
 		\begin{itemize}
+			\item Violation reporting;
 			\item Data storage, mining and visualization;
 			\item Automated ticket emission;
 			\item Ban requesting.
@@ -223,13 +230,12 @@ The goals to be accomplished require the following functions:
 \item {\textbf[}\textbf{D14}{\textbf]}: The personnel operating the Authority's client discards most of the invalid reports.
 \item {\textbf[}\textbf{D15}{\textbf]}: Every registered officer's signature is stored at the authority in an image file.
 \end{itemize}
-\section{SPECIFIC	REQUIREMENTS: Here	we	include	more	details	on	all	aspects	in	Section	2	if	they	
-can	be	useful	for	the	development	team}
+\section{SPECIFIC	REQUIREMENTS}
 \subsection{External	Interface	Requirements} 
 \subsubsection{User	Interfaces}
-The following mockups represent a basic idea of how the Mobile Application and the Web Interface are supposed to look like.
+The following mockups give a basic idea of how the Mobile Application and the Web Application are supposed to look like.
 \begin {itemize}
-	\item \textbf{Users}: they can access to complete SafeStreets functionalities through the smartphone application.					
+	\item \textbf{Users}: they can access to SafeStreets functionalities through the smartphone application.					
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Main Page}]
@@ -266,7 +272,7 @@ The following mockups represent a basic idea of how the Mobile Application and t
 			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/ReportPhoto.png}}
 			\caption{Report}
 		\end{figure}
-	\item \textbf {Officer}: They can investigate the reports confirmed by authorities and choose to make or not the ticket.
+	\item \textbf {Officer}: They can investigate the reports and sign automated tickets.
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Main Page}]
@@ -315,16 +321,25 @@ The following mockups represent a basic idea of how the Mobile Application and t
 			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/ViolationNotConfirmed.png}}
 			\caption{Investigation}
 		\end{figure}
-	\item \textbf{Authority}: SafeStreets provides a Web Interface for Third Parties. Here the authorities can exploit all the functionalities at their disposal, such as the selection of wrong reports.
+	\item \textbf{Authority}: SafeStreets provides a Web Application for law enforcement authorities where they can validate reports, request bans, toggle the automated ticket emission functionalities on or off, and most importantly add new officers.
 		\begin{figure}[H]
 			\centering
-			{\includegraphics[width=1\linewidth]{Images/Mockup/AuthorityWebApp.png}}
+			{\includegraphics[width=1\linewidth, height=.5\linewidth]{Images/Mockup/AuthorityWebApp.png}}
 			\caption{Web App}
 		\end{figure}
 \end{itemize}
 \subsubsection{Hardware	Interfaces}
+Since the application must run over the Internet, all the hardware shall require to connect network will be an hardware interface for the system, both
+server and client side.
+\begin{itemize}
+\item Server-side: e.g. Modem, WAN - LAN, Ethernet Cross-Cable.
+\item Client-side: e.g. Wi-Fi 802.11ac+ antenna, 3G/4G antenna. 
+\end{itemize}
 \subsubsection{Software	Interfaces}
+SafeStreets will provide a very basic API for authorities to customize data about tickets and fines (so that the functionality can fit various legislations) and other minor parameters such as report expiration time.
+The \texttt{Google Maps API} will be used to implement the map and geolocalization services.
 \subsubsection{Communication	Interfaces}
+HTTP will be used for communication between the nodes of the network along with the most recent TLS version to secure messages containing sensitive data. 
 \subsection{Scenarios}
 This section describes some of the scenarios in which SafeStreets may be used. Scenarios omit steps already described in previous ones: 
 
@@ -332,7 +347,7 @@ This section describes some of the scenarios in which SafeStreets may be used. S
 Giancarlo saw the advertisement of SafeStreets and decided to download the mobile application to report a car that always parks on the sidewalk outside his house and blocks the passage of pedestrians. After downloading and launching the new app, he is asked to fill a registration form in which he must insert his email address and a password. After clicking the "Sign In" button he receives an email with a link to confirm his registration, which he clicks to finalize his registration. From now on he can login and report offences with the "Report" button in the main screen.
 
 \subsubsection{Correct violation reporting}
-Mary just logged in as a civilian to report a double-parked car. Since it's her first use of the application, she's asked to allow SafeStreets to access her GPS and camera, to which she complies. She clicks "Report" on his main screen and chooses a violation from the modal which pops up. The app then opens her camera asking to take a photo of the vehicle showing the offence being committed. Then she's asked to frame the license plate with her camera, and the supervised learning algorithm scans the various frames looking for an interpretation for the image. The app then associates the report with a timestamp and a GPS position, and sends it to one of the authorities' servers. After a couple of minutes, Mary receives a notification in the app's notification section informing her her report was correctly accepted and processed.
+Mary just logged in as a civilian to report a double-parked car. Since it's her first use of the application, she's asked to allow SafeStreets to access her GPS and camera, to which she complies. She clicks "Report" on his main screen and chooses a violation from the modal which pops up. The app then opens her camera asking to take a photo of the vehicle showing the offence being committed. Then she's asked to frame the license plate with her camera, and the supervised learning algorithm scans the various frames looking for an interpretation for the image. The app then associates the report with a timestamp and a GPS position, and sends it to one of the authorities' servers. After a couple of minutes, Mary receives a notification informing her her report was correctly accepted and processed.
 
 \subsubsection{Wrong violation reporting}
 Simon decides to use the app to report his neighbour's vehicle because he doesn't like him. He sends a photo which in fact doesn't show any violation being committed. Arthur, a policeman who's working with the SafeStreets web application at his barracks, receives the report and notices there's clearly no violation being committed in the photo, and clicks on the "Warn" button which alerts the SafeStreets server of an invalid report, and discards the report immediately after. After a couple of minutes, Simon receives a notification telling him he's been forbidden from using the reporting function for a month.
@@ -345,18 +360,17 @@ Bill now sees the map of his surroundings, periodically updated with new traffic
 John was on patrol this morning and checked on the SafeStreets App if there was any report in his vicinity. As soon as he logged in he noticed a reported violation in the map, about 250 meters from his position. John clicks the "Accept" button on the tooltip to confirm to other active officers he's checking the authenticity of the violation, and avoiding any other one of replicating this task. He now sees the photos of the reporting and the type of offence. Once he's near the vehicle, a "Confirm" button pops up. John checks that the vehicle is effectively committing a violation and the license plate matches the one in his screen. Once John clicks it and enters his secret 5 digit pin his authority's server will be able to place his signature into an automatically generated ticket that will be sent to the Vehicle Licensing Authority. Now the violation tooltip can disappear and John goes on with his duties.
 
 \subsubsection{Wrong report discarded by an officer}
-Gabriele, who is an officer, is walking towards an offence reported from SafeStreets. As soon as he arrives there, he realizes that the report sent involved a car parked on the pedestrian crossing which is no longer there. So he decides click on the "Delete" button which subsequently communicates to the authorities' server to remove it from the map.
+Gabriele, who is an officer, is walking towards an offence reported from SafeStreets. As soon as he arrives there, he realizes that the report involved a car parked on the pedestrian crossing which is no longer there. So he decides to click on the "Delete" button which subsequently communicates to the authority's server to remove it from the map.
 
-\subsection{Functional	 Requirements:	 Definition	 of	 use	 case	 diagrams,	 use	 cases	 and	 associated	
-sequence/activity	diagrams,	and	mapping	on	requirements} 
 \subsection{Requirements}
+Here we include a list of both functional and non-functional requirements which will allow the efforts of the team to be concretely directed to the goals.
 \subsubsection{G1: Allow future users to easily register and login.}
 	
 	\begin{itemize}
-			\item \texttt{R1}: Divide civilian and officer registration and login functionality;
-			\item \texttt{R2}: Data has to be correctly queried server-side everytime, to make sure no duplicate accounts are created or no unregistered visitors log in;
-			\item \texttt{R3}: Send confirmation emails within at most one minute after the registration confirmation receipt (or the new officer being added); 
-			\item \texttt{R4}: Confirm user registration within at most one minute after the email link has been clicked.
+			\item \textbf{R1}: Separate civilian and officer registration and login functionality;
+			\item \textbf{R2}: Data has to be correctly queried server-side everytime, to make sure no duplicate accounts are created or no unregistered visitors log in;
+			\item \textbf{R3}: Send confirmation emails within at most one minute after the registration confirmation receipt (or the new officer being added); 
+			\item \textbf{R4}: Confirm user registration within at most one minute after the email link has been clicked.
 	\end{itemize}
 	
 	\begin{itemize}
@@ -371,11 +385,11 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsubsection{G2: Allow users to notify authorities of traffic violations through the use of the camera.}
 	
 	\begin{itemize}
-			\item \texttt{R5}: Force the user to allow the S2B to access the device's camera and GPS;
-			\item \texttt{R6}: Implement a function in the authority's client which allows personnel to validate or invalidate reports;
-			\item \texttt{R7}: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate;
-			\item \texttt{R8}: The supervised learning algorithm must be accurate at least 99\% of the times;
-			\item \texttt{R9}: Acknowledgments from the authority's server must be received within 10 seconds.
+			\item \textbf{R5}: Force the user to allow the S2B to access the device's camera and GPS;
+			\item \textbf{R6}: Implement a function in the authority's client which allows personnel to validate or invalidate reports;
+			\item \textbf{R7}: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate;
+			\item \textbf{R8}: The supervised learning algorithm must be accurate at least 99\% of the times;
+			\item \textbf{R9}: Acknowledgments from the authority's server must be received within 10 seconds.
 	\end{itemize}
 	
 	\begin{itemize}
@@ -391,8 +405,8 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsubsection{G3: Store relevant info about the violation in the data warehouse.}
 	
 	\begin{itemize}
-			\item \texttt{R10}: Store the report info in the DW everytime it is confirmed to be valid;
-			\item \texttt{R11}: Make the data warehousing  and processing completely invisible to human actors to avoid manipulations;
+			\item \textbf{R10}: Store the report info in the DW everytime it is confirmed to be valid;
+			\item \textbf{R11}: Make the data warehousing  and processing completely invisible to human actors to avoid manipulations;
 	\end{itemize}
 	
 	\begin{itemize}
@@ -408,16 +422,16 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 	\begin{itemize}
 	\item \texttt{G4.1}: allow automatic ticket compilation at the discretion of the authorities:
 							\begin{itemize}
-									\item \texttt{R12}: implement functionality which allows (through the authority's client) to toggle automatic tickets ON or OFF;
-									\item \texttt{R13}: force newly logged officers to choose a 5 digit pin to release tickets;
-									\item \texttt{R14}: implement functionality which allows officers' near a report to confirm both the report itself and the ticket emission through the pin;
-									\item \texttt{R15}: implement functionality which uses report data and the officer's signature to compile a ticket and send it to the VLA via email.
+									\item \textbf{R12}: implement functionality which allows (through the authority's client) to toggle automatic tickets ON or OFF;
+									\item \textbf{R13}: force newly logged officers to choose a 5 digit pin to release tickets;
+									\item \textbf{R14}: implement functionality which allows officers' near a report to confirm both the report itself and the ticket emission through the pin;
+									\item \textbf{R15}: implement functionality which uses report data and the officer's signature to compile a ticket and send it to the VLA via email.
 							\end{itemize}
 	\texttt{G4.2}: show processed data relevant to the purpose:
 							\begin{itemize}
-									\item \texttt{R16}: update every actor's map with the HFVZs every 30 seconds;
-									\item \texttt{R17}: update the authorities' and officers' maps with the new reports in real time;
-									\item \texttt{R18}: show repetead offenders in real time in the authorities' GUI.
+									\item \textbf{R16}: update every actor's map with the HFVZs every 30 seconds;
+									\item \textbf{R17}: update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time;
+									\item \textbf{R18}: show repetead offenders in real time in the authorities' GUI.
 							\end{itemize}
 	\end{itemize}
 	
@@ -436,21 +450,21 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 	\begin{itemize}
 	\item \texttt{G5.1}: allow discarding of invalid reports:
 							\begin{itemize}
-									\item \texttt{R6}: Implement a function in the authority's client which allows personnel to validate or invalidate reports;
-									\item \texttt{R7}: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate;
-									\item \texttt{R8}: The supervised learning algorithm must be accurate at least 99\% of the times.
+									\item \textbf{R6}: Implement a function in the authority's client which allows personnel to validate or invalidate reports;
+									\item \textbf{R7}: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate;
+									\item \textbf{R8}: The supervised learning algorithm must be accurate at least 99\% of the times.
 							\end{itemize}
 	\item \texttt{G5.2}: avoid unauthentic officer registrations by design:
 							\begin{itemize}
-									\item \texttt{R1}: Divide civilian and officer registration and login functionality;
-									\item \texttt{R19}: Make sure officers can only be added through the Authority's client;
-									\item \texttt{R20}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
+									\item \textbf{R1}: Divide civilian and officer registration and login functionality;
+									\item \textbf{R19}: Make sure officers can only be added through the Authority's client;
+									\item \textbf{R20}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
 							\end{itemize}
 	\item \texttt{G5.3}: block people who came in possession of an officer's device to cause any damage:
 							\begin{itemize}
-									\item \texttt{R20}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
-									\item \texttt{R21}: Officers can only allow automated ticket emission by entering their secret pin;
-									\item \texttt{R22}: Officers are automatically required to login every 6 hours and their access data can't be autofilled.
+									\item \textbf{R20}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
+									\item \textbf{R21}: Officers can only allow automated ticket emission by entering their secret pin;
+									\item \textbf{R22}: Officers are automatically required to login every 6 hours and their access data can't be autofilled.
 							\end{itemize}
 	\item \texttt{G5.4}: ban users who abuse of the violation reporting system:
 							\begin{itemize}
@@ -470,10 +484,10 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsubsection{G6: Guarantee privacy to users.}
 	
 	\begin{itemize}
-	\item \texttt{R24}: the S2B must comply with GDPR rules.
+	\item \texttt{Rbf}: the S2B must comply with GDPR rules.
 	\item \texttt{G6.1}: only allow authorities to visualize relevant data for law enforcement purposes.
 							\begin{itemize}
-									\item \texttt{R25}: only provide authorities and officers with new report notifications on the map and repeated offender lists. 
+									\item \textbf{R17}: update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time;
 							\end{itemize}
 	\end{itemize}
 
@@ -481,9 +495,11 @@ sequence/activity	diagrams,	and	mapping	on	requirements}
 \subsection{Use case Diagram}
 	\begin{figure}[H]
 			\centering
-			\includegraphics[width=1.2\linewidth]{Images/UseCaseDiagram.png}
+			\includegraphics[width=1.2\textwidth,height=.9\textheight]{Images/UseCaseDiagram.png}
 	\end{figure}
 \subsection{Use cases}
+These use case tables describe examples of how the actors may interact with the system to perform the previously listed tasks. An use case about the data collection, processing and representation system has been omitted as the functionality is fully automatized
+thus doesn't include any actor.
 \subsubsection{Civilian Visitor Registration}
 		\begin{center}
 			\begin{tabular}{| c | l |}
@@ -746,14 +762,14 @@ Also includes the first login in which the 5 digit pin is compiled, to complete 
 			\end{figure}
 \newpage
 		\subsubsection{Update sending}
-Not included in the use cases because it actually involves no actors, as it is a fully automated process.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{Images/update_sending}
 				\label{fig:sampling_request_sequence}
 			\end{figure}
 
-\subsection{Performance	Requirements} 
+\subsection{Performance	Requirements}
+In general, the software should be an helpful tool for authorities and thus its efficient use strongly depends on their ability to use it readily.By assuming reliable links and decent performance of network protocol communications, mailing services etc. the throughput of the system mostly depends on the personnel operating the web application and the officer (as reports cannot be converted into fines without their validation). In the presence of multiple reports and multiple authorities processing them, like what would possibly happen in big cities, the system has nonetheless to guarantee the time bounds specified in the requirements for the sending of new processed data, and especially swiftly notify new reports. Reports must be guaranteed to expire after a customizable time limit has expired, to make sure that no effort is wasted by officers in checking old ones. 
 \subsection{Design	Constraints}
 \subsubsection{Hardware Limitations}
 		\begin{itemize}
@@ -764,9 +780,8 @@ Not included in the use cases because it actually involves no actors, as it is a
 			\item \texttt{Web App}: modern web browser (e.g. Google Chrome / Safari) able to support a Rich Internet Application, Internet connection.
 		\end{itemize}
 \subsubsection{Standards	compliance}
-\subsubsection{Hardware	limitations}
-\subsubsection{Any	other	constraint} 
-\subsection{Software	System	Attributes} 
+The system uses the International System of Units as it system of measurements and the sensitive data will be treated according to the General Data Protection Regulation rules.
+\subsection{Software	 System	 Attributes} 
 \subsubsection{Reliability}
 The system should always be able to process reports and store them in the data warehouse, but according to G1 the priority is assisting law enforcers and not substituting the existing procedures, thus transient and occasional deviations can be accepted.  Reports can be processed by multiple authorities' servers if the previous one fail (e.g. every police barrack has a server), so replication will be used to guarantee both availability and reliability.
 \subsubsection{Availability}
@@ -799,6 +814,7 @@ assertions}
 				21/10/2019 & Sequence Diagrams  & 2\\
 				20/10/2019 & State Diagrams  & 2\\	
 				24/10/2019 & Class Diagram  & 2\\	
+				29/10/2019 & Document revision and filling minor sections & 1\\	
 				\hline
 				Total & & ** \\
 				\hline
