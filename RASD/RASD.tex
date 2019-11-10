@@ -388,8 +388,9 @@ Here we include a list of both functional and non-functional requirements which 
 			\item \textbf{R5}: Force the user to allow the S2B to access the device's camera and GPS;
 			\item \textbf{R6}: Implement a function in the authority's client which allows personnel to validate or invalidate reports;
 			\item \textbf{R7}: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate;
-			\item \textbf{R8}: The supervised learning algorithm must be accurate at least 99\% of the times;
-			\item \textbf{R9}: Acknowledgments from the authority's server must be received within 10 seconds.
+			\item \textbf{R8}: Automatically discard the report if another one with the same plate has been received within an hour to avoid duplicates;
+			\item \textbf{R9}: The supervised learning algorithm must be accurate at least 99\% of the times;
+			\item \textbf{R10}: Acknowledgments from the authority's server must be received within 10 seconds.
 	\end{itemize}
 	
 	\begin{itemize}
@@ -405,8 +406,8 @@ Here we include a list of both functional and non-functional requirements which 
 \subsubsection{G3: Store relevant info about the violation in the data warehouse.}
 	
 	\begin{itemize}
-			\item \textbf{R10}: Store the report info in the DW everytime it is confirmed to be valid;
-			\item \textbf{R11}: Make the data warehousing  and processing completely invisible to human actors to avoid manipulations;
+			\item \textbf{R11}: Store the report info in the DW everytime it is confirmed to be valid;
+			\item \textbf{R12}: Make the data warehousing  and processing completely invisible to human actors to avoid manipulations;
 	\end{itemize}
 	
 	\begin{itemize}
@@ -422,16 +423,16 @@ Here we include a list of both functional and non-functional requirements which 
 	\begin{itemize}
 	\item \texttt{G4.1}: allow automatic ticket compilation at the discretion of the authorities:
 							\begin{itemize}
-									\item \textbf{R12}: implement functionality which allows (through the authority's client) to toggle automatic tickets ON or OFF;
-									\item \textbf{R13}: force newly logged officers to choose a 5 digit pin to release tickets;
-									\item \textbf{R14}: implement functionality which allows officers' near a report to confirm both the report itself and the ticket emission through the pin;
-									\item \textbf{R15}: implement functionality which uses report data and the officer's signature to compile a ticket and send it to the VLA via email.
+									\item \textbf{R13}: implement functionality which allows (through the authority's client) to toggle automatic tickets ON or OFF;
+									\item \textbf{R14}: force newly logged officers to choose a 5 digit pin to release tickets;
+									\item \textbf{R15}: implement functionality which allows officers' near a report to confirm both the report itself and the ticket emission through the pin;
+									\item \textbf{R16}: implement functionality which uses report data and the officer's signature to compile a ticket and send it to the VLA via email.
 							\end{itemize}
 	\texttt{G4.2}: show processed data relevant to the purpose:
 							\begin{itemize}
-									\item \textbf{R16}: update every actor's map with the HFVZs every 30 seconds;
-									\item \textbf{R17}: update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time;
-									\item \textbf{R18}: show repetead offenders in real time in the authorities' GUI.
+									\item \textbf{R17}: update every actor's map with the HFVZs every 30 seconds;
+									\item \textbf{R18}: update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time;
+									\item \textbf{R19}: show repetead offenders in real time in the authorities' GUI.
 							\end{itemize}
 	\end{itemize}
 	
@@ -452,23 +453,24 @@ Here we include a list of both functional and non-functional requirements which 
 							\begin{itemize}
 									\item \textbf{R6}: Implement a function in the authority's client which allows personnel to validate or invalidate reports;
 									\item \textbf{R7}: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate;
-									\item \textbf{R8}: The supervised learning algorithm must be accurate at least 99\% of the times.
+									\item \textbf{R8}: Automatically discard the report if another one with the same plate has been received within an hour to avoid duplicates;
+									\item \textbf{R9}: The supervised learning algorithm must be accurate at least 99\% of the times.
 							\end{itemize}
 	\item \texttt{G5.2}: avoid unauthentic officer registrations by design:
 							\begin{itemize}
 									\item \textbf{R1}: Divide civilian and officer registration and login functionality;
-									\item \textbf{R19}: Make sure officers can only be added through the Authority's client;
-									\item \textbf{R20}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
+									\item \textbf{R20}: Make sure officers can only be added through the Authority's client;
+									\item \textbf{R21}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
 							\end{itemize}
 	\item \texttt{G5.3}: block people who came in possession of an officer's device to cause any damage:
 							\begin{itemize}
-									\item \textbf{R20}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
-									\item \textbf{R21}: Officers can only allow automated ticket emission by entering their secret pin;
-									\item \textbf{R22}: Officers are automatically required to login every 6 hours and their access data can't be autofilled.
+									\item \textbf{R21}: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.
+									\item \textbf{R22}: Officers can only allow automated ticket emission by entering their secret pin;
+									\item \textbf{R23}: Officers are automatically required to login every 6 hours and their access data can't be autofilled.
 							\end{itemize}
 	\item \texttt{G5.4}: ban users who abuse of the violation reporting system:
 							\begin{itemize}
-									\item \texttt{R23}: A ban request can be issued through the Authority's client after receiving an invalid report.
+									\item \texttt{R24}: A ban request can be issued through the Authority's client after receiving an invalid report.
 							\end{itemize}
 	\end{itemize}
 	
@@ -484,10 +486,10 @@ Here we include a list of both functional and non-functional requirements which 
 \subsubsection{G6: Guarantee privacy to users.}
 	
 	\begin{itemize}
-	\item \texttt{Rbf}: the S2B must comply with GDPR rules.
 	\item \texttt{G6.1}: only allow authorities to visualize relevant data for law enforcement purposes.
 							\begin{itemize}
-									\item \textbf{R17}: update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time;
+									\item \textbf{R18}: Update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time;
+									\item \texttt{R25}: The S2B must comply with GDPR rules;
 							\end{itemize}
 	\end{itemize}
 
@@ -636,14 +638,16 @@ thus doesn't include any actor.
 				& the violation being committed \\ \hline
 				&4. The user frames the license plate\\
 				&5. The system computes the plate number \\
-				&6. The system adds date and timestamp \\
+				&6. The system checks if the report is a duplicate\\
+				&7. The system adds date and timestamp \\
 				& and sends the report to the authority \\ 
 				\hline
 				\textbf{EXIT CONDITIONS}  & The report has successfully been sent \\ \hline
 				\textbf{EXCEPTIONS} &
 				1. The plate can't be recognised \\
-				&2. GPS is turned off\\
-				&3. Camera can't be used for any reason\\
+				&2. The report is a duplicate\\
+				&3. GPS is turned off\\
+				&4. Camera can't be used for any reason\\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -793,12 +797,67 @@ The system will also guarantee to not spread any kind of data to third parties t
 Best practices and design patterns of Object Oriented Programming along with documentation upkeep will be thoroughly followed to make sure the application is easily customizable and modifiable by SafeStreets' developers.
 \subsubsection{Scalability}
 The architecture must be simply scalable as the number of users grows over time. Except civilian account management, which is handled by SafeStreets' server and should not require too much complexity, functions are mostly provided by the authorities' servers which grow in number with the population of the considered city (e.g. the bigger the city the more numerous the barracks, and therefore the number of servers), thus the architecture will be scalable by design. In any case, the number of reports per day should never exceed a few thousands even in heavily populated cities.
-\section{FORMAL	ANALYSIS	USING	ALLOY: This	section	should include	a	brief	presentation	of the	
-main	objectives	driving	the	formal	modeling	activity, as	well	as	a	description	of the	model	
-itself,	what	can	be	proved with	it, and	why	what	is	proved is	important	given	the	problem	at	
-hand. To	show	 the	soundness	and	correctness	of	the model,	 this	section	can	show	some
-worlds	obtained	by	running	it,	and/or	the	results	of	the	checks	performed	on	meaningful	
-assertions}
+\newpage
+\section{FORMAL ANALYSIS USING ALLOY}
+\subsection{Purpose of the analysis}
+In this section we provide a formalization of some constraints on how the entities of the system will interact, and the formalization of some non-functional requirements:
+\begin{itemize}
+ \item how reports are accepted or rejected due to duplicates not being allowed and the authority manually discarding them;
+ \item how map updates are controlled by the reports and how the reports they contain expires;
+ \item how bans restrict the actions of civilians;
+ \item how the report checking done by officers happens and how that controls ticket emission;
+ \item various constraints on users' data.
+\end{itemize}
+\newpage
+\subsection{Analysis}
+
+\subsubsection{Signatures}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=.75\paperwidth,height=.75\paperheight, keepaspectratio]{Images/Alloy/sig1}
+\end{figure}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=.7\paperwidth,height=.7\paperheight, keepaspectratio]{Images/Alloy/sig2}
+\end{figure}
+
+\subsubsection{Facts}
+
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=.75\paperwidth,height=.75\paperheight, keepaspectratio]{Images/Alloy/facts1}
+\end{figure}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=.75\paperwidth,height=.75\paperheight, keepaspectratio]{Images/Alloy/facts2}
+\end{figure}
+
+\subsubsection{Assertions}
+
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=.75\paperwidth,height=.75\paperheight, keepaspectratio]{Images/Alloy/asserts}
+\end{figure}
+
+\subsubsection{Results}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=.6\paperwidth,height=.6\paperheight, keepaspectratio]{Images/Alloy/results}
+\end{figure}
+\subsubsection{Metamodel}
+\begin{figure}[H]
+				\centering
+				\includegraphics[]{Images/Alloy/metamodel}
+\end{figure}
+\subsubsection{Generated Worlds}
+\begin{figure}[H]
+				\centering
+				\includegraphics[]{Images/Alloy/world}
+\end{figure}
+This is the world generated by the predicate \texttt{show}, which evolves around an accepted report, showing the bindings with its map update and the various actors: the report is generated by a civilian and is being controlled by an officer.
+We also included a ticket and a banned civilian to better visualize the various restriction to which he is subject.
+
+\newpage
 \section{EFFORT	SPENT}
 \begin{itemize}
 \item {Davide Cocco}
@@ -815,6 +874,7 @@ assertions}
 				20/10/2019 & State Diagrams  & 2\\	
 				24/10/2019 & Class Diagram  & 2\\	
 				29/10/2019 & Document revision and filling minor sections & 1\\	
+				9/11/2019 & Alloy & 5\\	
 				\hline
 				Total & & ** \\
 				\hline
@@ -831,13 +891,11 @@ assertions}
 				& Use cases, Functional requirements and updates  & 6\\
 				20/10/2019 & Use case diagrams & 2\\	
 				22/10/2019 & Mockups & 4\\	
+				9/11/2019 & Alloy & 5\\	
 				\hline
 				Total & & ** \\
 				\hline
 			\end{tabular}
 \end{center}
 \end{itemize}
-\section{REFERENCES}
-
-
 \end {document}
