@@ -36,13 +36,66 @@
 
 \section{INTRODUCTION}
 \subsection{Purpose}
+This \texttt{Design Document (DD)} for the SafeStreets software will provide a functional description of the system by describing its architecture. 
+It will eventually by used by the development team as a blueprint to guide the engineering of the application.
 \subsection{Scope}
+The main objective of the S2B will be assisting (thus not substituting) authorities and officers in handling traffic violations though a crowd-sourced platform in which civilians can participate. 
+A mobile application will allow users, both civilians and officers, to report violations through the use of the camera and the GPS, sending the data to authorities who will process such reports. 
+Law enforcement will be aided by a data mining system which will produce relevant data about the registered violations, and the S2B will be able to automatically compile a ticket and send it to
+the municipality's VLA as soon as an officer personally convalidates a violation.
 \subsection{Definitions, Acronyms, Abbreviations}
+\subsubsection{Definitions}
+\begin{itemize}
+\item \texttt{Violation | Offence:} we will strictly refer to any kind of static traffic violation, especially parking violations. 
+\item \texttt{Authority:} a law enforcement authority which is manages traffic violations, it could be the local police, the traffic wardens etc. We will refer with this term also to the personnel which operates the web application in the authorities' headquarters.
+\item \texttt{User:} refers to the users of the mobile application, that is officers and civilians.
+\end{itemize}
+\subsubsection{Acronyms}
+\begin{itemize}
+\item \texttt{S2B:} software to be.
+\item \texttt{HFVZ:} high violation frequency zone.
+\item \texttt{GPS:} Global Positioning System.
+\item \texttt{GDPR:} General Data Protection Regulation.
+\item \texttt{DW:} data warehouse.
+\item \texttt{VLA:} Vehicle Licensing Authority.
+\item \texttt{RACS:} Reliable Array of Cloned Services.
+\end{itemize}
+\subsubsection{Abbreviations}
+\begin{itemize}
+	\item {[Gn]}: n-goal.
+	\item {[Rn]}: n-requirment.
+	\item {[Dn]}: n-domain assumption
+	\item {App}: application.
+\end{itemize}
 \subsection{Revision History}
 \subsection{Reference Documents}
 \subsection{Document Structure}
+\begin{itemize}
+\item \textbf{Introduction}: includes the purpose and scope of the document along with some relevant definitions and acronyms used throughout the document.
+\item \textbf{Architectural design}: this section is focused on the main components used for this system and the relationship between them, providing information about their
+deployment and how they operate. it also focuses on the architectural styles and the design patterns adopted for designing the system.
+\item \textbf{User interface design}: this section provides an overview on how the User Interface will look like, but it will be omitted due to the presence of this chapter in the RASD.
+\item \textbf{Requirements traceability}: in this sections the requirements highlighted in the RASD document will be associated with the design elements explained in this document.
+\item \textbf{Implementation, integration and test plan}: in this section we identify the order in which we plan to implement the subcomponents of the system and the order in which we plan to
+integrate and test them.
+\end{itemize}
 \section{ARCHITECTURAL DESIGN}
-\subsection{Overview: High-level components and their interaction}
+\subsection{High level overview}
+			\begin{figure}[H]
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=.9\paperwidth,keepaspectratio]{Images/highlevel}
+					\end{adjustwidth}
+				\caption{Figure 1: High Level Structure}
+			\end{figure}
+The three logical layers of the S2B will be allocated this way:
+\begin{itemize}
+\item \textbf{Presentation layer:} the clients installed both at the authority's web application and at the users' mobile application. The mobile application sends its report to the authority's web server, which also manages receiving the processed data from the authorities' data server
+and spreading it to the users and the authority's client. 
+\item \textbf{Application layer:} each authority owns an application server in a DMZ, which hosts its logic that is customizable by an API to handle different jurisdictions' needs. 
+\item \textbf{Data layer:} municipalities hold a data server which collects reports from all the authorities' data servers and distributes the processed data to be visualized on the clients. This data server also holds all the officers' data added by the authorities. 
+Moreover, a RACS of data server at SafeStreets headquarters serves all registrations and logins from civilians, and also bans requested from the authorities to discourage wrong usages of the application.
+\end{itemize}
 \subsection{Component view}
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
