@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  13 NOV 2019 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  15 NOV 2019 12:13
 entering extended mode
 **./DD.tex
 (DD.tex
@@ -405,47 +405,68 @@ e ex-plain which
 \openout4 = `DD.toc'.
 
  [2]
-Overfull \hbox (25.41779pt too wide) in paragraph at lines 54--54
-[]\OT1/cmr/bx/n/17.28 IMPLEMENTATION, IN-TE-GRA-TION AND
- []
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 57.
 ("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 57.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
 
 [3]
-Overfull \vbox (388.55008pt too high) has occurred while \output is active []
+<Images/highlevel.png, id=138, 1480.53125pt x 658.46pt>
+File: Images/highlevel.png Graphic file (type png)
+<use Images/highlevel.png>
+Package pdftex.def Info: Images/highlevel.png  used on input line 87.
+(pdftex.def)             Requested size: 537.75343pt x 239.16539pt.
+
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 87--88
+[][] 
+ []
+
+[4] [5 <./Images/highlevel.png>]
+Overfull \hbox (25.41779pt too wide) in paragraph at lines 107--107
+[]\OT1/cmr/bx/n/17.28 IMPLEMENTATION, IN-TE-GRA-TION AND
+ []
+
+[6] [7]
+Overfull \vbox (126.53339pt too high) has occurred while \output is active []
 
 
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
+[8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 129.
+ [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 129.
  (DD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
-Package rerunfilecheck Info: File `DD.out' has not changed.
-(rerunfilecheck)             Checksum: 5878FB20EF5A26BDF68C7C83D06DB549;2070.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 129.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 129.
+
+
+Package rerunfilecheck Warning: File `DD.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DD.out':
+(rerunfilecheck)             Before: 5878FB20EF5A26BDF68C7C83D06DB549;2070
+(rerunfilecheck)             After:  9A043AADE262CE033B58E788A8C10139;2251.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
  ) 
 Here is how much of TeX's memory you used:
- 7307 strings out of 492946
- 111394 string characters out of 3126388
+ 7325 strings out of 492946
+ 111656 string characters out of 3126388
  204645 words of memory out of 3000000
- 11099 multiletter control sequences out of 15000+200000
- 13017 words of font info for 50 fonts, out of 3000000 for 9000
+ 11106 multiletter control sequences out of 15000+200000
+ 13186 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,6n,42p,384b,432s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on DD.pdf (5 pages, 103802 bytes).
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolga/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on DD.pdf (9 pages, 229843 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 191 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
