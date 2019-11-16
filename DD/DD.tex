@@ -97,6 +97,18 @@ and spreading it to the users and the authority's client.
 Moreover, a RACS of data server at SafeStreets headquarters serves all registrations and logins from civilians, and also bans requested from the authorities to discourage wrong usages of the application.
 \end{itemize}
 \subsection{Component view}
+The following diagrams illustrate the system components and the interfaces through which they interact to fullfil their functionalities. The diagram is focused on the application tier, so the remaining tiers (the presentation tier and the data tier) are shown as black-box.
+First we have done a distinction between Client side and Server side:
+\begin{itemize}
+\item The Client side is composed by two components, \textit{Web Application} and \textit{Mobile Application}. The first is referred to the Authorities client, latter to the User client (Civilian and Officer).
+\item The Server side is composed of three main components: \textit{Authorities Web Services} that manages, throught \textit{AuthoritiesWebServices} interface, on server side, the authorities client; the other two services are \textit{Civilian Mobile Services} and \textit{Officer Mobile Services} that manage throught two distinct interfaces the \textit{Mobile Application}.
+\end{itemize}
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/ComponentDiagram}
+		\caption{Figure 2: Component diagram}
+\end{figure}
+
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
 \subsection{Component interfaces}
