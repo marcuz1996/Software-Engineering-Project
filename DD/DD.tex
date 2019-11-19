@@ -124,6 +124,7 @@ to limit the computational power used at the authorities' locations.
 
 
 \subsection{Component view}
+\subsubsection{High Level Component Diagram}
 The following diagrams illustrate the system components and the interfaces through which they interact to fullfil their functionalities. The diagram is focused on the application tier, so the remaining tiers (the presentation tier and the data tier) are shown as black-box.
 First we have done a distinction between Client side and Server side:
 \begin{itemize}
@@ -135,6 +136,25 @@ First we have done a distinction between Client side and Server side:
 			\includegraphics[width=1.0\linewidth]{Images/ComponentDiagram}
 		\caption{Figure 2: Component diagram}
 \end{figure}
+\subsubsection{Mobile Services Projection}
+Civilian Mobile Services subsystem is composed by five components: Report Module, Update Module, Data Manage Module and Authentication Module.
+These components provide to the Mobile Application the following interfaces: ReportHandler, UpdateHandler, DataManager and AuthenticationHandler. The Modules also communicate with map, gps services and two DBMS; the first one allows to collect the statistic data about reports in the database, the latter manages user access datas.
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/CivilianMobileServicesProjection}
+\end{figure}
+\textbf{Module Functionalities}
+\begin{itemize}
+	\item \texttt{Report Module}: this module manages the reports doing by Civilians exploits three API:
+	\begin{itemize}
+		\item GPS API is used to ensure that photos' reports are taken in the same place in which they appear on the map.
+		\item Map API is used to place the report in their correct location on the map in the user Moblie App.
+		\item DataBase API is used to send data about report to the DBMS for collect them in the database.
+		\end{itemize}
+	\item \texttt{Update Module}: this module handles the statistics about the number of report done by users and it takes care to positionig, through the interface Map API, the datas of most violated zones on the map. Its politic is pull-based: only when a request is made by Civilian it is updated on the client side.
+	\item \texttt{Data Manage Module}: this module handles the users data. It allows the Civilian to manage their personal datas, to change their e-mail address or password through the interaction with UserDataBase API. It also allows to manages the Ban, made by SafeStreet server, of the Civilian account.
+	\item \texttt{Authentication Module}: this module handles the registration and login request by users, it interacts with UserData DBMS through UserDataBase API to send the datas of users to the database during the registration and to check if the entered data are correct and allows users to do the login.
+\end{itemize}
 
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}

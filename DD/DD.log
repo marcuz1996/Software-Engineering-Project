@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  16 NOV 2019 12:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  19 NOV 2019 14:13
 entering extended mode
 **./DD.tex
 (DD.tex
@@ -378,7 +378,7 @@ LaTeX Info: Redefining \nameref on input line 25.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<Images/polimi.jpg, id=95, 602.25pt x 479.7925pt>
+<Images/polimi.jpg, id=103, 602.25pt x 479.7925pt>
 File: Images/polimi.jpg Graphic file (type jpg)
 <use Images/polimi.jpg>
 Package pdftex.def Info: Images/polimi.jpg  used on input line 29.
@@ -395,16 +395,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/lolga/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Images/po
 limi.jpg>] (DD.toc
-Overfull \hbox (3.25987pt too wide) in paragraph at lines 17--17
+Overfull \hbox (3.25987pt too wide) in paragraph at lines 19--19
  [][] [][]\OT1/cmr/m/n/12 Selected ar-chi-tec-tural styles and pat-terns: Pleas
 e ex-plain which 
  []
 
-)
+[2])
 \tf@toc=\write4
 \openout4 = `DD.toc'.
 
- [2] [3]
+ [3]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
 
 ("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
@@ -413,65 +413,68 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
 
-[4]
-<Images/highlevel.png, id=155, 1480.53125pt x 658.46pt>
+[4] [5] [6]
+<Images/highlevel.png, id=173, 1165.35374pt x 704.6325pt>
 File: Images/highlevel.png Graphic file (type png)
 <use Images/highlevel.png>
-Package pdftex.def Info: Images/highlevel.png  used on input line 87.
-(pdftex.def)             Requested size: 537.75343pt x 239.16539pt.
+Package pdftex.def Info: Images/highlevel.png  used on input line 92.
+(pdftex.def)             Requested size: 537.75343pt x 325.15631pt.
 
-Overfull \hbox (5.48967pt too wide) in paragraph at lines 87--88
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 92--93
 [][] 
  []
 
-[5] [6 <./Images/highlevel.png>]
-Overfull \hbox (15.21313pt too wide) in paragraph at lines 104--105
-\OT1/cmr/m/it/12 Civil-ian Mo-bile Ser-vices \OT1/cmr/m/n/12 and \OT1/cmr/m/it/
-12 Of-fi-cer Mo-bile Ser-vices \OT1/cmr/m/n/12 that man-age throught
- []
-
-<Images/ComponentDiagram.png, id=167, 814.04124pt x 606.265pt>
+[7 <./Images/highlevel.png>] [8]
+<Images/ComponentDiagram.png, id=186, 814.04124pt x 606.265pt>
 File: Images/ComponentDiagram.png Graphic file (type png)
 <use Images/ComponentDiagram.png>
-Package pdftex.def Info: Images/ComponentDiagram.png  used on input line 108.
+Package pdftex.def Info: Images/ComponentDiagram.png  used on input line 136.
 (pdftex.def)             Requested size: 390.0pt x 290.45808pt.
-[7]
-Overfull \hbox (25.41779pt too wide) in paragraph at lines 119--119
+ [9]
+<Images/CivilianMobileServicesProjection.png, id=192, 1324.95pt x 783.92876pt>
+File: Images/CivilianMobileServicesProjection.png Graphic file (type png)
+<use Images/CivilianMobileServicesProjection.png>
+Package pdftex.def Info: Images/CivilianMobileServicesProjection.png  used on i
+nput line 144.
+(pdftex.def)             Requested size: 390.0pt x 230.74261pt.
+ [10 <./Images/ComponentDiagram.png>]
+[11 <./Images/CivilianMobileServicesProjection.png>]
+Overfull \hbox (25.41779pt too wide) in paragraph at lines 166--166
 []\OT1/cmr/bx/n/17.28 IMPLEMENTATION, IN-TE-GRA-TION AND
  []
 
-[8 <./Images/ComponentDiagram.png>] [9]
+[12] [13]
 Overfull \vbox (100.78339pt too high) has occurred while \output is active []
 
 
-[10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+[14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
  (DD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
 Package rerunfilecheck Info: File `DD.out' has not changed.
-(rerunfilecheck)             Checksum: 9A043AADE262CE033B58E788A8C10139;2251.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+(rerunfilecheck)             Checksum: 5C737F6801BEBFB5A980CB83AD9CDBC3;2427.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 7338 strings out of 492946
- 111917 string characters out of 3126388
+ 7352 strings out of 492946
+ 112268 string characters out of 3126388
  205645 words of memory out of 3000000
- 11114 multiletter control sequences out of 15000+200000
+ 11120 multiletter control sequences out of 15000+200000
  13533 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,6n,42p,402b,432s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,6n,42p,400b,432s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolga/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolga/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DD.pdf (11 pages, 264529 bytes).
+Output written on DD.pdf (15 pages, 291656 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 200 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 
