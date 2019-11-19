@@ -63,6 +63,7 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 \item \texttt{GUI:} Graphical User Interface.
 \item \texttt{DMZ:} Demilitarized zone.
 \item \texttt{ADS:} Application and Data server of the authorities.
+\item \texttt{API:} Application Programming Interface.
 \end{itemize}
 \subsubsection{Abbreviations}
 \begin{itemize}
@@ -122,7 +123,7 @@ It is important to denote the fact that since every Authority owns a web server,
 we can reduce latency, because since the overhead to effectively send a correct plate frame will be pretty heavy, we remove the step to contact the application server and instead execute this function directly at the authorities' location. Anything else will be handled as notifications forwarded to the ADS
 to limit the computational power used at the authorities' locations.
 
-
+\newpage
 \subsection{Component view}
 \subsubsection{High Level Component Diagram}
 The following diagrams illustrate the system components and the interfaces through which they interact to fullfil their functionalities. The diagram is focused on the application tier, so the remaining tiers (the presentation tier and the data tier) are shown as black-box.
@@ -136,24 +137,70 @@ First we have done a distinction between Client side and Server side:
 			\includegraphics[width=1.0\linewidth]{Images/ComponentDiagram}
 		\caption{Figure 2: Component diagram}
 \end{figure}
-\subsubsection{Mobile Services Projection}
-Civilian Mobile Services subsystem is composed by five components: Report Module, Update Module, Data Manage Module and Authentication Module.
-These components provide to the Mobile Application the following interfaces: ReportHandler, UpdateHandler, DataManager and AuthenticationHandler. The Modules also communicate with map, gps services and two DBMS; the first one allows to collect the statistic data about reports in the database, the latter manages user access datas.
+
+\subsubsection{Civilian Mobile Services Projection}
+Civilian Mobile Services subsystem is made of four components: Report Module, Update Module, Data Manage Module and Civilian Authentication Module.
+These components provide the Mobile Application the following interfaces: ReportHandler, UpdateHandler, DataManager and AuthenticationHandler. The Modules also communicate with the map, gps services and two DBMS; the first one allows to collect the mined data about reports in the data warehouse, the latter manages user accesses of any form.
 \begin{figure}[H]
-		\centering
-			\includegraphics[width=1.0\linewidth]{Images/CivilianMobileServicesProjection}
-\end{figure}
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=0.9\paperwidth]{Images/CivilianMobileServicesProjection}
+					\end{adjustwidth}
+			\end{figure}
 \textbf{Module Functionalities}
 \begin{itemize}
-	\item \texttt{Report Module}: this module manages the reports doing by Civilians exploits three API:
+	\item \texttt{Report Module}: this module manages the reports done by Civilians and exploits three APIs:
+	\begin{itemize}
+		\item GPS API is used to mark the reports with their corresponging place and timestamp them.
+		\item REST API is used to make HTTP calls, in this case towards the Authority's web server that will receive the report.
+		\end{itemize}
+	\item \texttt{Update Module}: this module handles the receiving (through a REST API) and visualizing of the mined data about HFVZs, through the Map API:
+\begin{itemize}
+		\item MAP API is the tool through which the data is visualized.
+		\item REST API is used to make HTTP calls again towards the Authority's web server to fetch the updates (thus following a pull-based policy).
+		\end{itemize}
+	\item \texttt{Data Manager Module}: this module handles the users data. It allows the Civilian to manage their personal data (for instance changing their e-mail address or password):
+	\begin{itemize}
+		\item REST API is used to make HTTP calls towards the SafeStreets server.
+		\end{itemize}
+	\item \texttt{Civilian Authentication Module}: this module handles the registration and login requests by civilians, and thus providing the effects of an eventual ban, using the same REST API as the Data Manager Module:
+\begin{itemize}
+		\item REST API is used to make HTTP calls towards the SafeStreets server.
+		\end{itemize}
+\end{itemize}
+\newpage
+\subsubsection{Officer Mobile Services Projection}
+Officer Mobile Services subsystem is an enriched version of the civilian one to accomodate the advanced functions accessible to officers. It is made of four components: Report Module, Update Module, Check Report Module and Officer Authentication Module.
+The Report Module works in the same way as the civilian mobile services, while the Update Module possesses quite a few different features to assist the officer. The Check Report Module manages the practice of checking violations by the officer
+which might eventually result in a ticket being compiled. The Officer Authentication Module communicates with the Authorities Web Server and not with the SafeStreets server because officer data is kept in the ADS. 
+\begin{figure}[H]
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=0.9\paperwidth]{Images/OfficerMobileServicesProjection}
+					\end{adjustwidth}
+			\end{figure}
+\textbf{Module Functionalities}
+Pretty much the same as the Civilian Mobile Services:
+\begin{itemize}
+	\item \texttt{Report Module}: this module manages the reports done by Civilians and exploits three APIs:
 	\begin{itemize}
 		\item GPS API is used to ensure that photos' reports are taken in the same place in which they appear on the map.
-		\item Map API is used to place the report in their correct location on the map in the user Moblie App.
-		\item DataBase API is used to send data about report to the DBMS for collect them in the database.
+		\item REST API is used to make HTTP calls, in this case towards the Authority's web server that will receive the report.
 		\end{itemize}
-	\item \texttt{Update Module}: this module handles the statistics about the number of report done by users and it takes care to positionig, through the interface Map API, the datas of most violated zones on the map. Its politic is pull-based: only when a request is made by Civilian it is updated on the client side.
-	\item \texttt{Data Manage Module}: this module handles the users data. It allows the Civilian to manage their personal datas, to change their e-mail address or password through the interaction with UserDataBase API. It also allows to manages the Ban, made by SafeStreet server, of the Civilian account.
-	\item \texttt{Authentication Module}: this module handles the registration and login request by users, it interacts with UserData DBMS through UserDataBase API to send the datas of users to the database during the registration and to check if the entered data are correct and allows users to do the login.
+	\item \texttt{Update Module}: this module handles the receiving (through a REST API) and visualizing of the mined data about HFVZs, newly confirmed reports and most egregious offenders, through the Map API:
+\begin{itemize}
+		\item MAP API is the tool through which the data is visualized.
+		\item REST API is used to make HTTP calls again towards the Authority's web server to fetch the updates (thus following a pull-based policy).
+		\end{itemize}
+	\item \texttt{Check Report Module}: this module allows the officers to confirm the presence of a violation (and the correctness of the plate shown in the report) and enter a secret PIN to allow the emission of a ticket:
+	\begin{itemize}
+		\item REST API is used to make HTTP calls towards the Authority's web server to send them the secret PIN.
+		\item MAP API is used by the officer to confirm he's checking a violation and show the specific data about such violation via a tooltip, so that the officer can correctly check it.
+		\end{itemize}
+	\item \texttt{Officer Authentication Module}: this module handles the registration and login requests by officers.
+\begin{itemize}
+		\item REST API is used to make HTTP calls towards the Authority's web server.
+		\end{itemize}
 \end{itemize}
 
 \subsection{Deployment view}
