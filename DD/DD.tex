@@ -231,6 +231,17 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
 \subsection{Component interfaces}
+\subsubsection{External Interfaces}
+SafeStreets will make use of some Application Programming Interfaces to simplify the implementation, since these components are largely used and compatible with the majority of the devices currently on the market:
+\begin{itemize}
+\item \texttt{Maps API} to have a visual representation of users' reports and HFVZ, to help Officers to find a report that must be confirmed or rejected. For our purpose the Google Maps API is perfectly suitable, since it can be embedded in both Android and iOS applications.
+\item \texttt{GPS API} to geolocate the reports made by users and to avoid the possibility of forging the location which could happen if users manually enter the location.
+\item \texttt{Rest API} are used to simplify the communication beetween the services offered on client side and the server of Authorities and SafeStrees.
+\item \texttt{OfficerDataDBMS API} to allows Authority to communicates with data Warehouse in which officer's data are collected.
+\item \texttt{CivilianDataDBMS API} to allows SafeStreets to communicates with database in which civilian's data are collected and to ban a civilian in case of tragression.
+\item \texttt{StatisticDBMS API} to provide some methods to Authority's Application and Data Server for mining data through Statistic DBMS on Data Warehouse and to make thees statistics available to civilians and officers.
+\item \texttt{E-Mail API} to send an Email to the officers that have to join the SafeStreets project and to send the compiled ticket to the VLA.
+\end{itemize}
 \subsection{Selected architectural styles and patterns: Please explain which styles/patterns you used, why, and how}
 \subsection{Other design decisions}
 \section{USER INTERFACE DESIGN: Provide an overview on how the user interface(s) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}
@@ -243,7 +254,9 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 			\begin{tabular}{| c | l | c |}
 				\hline
 				\textbf{Day} & \textbf{Subject} & \textbf{Hours} \\ \hline
-				Total & & 22.5 \\ \hline
+				14/11/2019 & High level components & 3 \\ \hline
+				19/11/2019 & Component view & 4 \\ \hline
+				Total & & ** \\ \hline
 			\end{tabular}
 		\end{center}
 \item {Marco Gasperini}
@@ -251,7 +264,9 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 			\begin{tabular}{| c | l | c |}
 				\hline
 				\textbf{Day} & \textbf{Subject} & \textbf{Hours} \\ \hline
-				Total & & 19.5 \\ \hline
+				14/11/2019 & Purpose and Scope & 1 \\ \hline
+				19/11/2019 & Component view & 5 \\ \hline
+				Total & & ** \\ \hline
 			\end{tabular}
 \end{center}
 \end{itemize}
