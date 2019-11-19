@@ -156,7 +156,7 @@ These components provide the Mobile Application the following interfaces: Report
 		\end{itemize}
 	\item \texttt{Update Module}: this module handles the receiving (through a REST API) and visualizing of the mined data about HFVZs, through the Map API:
 \begin{itemize}
-		\item MAP API is the tool through which the data is visualized.
+		\item Map API is the tool through which the data is visualized.
 		\item REST API is used to make HTTP calls again towards the Authority's web server to fetch the updates (thus following a pull-based policy).
 		\end{itemize}
 	\item \texttt{Data Manager Module}: this module handles the users data. It allows the Civilian to manage their personal data (for instance changing their e-mail address or password):
@@ -189,19 +189,44 @@ Pretty much the same as the Civilian Mobile Services:
 		\end{itemize}
 	\item \texttt{Update Module}: this module handles the receiving (through a REST API) and visualizing of the mined data about HFVZs, newly confirmed reports and most egregious offenders, through the Map API:
 \begin{itemize}
-		\item MAP API is the tool through which the data is visualized.
+		\item Map API is the tool through which the data is visualized.
 		\item REST API is used to make HTTP calls again towards the Authority's web server to fetch the updates (thus following a pull-based policy).
 		\end{itemize}
 	\item \texttt{Check Report Module}: this module allows the officers to confirm the presence of a violation (and the correctness of the plate shown in the report) and enter a secret PIN to allow the emission of a ticket:
 	\begin{itemize}
 		\item REST API is used to make HTTP calls towards the Authority's web server to send them the secret PIN.
-		\item MAP API is used by the officer to confirm he's checking a violation and show the specific data about such violation via a tooltip, so that the officer can correctly check it.
+		\item Map API is used by the officer to confirm he's checking a violation and show the specific data about such violation via a tooltip, so that the officer can correctly check it.
 		\end{itemize}
 	\item \texttt{Officer Authentication Module}: this module handles the registration and login requests by officers.
 \begin{itemize}
 		\item REST API is used to make HTTP calls towards the Authority's web server.
 		\end{itemize}
 \end{itemize}
+\newpage
+\subsubsection{Authorities Web Services Projection}
+The Authorities Web Services are carried out by the Web Server and the ADS, which implements most functions of the application. Five Modules will be implemented to fulfill every functionality: Validation Report, Authority Update, Officer Registration, Officer Authentication, Ticket Emission. Web Server and ADS are strongly intertwined to provide the functionalities which all the three actors' clients need: the web server is in fact an interface which provides a layer for communication for the clients to interact with the ADS, for enhanced security, as every HTTP call which eventually has to reach the ADS to execute some logic has to pass through the web server at some authority's location.
+\begin{figure}[H]
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=0.9\paperwidth]{Images/AuthoritiesServicesProjection}
+					\end{adjustwidth}
+			\end{figure}
+\textbf{Module Functionalities}
+\begin{itemize}
+	\item \texttt{Validation Report Module}: this module handles the functionality for validating reports by the authority's personnel and the subsequent adding to the DW.  Also the issuing of bans which is performable while invalidating reports:
+	\begin{itemize}
+		\item two REST APIs are used, one to communicate with the ADS which takes care of saving valid reports in the data warehouse with a DBMS.
+		\item the Map API which will be enriched with the newly validated reports.
+		\end{itemize}
+	\item \texttt{Authority Update Module}: this module not only handles the receiving of updates by the ADS at the web server location, but also the mining which will be run in the ADS by periodically querying the DW to retrieve the data which will be packed to form the updates, that will be sent to the web servers and spread to the mobile units.
+\begin{itemize}
+		\item a DBMS will be used to query the data to create the updates.
+		\item one REST API is used to transfer newly mined updates from the ADS to the Web server, and the other one to multicast the updates from the web server to the connected mobile units.
+		\end{itemize}
+	\item \texttt{Officer Registration Module}: allows the authority to add new officers, communicating the addition both to the officer via mail and to the ADS. Also manages the first insertion of the secret pin by the officer.
+	\item \texttt{Officer Authentication Module}: this module authenticates the officers' login requests from the Officer Authentication Module of the Officer Services, and the pin insertion from the Check Report module.
+\end{itemize}
+
 
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
