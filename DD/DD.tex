@@ -149,24 +149,10 @@ These components provide the Mobile Application the following interfaces: Report
 			\end{figure}
 \textbf{Module Functionalities}
 \begin{itemize}
-	\item \texttt{Report Module}: this module manages the reports done by Civilians and exploits three APIs:
-	\begin{itemize}
-		\item GPS API is used to mark the reports with their corresponging place and timestamp them.
-		\item REST API is used to make HTTP calls, in this case towards the Authority's web server that will receive the report.
-		\end{itemize}
-	\item \texttt{Update Module}: this module handles the receiving (through a REST API) and visualizing of the mined data about HFVZs, through the Map API:
-\begin{itemize}
-		\item Map API is the tool through which the data is visualized.
-		\item REST API is used to make HTTP calls again towards the Authority's web server to fetch the updates (thus following a pull-based policy).
-		\end{itemize}
-	\item \texttt{Data Manager Module}: this module handles the users data. It allows the Civilian to manage their personal data (for instance changing their e-mail address or password):
-	\begin{itemize}
-		\item REST API is used to make HTTP calls towards the SafeStreets server.
-		\end{itemize}
-	\item \texttt{Civilian Authentication Module}: this module handles the registration and login requests by civilians, and thus providing the effects of an eventual ban, using the same REST API as the Data Manager Module:
-\begin{itemize}
-		\item REST API is used to make HTTP calls towards the SafeStreets server.
-		\end{itemize}
+	\item \texttt{Report Module}: this module manages the reports done by Civilians and their sending to the Authority's Web server. It will allow the user to take photos of the violation, enter a description of it, timestamp it and attach geolocation coordinates thanks to the GPS API, and also handle all the communication needed for the plate recognition algorithm to work.
+	\item \texttt{Update Module}: this module handles the receiving and visualizing of the mined data about HFVZs, through the Map API.
+	\item \texttt{Data Manager Module}: this module allows civilians to manage their personal data (for instance changing their e-mail address or password).
+	\item \texttt{Civilian Authentication Module}: this module handles the registration and login requests by civilians, and thus providing the effects of an eventual ban.
 \end{itemize}
 \newpage
 \subsubsection{Officer Mobile Services Projection}
@@ -182,25 +168,11 @@ which might eventually result in a ticket being compiled. The Officer Authentica
 \textbf{Module Functionalities}
 Pretty much the same as the Civilian Mobile Services:
 \begin{itemize}
-	\item \texttt{Report Module}: this module manages the reports done by Civilians and exploits three APIs:
-	\begin{itemize}
-		\item GPS API is used to ensure that photos' reports are taken in the same place in which they appear on the map.
-		\item REST API is used to make HTTP calls, in this case towards the Authority's web server that will receive the report.
-		\end{itemize}
-	\item \texttt{Update Module}: this module handles the receiving (through a REST API) and visualizing of the mined data about HFVZs, newly confirmed reports and most egregious offenders, through the Map API:
-\begin{itemize}
-		\item Map API is the tool through which the data is visualized.
-		\item REST API is used to make HTTP calls again towards the Authority's web server to fetch the updates (thus following a pull-based policy).
-		\end{itemize}
-	\item \texttt{Check Report Module}: this module allows the officers to confirm the presence of a violation (and the correctness of the plate shown in the report) and enter a secret PIN to allow the emission of a ticket:
-	\begin{itemize}
-		\item REST API is used to make HTTP calls towards the Authority's web server to send them the secret PIN.
-		\item Map API is used by the officer to confirm he's checking a violation and show the specific data about such violation via a tooltip, so that the officer can correctly check it.
-		\end{itemize}
+	\item \texttt{Report Module}: works in the same way as the Civilian's one, as officers will also be able to report violations.
+	\item \texttt{Update Module}: just as the Civilian's one, but enriched with more updates that should only be accessible to law enforcement agents, such as the most egregious offenders list, newly added reports to the map, etc.
+	\item \texttt{Check Report Module}: this module allows the officers to confirm the presence of a violation (and the correctness of the plate shown in the report) and enter a secret PIN to allow the emission of a ticket.
 	\item \texttt{Officer Authentication Module}: this module handles the registration and login requests by officers.
-\begin{itemize}
-		\item REST API is used to make HTTP calls towards the Authority's web server.
-		\end{itemize}
+
 \end{itemize}
 \newpage
 \subsubsection{Authorities Web Services Projection}
@@ -213,20 +185,20 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 			\end{figure}
 \textbf{Module Functionalities}
 \begin{itemize}
-	\item \texttt{Validation Report Module}: this module handles the functionality for validating reports by the authority's personnel and the subsequent adding to the DW.  Also the issuing of bans which is performable while invalidating reports:
-	\begin{itemize}
-		\item two REST APIs are used, one to communicate with the ADS which takes care of saving valid reports in the data warehouse with a DBMS.
-		\item the Map API which will be enriched with the newly validated reports.
-		\end{itemize}
-	\item \texttt{Authority Update Module}: this module not only handles the receiving of updates by the ADS at the web server location, but also the mining which will be run in the ADS by periodically querying the DW to retrieve the data which will be packed to form the updates, that will be sent to the web servers and spread to the mobile units.
-\begin{itemize}
-		\item a DBMS will be used to query the data to create the updates.
-		\item one REST API is used to transfer newly mined updates from the ADS to the Web server, and the other one to multicast the updates from the web server to the connected mobile units.
-		\end{itemize}
+	\item \texttt{Validation Report Module}: this module handles the functionality for validating reports by the authority's personnel and the subsequent adding to the DW.  Also the issuing of bans which is performable while invalidating reports.
+	\item \texttt{Authority Update Module}: this module not only handles the receiving of updates by the ADS at the web server location (the updates are the same received by the officers, plus the list of currently active officers), but also the mining which will be run in the ADS by periodically querying the DW to retrieve the data which will be packed to form the updates, that will be sent to the web servers and spread by them to the mobile units.
 	\item \texttt{Officer Registration Module}: allows the authority to add new officers, communicating the addition both to the officer via mail and to the ADS. Also manages the first insertion of the secret pin by the officer.
 	\item \texttt{Officer Authentication Module}: this module authenticates the officers' login requests from the Officer Authentication Module of the Officer Services, and the pin insertion from the Check Report module.
 \end{itemize}
-
+\newpage
+\subsubsection{Complete Component Diagram}
+This diagram shows the interactions between all the subsystems of the application for better clarity. The presence of multiple REST APIs instead of a single comprehensive one has been modeled to show the different connections between modules without ambiguity.
+\begin{figure}[H]
+				\centering
+					\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=0.95\paperwidth]{Images/OverallComponent}
+					\end{adjustwidth}
+			\end{figure}
 
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
@@ -234,13 +206,15 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 \subsubsection{External Interfaces}
 SafeStreets will make use of some Application Programming Interfaces to simplify the implementation, since these components are largely used and compatible with the majority of the devices currently on the market:
 \begin{itemize}
-\item \texttt{Maps API} to have a visual representation of users' reports and HFVZ, to help Officers to find a report that must be confirmed or rejected. For our purpose the Google Maps API is perfectly suitable, since it can be embedded in both Android and iOS applications.
-\item \texttt{GPS API} to geolocate the reports made by users and to avoid the possibility of forging the location which could happen if users manually enter the location.
-\item \texttt{Rest API} are used to simplify the communication beetween the services offered on client side and the server of Authorities and SafeStrees.
-\item \texttt{OfficerDataDBMS API} to allows Authority to communicates with data Warehouse in which officer's data are collected.
-\item \texttt{CivilianDataDBMS API} to allows SafeStreets to communicates with database in which civilian's data are collected and to ban a civilian in case of tragression.
-\item \texttt{StatisticDBMS API} to provide some methods to Authority's Application and Data Server for mining data through Statistic DBMS on Data Warehouse and to make thees statistics available to civilians and officers.
-\item \texttt{E-Mail API} to send an Email to the officers that have to join the SafeStreets project and to send the compiled ticket to the VLA.
+\item \texttt{Maps API} to have a visual representation of users' reports and HFVZs, to help Officers in finding a report that coud be confirmed or rejected. For our purpose the Google Maps API is perfectly suitable, since it can be embedded in both Android and iOS applications.
+\item \texttt{GPS API} to geolocate the reports made by users and  avoid the possibility of forging the location, which could happen if users manually enters it. GPS will also provide the application with precise timestamps for the reports.
+\item \texttt{REST API} every distributed component will be provided with a REST API, especially mobile clients will exploit it to interact with the web server at the Authority's location, which is the only layer visible to them. Also the SafeStreets data server's services and the ADS's will be invokable through a REST interface. Spring Boot could be used as a versatile, easy to implement solution to build a functioning REST architecture across all subsystems.
+\item \texttt{DBMS API} will be used to read and write all the database components:
+\item one at the SafeStreets server which manages civilian accounts;
+\item one DW at the ADS location which holds records for all reports ever compiled and is queried to create the updates;
+\item another one at the ADS location which manages officer accounts.
+We will use MySQL as the DBMS, which will be manipulated directly from the software from the Hibernate API which can be easily configured to work with Spring Boot for simplicity and performance.
+\item \texttt{E-Mail API} to send an Email to the officers added to the SafeStreets project and to send the compiled ticket to the VLA. 
 \end{itemize}
 \subsection{Selected architectural styles and patterns: Please explain which styles/patterns you used, why, and how}
 \subsection{Other design decisions}
