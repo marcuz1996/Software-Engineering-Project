@@ -92,42 +92,38 @@ integrate and test them.
 					\begin{adjustwidth}{-25mm}{-25mm}
 					        \includegraphics[width=.9\paperwidth,keepaspectratio]{Images/highlevel}
 					\end{adjustwidth}
-				\caption{Figure 1: High Level Structure with a single Authority and a single User}
+				\caption{High Level Structure with a single Authority and a single User}
 			\end{figure}
-The three logical layers of the S2B can be seen in different ways depending on the actor's client, as different actors can access different services. From the \textbf{Authority's perspective} we can see the layers distributed in a \textbf{two-tier architecture}:
+The three logical layers of the S2B are distributed in a \textbf{three-tier architecture}:
 \begin{itemize}
-\item \textbf{Presentation layer:} the GUI at the authority's web application is the tool thanks to which the authority's personnel can add officers, receive reports  from the users through HTTP calls thanks to a REST architecture embedded in the web server, and validate or invalidate them. It can thus interact 
-with the Application and Data server (we will call it ADS from now on) to which it sends validated reports and receives updates, the users' clients, and rarely with the SafeStreets' server to which it sends ban requests. The web server is isolated from the outside by firewalls for increased security and to protect the ADS even if the web server is compromised.
-\item \textbf{Application and Data layer:} the ADS manages application functionalities such as ticket emission and update spreading, and also data functionalities such as managing the officers' accounts in an ad-hoc database and
-enriching a standalone data warehouse with reports to be processed. This server's location can either be in a central authority location for reduced latency, a municipality etc. and can be replicated through a RAPS architecture, (e.g. every authority can have its own server)
-to be able to handle multiple requests in settings like big cities. 
+\item \textbf{Presentation layer:} two hard clients:
+\begin{itemize}
+\item the GUI at the authority's web application is the tool thanks to which the authority's personnel can add officers, receive reports from the users through HTTP calls thanks to a REST architecture embedded in the web server, and validate or invalidate them. It can thus interact directly with the web server, and rarely with the SafeStreets' server to which it sends ban requests. The web server is isolated from the outside by firewalls for increased security and to protect the ADS even if the web server is compromised. The only logic that will be implemented directly at the this client will be the supervised algorithm to recognize plates: this way we can reduce latency, because since the overhead to effectively send a correct plate frame will be pretty heavy, we remove the step to contact the application server and instead execute this function directly at the authorities' location. Anything else will be handled as notifications forwarded to the ADS to limit the computational power used at the authorities' locations.
+\item the GUI at the mobile application, which can be used to file reports and send them to the Authority's web server by all users, and which allows officers to check reports and sign automated tickets (and also receives slightly different updates which
+include sensitive data to be made unreadable by civilians). 
+\end{itemize}
+Moreover, both clients must be able to "unpack" the received updates' representations into a format understandable to the user.
+\item \textbf{Application layer:} the hypermedia at the mobile application moves from a state to another thanks to the updates received by the authorities' web servers (which are themselves sent to the authorities by the ADS, and then are periodically spread to the clients in the network). While the web server constitutes an interface protected by a DMZ (to isolate it from the ADS) which clients are forced to invoke when applicative functions are needed, the ADS hosts the update producing and ticket emission functionalities. It is important to denote the fact that since every Authority owns a web server, calls received from the mobile units can be handled by any of the authorities for load balancing.  Thus we can say that both the Web server located at the authorities' location and the applicative functions of the ADS constitute this layer. 
+\item \textbf{Data layer:} three instances where data access is needed:
+\begin{itemize}
+\item for managing the civilian accounts and bans, at the SafeStreets server;
+\item for managing the officer accounts, at the ADS;
+\item for reading and writing historical data about reports in the data warehouse, again at the ADS;
+Therefore we can say that application and data services are "partially merged" as the ADS hosts both an application and a data server.
+\end{itemize}
 \end{itemize}
 
-From the \textbf{Civilian's perspective} we can see the layers distributed in a \textbf{three-tier architecture}:
-\begin{itemize}
-\item \textbf{Presentation layer:} the GUI at the mobile application, which can be used to file reports and send them to the Authority's web server. 
-\item \textbf{Application layer:} the hypermedia at the mobile application moves from a state to another thanks to the updates received by the authorities' web servers (which are themselves sent to the authorities by their application server), that are periodically spread to the clients in the network. 
-This is done to avoid having the clients know the application and data servers' access points. This way the mobile application can only contact one of the authorities' web servers and all the report processing and updating procedures are black boxed from the users perspective.
-\item \textbf{Data layer:} the data server at the SafeStreets headquarters, which can be replicated through a RACS architecture to be simply scalable, manages civilian accesses and bans.
-\end{itemize}
+It is important to notice how the ADS could be implemented in a \texttt{RAPS architecture} where multiple ADS each own a single microservice, for example a server could handle ticket emission, another one officer accounts, and another one update mining and spreading. Another configuration could be assigning an ADS for each authority. 
+Web Servers are installed at the authority's location, one for each authority, to better serve nearby mobile units and balance loads, especially in big cities.
+The SafeStreet servers could be arranged in a \texttt{RACS architecture} to handle requests from great numbers of civilians.
+In some settings such as small towns a lightweight version of the architecture could be employed by running the web server directly in the same machine where the Authority's client is running instead of a standalone device, thus making it a two-tier architecture since the web server wouldn't be separed from the presentation layer anymore.
 
-From the \textbf{Officer's perspective} we have a similar perspective as the civilian's, but officers' accounts are managed by the authorities' Application and Data server, thus we can see the layers distributed in a \textbf{two-tier architecture}:
-\begin{itemize}
-\item \textbf{Presentation layer:} the GUI at the mobile application which possesses the same features as the civilians' one but also includes the abilities to check a report and sign the automated ticket by inserting the officer's secret PIN, and also receives slightly different updates which
-include sensitive data to be made unreadable by civilians. 
-\item \textbf{Application and Data layer:} just as the civilians' perspective but in this case accounts are managed in the same location where the application functionalities resiede (as officers account aren't located in the DB at SafeStreets headquarters) and thus the application and data layers are merged.
-Officers, just as civilians, only communicate directly with one of the city's authorities' web server which then handles interacting with the Application and Data server to provide the functionalities.
-\end{itemize}
-
-It is important to denote the fact that since every Authority owns a web server, calls received from the mobile units can be handled by any of the authorities for load balancing. The only logic which will be implemented at the authorities' client will be the supervised algorithm to recognize plates: this way
-we can reduce latency, because since the overhead to effectively send a correct plate frame will be pretty heavy, we remove the step to contact the application server and instead execute this function directly at the authorities' location. Anything else will be handled as notifications forwarded to the ADS
-to limit the computational power used at the authorities' locations.
 
 \newpage
 \subsection{Component view}
 \subsubsection{High Level Component Diagram}
 The following diagrams illustrate the system components and the interfaces through which they interact to fullfil their functionalities. The diagram is focused on the application tier, so the remaining tiers (the presentation tier and the data tier) are shown as black-box.
-First we have done a distinction between Client side and Server side:
+First we highlight a distinction between Client side and Server side:
 \begin{itemize}
 \item The Client side is composed by two components, \textit{Web Application} and \textit{Mobile Application}. The first is referred to the Authorities client, latter to the User client (Civilian and Officer).
 \item The Server side is composed of three main components: \textit{Authorities Web Services} manages the authorities client, through the \textit{AuthoritiesWebServices} interface server-side; the other two services are the \textit{Civilian Mobile Services} and the \textit{Officer Mobile Services} that manage  the \textit{Mobile Application} from two distinct interfaces.
@@ -135,7 +131,7 @@ First we have done a distinction between Client side and Server side:
 \begin{figure}[H]
 		\centering
 			\includegraphics[width=1.0\linewidth]{Images/ComponentDiagram}
-		\caption{Figure 2: Component diagram}
+		\caption{Component diagram}
 \end{figure}
 
 \subsubsection{Civilian Mobile Services Projection}
@@ -199,8 +195,36 @@ This diagram shows the interactions between all the subsystems of the applicatio
 					        \includegraphics[width=0.95\paperwidth]{Images/OverallComponent}
 					\end{adjustwidth}
 			\end{figure}
-
+\newpage
 \subsection{Deployment view}
+The architecture of the S2B, as shown in the component view paragraph, will be arranged in three tiers:
+\begin{itemize}
+\item \textbf{First tier:} is composed of the smartphones of the civilians and officers which run the mobile application, both in Android and iOS operative systems, and by the computer located at the Authority. All these clients communicate with the web server via HTTP thanks to a REST architecture, while mobile units can log in as civilians contacting the SafeStreets server.
+\begin{figure}[H]
+				\centering
+					        \includegraphics[width=0.6\paperwidth]{Images/firstTier}
+			\end{figure}
+\newpage
+\item \textbf{Second tier:} is made of the Web Server which acts as a layer of communication for clients which want to interact with the ADS. We chose Apache Tomcat as web server as it is efficient and easy to implement through Spring Boot.
+\begin{figure}[H]
+				\centering				
+					        \includegraphics[width=0.7\paperwidth]{Images/secondTier}
+			\end{figure}
+\newpage
+\item \textbf{Third tier:} the ADS with its application server and data servers, which communicate with the Officer Accounts database and with the Data Warehouse whose data is accessed through Hibernate which is again made easily interoperable with Spring Boot. The same implementation is used by the SafeStreet server which manages civilian accounts. We chose WildFly for the application servers because like Tomcat it provides a well documented and easily implementable framework.
+\begin{figure}[H]
+				\centering				
+					        \includegraphics[width=0.6\paperwidth]{Images/thirdTier}
+			\end{figure}
+\end{itemize}
+\newpage
+This diagram represents the deployment view for the entire system:
+\begin{figure}[H]
+\begin{adjustwidth}{-25mm}{-25mm}
+				\centering				
+					        \includegraphics[width=0.9\paperwidth]{Images/deploymentView}
+\end{adjustwidth}
+			\end{figure}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
 \subsection{Component interfaces}
 \subsubsection{External Interfaces}
@@ -208,7 +232,7 @@ SafeStreets will make use of some Application Programming Interfaces to simplify
 \begin{itemize}
 \item \texttt{Maps API} to have a visual representation of users' reports and HFVZs, to help Officers in finding a report that coud be confirmed or rejected. For our purpose the Google Maps API is perfectly suitable, since it can be embedded in both Android and iOS applications.
 \item \texttt{GPS API} to geolocate the reports made by users and  avoid the possibility of forging the location, which could happen if users manually enters it. GPS will also provide the application with precise timestamps for the reports.
-\item \texttt{REST API} every distributed component will be provided with a REST API, especially mobile clients will exploit it to interact with the web server at the Authority's location, which is the only layer visible to them. Also the SafeStreets data server's services and the ADS's will be invokable through a REST interface. Spring Boot could be used as a versatile, easy to implement solution to build a functioning REST architecture across all subsystems.
+\item \texttt{REST API} every distributed component will be provided with a REST API, especially mobile clients will exploit it to interact with the web server at the Authority's location, which is the only layer visible to them. Also the SafeStreets data server's services and the ADS's will be invokable through a REST interface. Spring Boot, which uses Apache Tomcat as a web server, could be used as a versatile, easy to implement solution to build a functioning REST architecture across all subsystems.
 \item \texttt{DBMS API} will be used to read and write all the database components:
 \item one at the SafeStreets server which manages civilian accounts;
 \item one DW at the ADS location which holds records for all reports ever compiled and is queried to create the updates;
@@ -230,6 +254,7 @@ We will use MySQL as the DBMS, which will be manipulated directly from the softw
 				\textbf{Day} & \textbf{Subject} & \textbf{Hours} \\ \hline
 				14/11/2019 & High level components & 3 \\ \hline
 				19/11/2019 & Component view & 4 \\ \hline
+				20/11/2019 & Deployment view & 2 \\ \hline
 				Total & & ** \\ \hline
 			\end{tabular}
 		\end{center}
