@@ -244,38 +244,298 @@ We will use MySQL as the DBMS, which will be manipulated directly from the softw
 \subsection{Other design decisions}
 \section{USER INTERFACE DESIGN: Provide an overview on how the user interface(s) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}
 \section{REQUIREMENTS TRACEABILITY}
-In the following table it is highlighted the link between the functional requirements stated in the RASD and the components listed in the section 2.2.
-\begin{center}
-\begin{tabular}{| l | l | l |}
-	\hline
-	\textbf{Requirement} & \textbf{Referring Goal} & \textbf{Component (DD)} \\ \hline
-		[R1]: Separate civilian and officer \\ registration and login functionality. & [G1-G5.2] & Officer Registration Module \\ Officer Authentication Module \\ civilian Authentication Module \\ \hline
-		[R2]: Data has to be correctly queried\\ server-side everytime, to make sure no\\ duplicate accounts are created \\ or no unregistered visitors log in. & [G1] & Officer Registration Module - Officer Authentication Module - civilian Authentication Module \\ \hline
-		[R3]: Send confirmation emails \\within at most one minute after \\the registration confirmation receipt \\(or the new officer being added). & [G1] & Officer Registration Module - civilian Authentication Module\\ \hline
-		[R4]: Confirm user registration \\within at most one minute after \\the email link has been clicked. & [G1] & Officer Registration Module - civilian Authentication Module \\ \hline
-		[R5]: Force the user to allow \\the S2B to access the device's \\camera and GPS. & [G2] & Report Module - Update Module \\ \hline
-		[R6]: Implement a function in the \\authority's client which allows \\personnel to validate or \\invalidate reports. & [G2-G5.1] & Validation Report Module \\ \hline
-		[R7]: Implement a supervised learning \\algorithm server-side which scans\\ the multiple frames sent by the\\ user to recognize the license plate. & [G2-G5.1] & Validation Report Module \\ \hline
-		[R8]: Automatically discard the report\\ if another one with the same plate \\has been received within an\\ hour to avoid duplicates. & [G2-G5.1] & Validation Report Module \\ \hline
-		[R9]: The supervised learning \\algorithm must be accurate at\\ least 99\% of the times. & [G2-G5.1] & Validation Report Module \\ \hline
-		[R10]: Acknowledgments from the authority's\\ server must be received within 10 seconds. & [G2] & Validation Report Module \\ \hline
-		[R11]: Store the report info in the DW \\everytime it is confirmed to be valid. & [G3] & Authority Update Module \\ \hline
-		[R12]: Make the data warehousing and \\processing completely invisible to human\\ actors to avoid manipulations. & [G3] & Authority Update Module \\ \hline
-		[R13]: implement functionality which \\allows (through the authority's client) to toggle\\ automatic tickets ON or OFF. & [G4.1] & Ticket Emission Module \\ \hline
-		[R14]: force newly logged officers to\\ choose a 5 digit pin to release tickets. & [G4.1] & Officer Registration Module \\ \hline
-		[R15]: implement functionality which allows\\ officers' near a report to confirm both\\ the report itself and the ticket\\ emission through the pin. & [G4.1] & Check Report Module - Ticket Emission Module \\ \hline
-		[R16]: implement functionality which \\uses report data and the officer's \\signature to compile a ticket and\\ send it to the VLA via email. & [G4.1] & Check Report Module - Ticket Emission Module \\ \hline
-		[R17]: update every actor's map with\\ the HFVZs every 30 seconds. & [G4.2] & Update Module - Authority Update Module \\ \hline
-		[R18]: update only the authorities' \\and officers' maps with the new reports \\and repeat offenders lists \\in real time. & [G4.2-G6] & Update Module - Authority Update Module \\ \hline
-		[R19]: show repetead offenders in \\real time in the authorities' GUI. & [G4.2] & Authority Update Module \\ \hline
-		[R20]: Make sure officers can only be\\ added through the Authority's client. & [G5.2] & Officer Registration Module \\ \hline
-		[R21]: Officers can only log into \\the app through a combination of \\Badge ID and a password received\\ via email by the Authority. & [G5.2-G5.3] & Officer Registration Module - Officer Authentication Module \\ \hline
-		[R22]: Officers can only allow automated\\ ticket emission by entering their secret pin. & [G5.3] & Check Report Module - Ticket Emission Module \\ \hline
-		[R23]: Officers are automatically required \\to login every 6 hours and their access data \\can't be autofilled. & [G5.3] & Officer Authentication Module \\ \hline
-		[R24]: A ban request can be issued \\through the Authority's client \\after receiving an invalid report. & [G5.4] & Validation Report Module \\ \hline
-		[R25]: The S2B must comply with GDPR rules. & [G6] & Data Manager Module \\ \hline
-\end{tabular}
-\end{center}
+In this section is highlighted the link between the requirements stated in the RASD and the components listed in the section 2.2.\\\\
+
+\textbf{[R1]: Separate civilian and officer registration and login functionality.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G1
+		\item G5.2
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module 	\item Officer Authentication Module 	\item civilian Authentication Module
+	\end{itemize}
+\end{itemize}
+\textbf{	[R2]: Data has to be correctly queried server-side everytime, to make sure no duplicate accounts are created or no unregistered visitors log in. }
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module
+		\item Officer Authentication Module
+		\item civilian Authentication Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R3]: Send confirmation emails within at most one minute after the registration confirmation receipt (or the new officer being added). }
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module 	\item civilian Authentication Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R4]: Confirm user registration within at most one minute after the email link has been clicked.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module
+		\item civilian Authentication Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R5]: Force the user to allow the S2B to access the device's camera and GPS.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G2
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Report Module
+		\item Update Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R6]: Implement a function in the authority's client which allows personnel to validate or invalidate reports.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G2
+		\item G5.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Validation Report Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R7]: Implement a supervised learning algorithm server-side which scans the multiple frames sent by the user to recognize the license plate.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G2
+		\item G5.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Validation Report Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R8]: Automatically discard the report if another one with the same plate has been received within an hour to avoid duplicates.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G2
+		\item G5.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+			\item Validation Report Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R9]: The supervised learning algorithm must be accurate at least 99\% of the times.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G2
+		\item G5.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Validation Report Module		\end{itemize}
+\end{itemize}
+\textbf{[R10]: Acknowledgments from the authority's server must be received within 10 seconds.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G2
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Validation Report Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R11]: Store the report info in the DW everytime it is confirmed to be valid.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G3
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Authority Update Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R12]: Make the data warehousing and processing completely invisible to human actors to avoid manipulations.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G3
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Authority Update Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R13]: implement functionality which allows (through the authority's client) to toggle automatic tickets ON or OFF.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Ticket Emission Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R14]: force newly logged officers to choose a 5 digit pin to release tickets.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R15]: implement functionality which allows officers' near a report to confirm both the report itself and the ticket emission through the pin.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Check Report Module
+		\item Ticket Emission Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R16]: implement functionality which uses report data and the officer's signature to compile a ticket and send it to the VLA via email.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.1
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Check Report Module
+		\item Ticket Emission Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R17]: update every actor's map with the HFVZs every 30 seconds.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.2
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Update Module
+		\item Authority Update Module 
+	\end{itemize}
+\end{itemize}
+\textbf{[R18]: update only the authorities' and officers' maps with the new reports and repeat offenders lists in real time.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.2
+		\item G6
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Authority Update Module 
+	\end{itemize}
+\end{itemize}
+\textbf{[R19]: show repetead offenders in real time in the authorities' GUI.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G4.2
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Authority Update Module 
+	\end{itemize}
+\end{itemize}
+\textbf{[R20]: Make sure officers can only be added through the Authority's client.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G5.2
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R21]: Officers can only log into the app through a combination of Badge ID and a password received via email by the Authority.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G5.2
+		\item G5.3
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Registration Module
+		\item Officer Authentication Module
+	\end{itemize}
+\end{itemize}
+\textbf{[R22]: Officers can only allow automated ticket emission by entering their secret pin.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G5.3
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Check Report Module
+		\item Ticket Emission Module	
+	\end{itemize}
+\end{itemize}
+\textbf{[R23]: Officers are automatically required to login every 6 hours and their access data can't be autofilled.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G5.3	
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Officer Authentication Module 
+	\end{itemize}
+\end{itemize}
+\textbf{[R24]: A ban request can be issued through the Authority's client after receiving an invalid report.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G5.4
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Validation Report Module 
+	\end{itemize}
+\end{itemize}
+\textbf{[R25]: The S2B must comply with GDPR rules.}
+\begin{itemize}
+	\item \texttt{Referring Goal}
+	\begin{itemize}
+		\item G6
+	\end{itemize}
+	\item \texttt{Component}
+	\begin{itemize}
+		\item Data Manager Module 
+	\end{itemize}
+\end{itemize}
 \section{IMPLEMENTATION, INTEGRATION AND TEST PLAN: Identify here the order in which you plan to implement the subcomponents of your system and the order in which you plan to integrate such subcomponents and test the integration.}
 \section{EFFORT SPENT}
 \begin{itemize}
@@ -297,6 +557,7 @@ In the following table it is highlighted the link between the functional require
 				\textbf{Day} & \textbf{Subject} & \textbf{Hours} \\ \hline
 				14/11/2019 & Purpose and Scope & 1 \\ \hline
 				19/11/2019 & Component view & 5 \\ \hline
+				21/11/2019 & Requirement Traceability & 3 \\ \hline
 				Total & & ** \\ \hline
 			\end{tabular}
 \end{center}
