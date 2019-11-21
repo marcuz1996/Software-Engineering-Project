@@ -15,14 +15,15 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Civilian Mobile Services Projection}{11}{subsubsection.2.2.2}% 
 \contentsline {subsubsection}{\numberline {2.2.3}Officer Mobile Services Projection}{13}{subsubsection.2.2.3}% 
 \contentsline {subsubsection}{\numberline {2.2.4}Authorities Web Services Projection}{15}{subsubsection.2.2.4}% 
-\contentsline {subsection}{\numberline {2.3}Deployment view}{16}{subsection.2.3}% 
-\contentsline {subsection}{\numberline {2.4}Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}{16}{subsection.2.4}% 
-\contentsline {subsection}{\numberline {2.5}Component interfaces}{16}{subsection.2.5}% 
-\contentsline {subsubsection}{\numberline {2.5.1}External Interfaces}{16}{subsubsection.2.5.1}% 
-\contentsline {subsection}{\numberline {2.6}Selected architectural styles and patterns: Please explain which styles/patterns you used, why, and how}{18}{subsection.2.6}% 
-\contentsline {subsection}{\numberline {2.7}Other design decisions}{18}{subsection.2.7}% 
-\contentsline {section}{\numberline {3}USER INTERFACE DESIGN: Provide an overview on how the user interface(s) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}{18}{section.3}% 
-\contentsline {section}{\numberline {4}REQUIREMENTS TRACEABILITY: Explain how the requirements you have defined in the RASD map to the design elements that you have defined in this document.}{18}{section.4}% 
-\contentsline {section}{\numberline {5}IMPLEMENTATION, INTEGRATION AND TEST PLAN: Identify here the order in which you plan to implement the subcomponents of your system and the order in which you plan to integrate such subcomponents and test the integration.}{18}{section.5}% 
-\contentsline {section}{\numberline {6}EFFORT SPENT}{18}{section.6}% 
-\contentsline {section}{\numberline {7}References}{19}{section.7}% 
+\contentsline {subsubsection}{\numberline {2.2.5}Complete Component Diagram}{17}{subsubsection.2.2.5}% 
+\contentsline {subsection}{\numberline {2.3}Deployment view}{18}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}{21}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}Component interfaces}{21}{subsection.2.5}% 
+\contentsline {subsubsection}{\numberline {2.5.1}External Interfaces}{21}{subsubsection.2.5.1}% 
+\contentsline {subsection}{\numberline {2.6}Selected architectural styles and patterns: Please explain which styles/patterns you used, why, and how}{23}{subsection.2.6}% 
+\contentsline {subsection}{\numberline {2.7}Other design decisions}{23}{subsection.2.7}% 
+\contentsline {section}{\numberline {3}USER INTERFACE DESIGN: Provide an overview on how the user interface(s) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}{23}{section.3}% 
+\contentsline {section}{\numberline {4}REQUIREMENTS TRACEABILITY}{23}{section.4}% 
+\contentsline {section}{\numberline {5}IMPLEMENTATION, INTEGRATION AND TEST PLAN: Identify here the order in which you plan to implement the subcomponents of your system and the order in which you plan to integrate such subcomponents and test the integration.}{25}{section.5}% 
+\contentsline {section}{\numberline {6}EFFORT SPENT}{25}{section.6}% 
+\contentsline {section}{\numberline {7}References}{25}{section.7}% 
