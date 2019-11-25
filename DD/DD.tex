@@ -64,6 +64,7 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 \item \texttt{DMZ:} Demilitarized zone.
 \item \texttt{ADS:} Application and Data server of the authorities.
 \item \texttt{API:} Application Programming Interface.
+\item \texttt{OS:} Operative System.
 \end{itemize}
 \subsubsection{Abbreviations}
 \begin{itemize}
@@ -185,6 +186,7 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 	\item \texttt{Authority Update Module}: this module not only handles the receiving of updates by the ADS at the web server location (the updates are the same received by the officers, plus the list of currently active officers), but also the mining which will be run in the ADS by periodically querying the DW to retrieve the data which will be packed to form the updates, that will be sent to the web servers and spread by them to the mobile units.
 	\item \texttt{Officer Registration Module}: allows the authority to add new officers, communicating the addition both to the officer via mail and to the ADS. Also manages the first insertion of the secret pin by the officer.
 	\item \texttt{Officer Authentication Module}: this module authenticates the officers' login requests from the Officer Authentication Module of the Officer Services, and the pin insertion from the Check Report module.
+	\item \texttt{Officer Authentication Module}: this module compliles the automated tickets with the signature of the officers and data about the report, and sends it to the VLA via mail.
 \end{itemize}
 \newpage
 \subsubsection{Complete Component Diagram}
@@ -235,14 +237,6 @@ In this section we analyze the sequence diagram of the RASD expanded with furthe
 					        \includegraphics[width=0.5\paperwidth]{Images/Registration_sequence}
 \end{adjustwidth}
 \end{figure}
-This sequence diagram describes the complete (and in this case correct) registration procedure of a civilian, starting from the mobile app which sends the registration form through a HTTP Post message. This is received by the SafeStreets server thanks to their REST interface, and through the Hibernate API the software is able to interact with the MySQL DBMS which inserts the new tuple in the table for civilians account (after thorough encryption). We're able to determine thanks to the result of the Hibernate method if the operation has been correctly perform, and notify the mobile application of such outcome, and use the E-mail API to send a mail to the user. Once the registration has been confirmed, the server asks MySQL to update the tuple with some confirmation of the completed registration. All these processes are performed by the \texttt{Civilian Authentication Module} at the mobile app and SafeStreets server. We decided not to include the civilian login procedure as it is pretty much identical to the first interaction of this diagram.
-\subsubsection{Civilian Registration}
-\begin{figure}[H]
-\begin{adjustwidth}{-25mm}{-25mm}
-				\centering				
-					        \includegraphics[width=0.5\paperwidth]{Images/Registration_sequence}
-\end{adjustwidth}
-\end{figure}
 This sequence diagram describes the complete (and in this case correct) registration procedure of a civilian, starting from the mobile app which sends the registration form through a HTTP Post message. This is received by the SafeStreets server thanks to their REST interface, and through the Hibernate API the software is able to interact with the MySQL DBMS which inserts the new tuple in the table for civilians account (after thorough encryption). We're able to determine thanks to the result of the Hibernate method if the operation has been correctly perform, and notify the mobile application of such outcome, and use the E-mail API to send a mail to the user. Once the registration has been confirmed, the server asks MySQL to update the tuple with some confirmation of the completed registration. All these processes are performed by the \texttt{Civilian Authentication Module} at the mobile app and SafeStreets server. The standard login procedure will be included in another diagram.
 \subsubsection{Officer Registration}
 \begin{figure}[H]
@@ -252,7 +246,38 @@ This sequence diagram describes the complete (and in this case correct) registra
 \end{adjustwidth}
 \end{figure}
 This one describes the full procedure of adding a new officer from the Authority's Web App. The request is forwarded through HTTP Post to the authority's web server which acts as the layer that has to be contacted to access to the ADS's functionalities. The ADS serves the request through the same kind of procedure explained in the previous sequence diagram. This first passage is handled by the \texttt{Officer Registration Module}. Once the officer has received the email with his password, he can successfully log in thanks to the \texttt{Officer Authentication Module}, and is after prompted to insert his secret pin to allow ticket emission. After the pin is inserted and iteratively forwarded to the ADS and stored, the officer can start using the application with full functionalities. The system forces the officer to insert the pin by checking (along with the log in request) if the pin has been already chosen or the officer still needs to insert it.
-
+\subsubsection{Civilian Login and Report}
+\begin{figure}[H]
+\begin{adjustwidth}{-25mm}{-25mm}
+				\centering				
+					        \includegraphics[width=0.75\paperwidth]{Images/Civilian_report}
+\end{adjustwidth}
+\end{figure}
+The use case starts with the civilian successfully logging into the application through the standard procedure managed by the \texttt{Civilian Authentication Module}. The civilian decides to report a violation: chooses the type of violation and is subsequently prompted to take a photo of it. After that, he can start framing the plate with his camera: the various frames are sent to the Authority's Web server which analyses them until a plate number is recognized \textbf{(this is the only application logic executed directly on the web server and not on the ADS for reduced latency)}. The Mobile Application then uses OS functionalities to stamp the report with time and coordinates, and the whole packet of data about the violation is sent to the web server through the REST interface. This entire process is handled by the \texttt{Report Modules} at the Mobile Application and at the Authority's web server. The personnel at the Authority's client can then validate it, triggering an exchange of messages with the ADS which culminates in the insertion of the report in the Data Warehouse. This final part is managed by the {Validation Report Module}. The newly added report will be subject to data mining and included in future updates sent by the ADS, but this will be included in another diagram.
+\subsubsection{Report Invalidation and Banning}
+\begin{figure}[H]
+\begin{adjustwidth}{-25mm}{-25mm}
+				\centering				
+					        \includegraphics[width=0.75\paperwidth]{Images/invalidation_banning}
+\end{adjustwidth}
+\end{figure}
+This use case includes all the same passages of the previous up to the report validation. In this case, the operator of the Authority's web application decides to invalidate the report which he deemed incorrect and request the ban of the user. The request is forwarded to the SafeStreets server which flags the user in his database thanks to the Hibernate API. The civilian is notified at the next access of the Mobile application of the ban, and the \texttt{Civilian Authentication Module} will take care of providing the effects of such measurement. It is important to notice the ADS isn't invoked in this sequence: that's because the ban is requested by the authority as a simple sending of messages, without any applicative logic at the authority's side, as the ban is served by the SafeStreets server which holds the civilian accounts database.
+\subsubsection{Update spreading and Data Mining}
+\begin{figure}[H]
+\begin{adjustwidth}{-25mm}{-25mm}
+				\centering				
+					        \includegraphics[width=0.75\paperwidth]{Images/update_sending}
+\end{adjustwidth}
+\end{figure}
+This case covers the procedure of producing updates through data mining and spreading them in a network with ADSs distributed in a RAPS architecture. Through the \underline{bully election algorithm} a leader between the ADSs is chosen and is set as the root of a tree network with all the other ADSs as children: every 30 seconds he will query the database for relevant data, that he will pack into updates timestamped with a \underline{vector clock} and send to all the other connected ADSs. These will furtherly forward the messages to web servers in their domain. This is done by the \texttt{Authority Update Module}. Clients can fetch these updates from the Authority web server and retrieve the ones corresponding to them to preserve sensitive data, and unpack them to visualize the various information through their GUI. The mobile application does this with the \texttt{Update Module}.
+\subsubsection{Ticket Emission}
+\begin{figure}[H]
+\begin{adjustwidth}{-25mm}{-25mm}
+				\centering				
+					        \includegraphics[width=0.75\paperwidth]{Images/automated_ticket}
+\end{adjustwidth}
+\end{figure}
+This describes the interactions required to emit an automated ticket. As soon as the officer is near a report, he can confirm through the map the actual presence of a violation by verifying the correctness of the reported plate. As soon as he enters a secret pin a message is forwarded to the web server (all of this is performed by the \texttt{Check Report Module} then to the ADS which will query the report database to both authenticate the officer and find his signature, and the most recent report corresponding to the plate. If the query is successful, the ADS compiles a ticket and sends it via mail to the VLA. This involves the \texttt{Ticket Emission Module}.
 \subsection{Component interfaces}
 \subsubsection{External Interfaces}
 SafeStreets will make use of some Application Programming Interfaces to simplify the implementation, since these components are largely used and compatible with the majority of the devices currently on the market:
