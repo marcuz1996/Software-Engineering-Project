@@ -65,6 +65,7 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 \item \texttt{ADS:} Application and Data server of the authorities.
 \item \texttt{API:} Application Programming Interface.
 \item \texttt{OS:} Operative System.
+\item \texttt{MVP:} Minimum Viable Product.
 \end{itemize}
 \subsubsection{Abbreviations}
 \begin{itemize}
@@ -602,7 +603,66 @@ In this section is highlighted the link between the requirements stated in the R
 		\item Data Manager Module 
 	\end{itemize}
 \end{itemize}
-\section{IMPLEMENTATION, INTEGRATION AND TEST PLAN: Identify here the order in which you plan to implement the subcomponents of your system and the order in which you plan to integrate such subcomponents and test the integration.}
+\section{Implementation, Integration and Test Plan}
+		\subsection{Implementation Plan}
+		The implementation of our system will be done following a bottom-up approach that will facilitate a high deployment coverage in early phases. The order in which our implementation will be carried out, takes in account different factors such as the complexity of the modules and how they are interconnected with one another and we must take in consideration the possibility of discovering flaws and bugs in our designed system that will require to be fixed as soon as possible in order to prevent further additional costs and difficulties in debugging. It will also be vital to distinguish basic application features which will appear in the MVP of the application. All the hardware components (specified in the deployment view) are assumed to be installed and working for this section of the document, these are the various routes which will route the HTTP messages of the RESTful architecture, and the machines and devices which will run the clients and the various servers: in particular, some of these components (such as the clients and maybe even some Authority web servers) won't be property of SafeStreets, but of the various actors, as we will only take care of installing the ADSs and the SafeStreets servers. Also the various external APIs (such as the Google Maps API and the mailing services) are assumed to be working and available, but we will talk about how they will be integrated further in the document.
+Other than that, the \texttt{Requirement Analysis and Specification Document} and \texttt{Design Document} will have to be in their final form and approved by stakeholders before any actual hands-on hardware and software work is done.
+		We will order the actual software implementation by defining three various macro-groups of modules in order of relevance, this way:
+		\begin{itemize}
+			\item \textbf{Basic components}:
+			These will be all the functionalities required to satisfy the most important requirements of the application, which, as we described in the \texttt{Requirement Analysis and Specification Document}, are the capability of assisting law enforcement organizations in handling traffic violations. The modules we deem vital to accomplish this are the ones which manage logins and registrations, and obviously reports. These will compose the MVP of the application and will need to be integrated among themselves as some are needed for other ones:
+\begin{itemize}
+\item \texttt{Civilian Authentication Module};
+\item \texttt{Officer Authentication Module}; 
+\item \texttt{Data Manager Module};
+\item \texttt{Report Module};
+\item \texttt{Validation Report Module}.
+\end{itemize}
+It is therefore evident that all data access functionalities will have to be completed at the first release of the application: we will start from building the databases themselves, and the ways to interact with them. Also, all the various external services will be exploited by basic components:
+\begin{itemize}
+\item \texttt{E-mail service};
+\item \texttt{Map service};
+\item \texttt{GPS service}.
+\end{itemize}
+\item \texttt{Ticket emission components}: All the modules required to make ticket emission efficiently work. We see ticket emission as an advanced functionality which will be added with following releases, not in the MVP. These modules clearly interact and need to be integrated with the basic components ones, and include:
+\begin{itemize}
+\item \texttt{Check Report Module};
+\item \texttt{Ticket Emission Module}.
+\end{itemize}
+These modules will also have to be integrated with the E-mail service which is needed to send tickets to the VLA, but not with the other external services, which are surely needed to compile reports, but not directly to compile tickets.
+\item \texttt{Data Mining components}: The modules required for mining the report data warehouse and producing updates to send the clients. Although this is surely an useful functionalities as it improves the user experience and facilitates law enforcement, we feel it is the most difficult to implement and the less necessary, therefore it will be not included in the MVP, but released later with updated versions of the application. The modules are:
+\begin{itemize}
+\item \texttt{Authority Update Module};
+\item \texttt{Update Module}.
+\end{itemize}
+These modules need the Maps service and the GPS service to allow some of the updates concerning the map to be correctly visualized.
+\end{itemize}
+\subsection{Integration plan}
+We identified pairs of elements (components and external services) which need to be integrated together. In order of development:
+\begin{enumerate}
+\item \texttt{Basic Components with DBMS}: we'll start by building the three databases for reports, civilians, and officers. After that every component which directly accesses data (the ADSs and the SafeStreets server) will get his own Hibernate API to access the databases. 
+%basic components utilizes DBMS API 1-2-3
+\item \texttt{Basic Components with external services}: the GUIs of each client (the most minimal possible version) will be implemented and will be made able to utilize the Maps service and GPS service to compile reports (which we won't be able to send yet). The SafeStreets server and the ADSs will be provided with an API to utilize the Mail service.
+%basic components utilizes external services 4
+\item \texttt{Basic Components between themselves}: and after that, this views will be integrated with their models (held in the ADSs and SafeStreets server) through a REST interface. A REST interface for receiving and sending messages will be implemented at each interacting component.The Authority's web server will be implemented offering a layer of REST communication (also the supervised learning algorithm to recognise plates) between clients and the ADS. After this, all the modules of the Basic Components groups will be up and working, as users will be able to login and report violations successfully.
+%basic components between themselves (modules between themselves) 5
+\item \texttt{Ticket Emission components with Basic Components}: we will start by developing the \texttt{Check Report Module} and integrating it with the \texttt{Officer Authentication Module} so that officers can successfully enter their pin when checking violations and get it authenticated.
+%check report needs off auth 6
+\item \texttt{Ticket Emission components with DBMS}: the \texttt{Ticket Emission Module} will be implemented and integrated with the \texttt{Check Report Module} and with the API to access both the officer accounts database (to retrieve the signature) and the one to access the data warehouse (to retrieve the correct report being written in the ticket).
+%ticket emission needs check report and dbms api 7
+\item \texttt{Ticket Emission components with Mailing Service}: to correctly send the compilated ticket to the VLA through an API.
+%ticket emission needs mailing service 7
+\item \texttt{Data Mining components with DBMS}: as the \texttt{Authority Update Module} needs to mine data from the reports data warehouse through an API.
+%autho update with dbms
+\item \texttt{Data Mining components with external services}: the \texttt{Update Modules} at the client will allow unpacking and visualization of updates through the Maps and GSP services. 
+%update modules with gps and maps
+\item \texttt{Data Mining components between}: the already existing REST interfaces present in all interacting components (except the SafeStreets server) will be enriched with the methods to forwards and fetch the updates.
+%update needs authority update
+\end{enumerate}
+\subsection{Testing plan}
+Testing will follow the order of implementation and integration described above.
+Each unit of work defined in the previous section will be thoroughly tested before implementing the successive one to avoid undetected problems while integration is being performed: all the modules which have to be integrated will be tested so that their own functionalities are sure to work correctly, to ensure that if new problems arise they must be caused by the newly written code.
+
 \section{EFFORT SPENT}
 \begin{itemize}
 \item {Davide Cocco}
@@ -613,6 +673,8 @@ In this section is highlighted the link between the requirements stated in the R
 				14/11/2019 & High level components & 3 \\ \hline
 				19/11/2019 & Component view & 4 \\ \hline
 				20/11/2019 & Deployment view & 2 \\ \hline
+24/11/2019 & Sequence diagram & 5 \\ \hline
+26/11/2019 & Patterns and architectural styles & 2 \\ \hline
 				Total & & ** \\ \hline
 			\end{tabular}
 		\end{center}
