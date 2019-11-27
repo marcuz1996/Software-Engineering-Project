@@ -638,26 +638,74 @@ These modules will also have to be integrated with the E-mail service which is n
 These modules need the Maps service and the GPS service to allow some of the updates concerning the map to be correctly visualized.
 \end{itemize}
 \subsection{Integration plan}
-We identified pairs of elements (components and external services) which need to be integrated together. In order of development:
+We identified pairs of elements (components and external services) which need to be integrated together (in the chart the component before the arrow "is necessary" for the one after the arrowhead). In order of development:
 \begin{enumerate}
 \item \texttt{Basic Components with DBMS}: we'll start by building the three databases for reports, civilians, and officers. After that every component which directly accesses data (the ADSs and the SafeStreets server) will get his own Hibernate API to access the databases. 
-%basic components utilizes DBMS API 1-2-3
+\\
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart1}
+		\caption{Civilian authentication}
+\end{figure}
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart2}
+		\caption{Officer authentication}
+\end{figure}
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart3}
+		\caption{Data manager}
+\end{figure}
 \item \texttt{Basic Components with external services}: the GUIs of each client (the most minimal possible version) will be implemented and will be made able to utilize the Maps service and GPS service to compile reports (which we won't be able to send yet). The SafeStreets server and the ADSs will be provided with an API to utilize the Mail service.
-%basic components utilizes external services 4
+\\
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart4}
+		\caption{Report}
+\end{figure}
 \item \texttt{Basic Components between themselves}: and after that, this views will be integrated with their models (held in the ADSs and SafeStreets server) through a REST interface. A REST interface for receiving and sending messages will be implemented at each interacting component.The Authority's web server will be implemented offering a layer of REST communication (also the supervised learning algorithm to recognise plates) between clients and the ADS. After this, all the modules of the Basic Components groups will be up and working, as users will be able to login and report violations successfully.
-%basic components between themselves (modules between themselves) 5
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart5}
+		\caption{Validation report}
+\end{figure}
 \item \texttt{Ticket Emission components with Basic Components}: we will start by developing the \texttt{Check Report Module} and integrating it with the \texttt{Officer Authentication Module} so that officers can successfully enter their pin when checking violations and get it authenticated.
-%check report needs off auth 6
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/TicektEmissionIntegrationChart1}
+		\caption{Check report}
+\end{figure}
 \item \texttt{Ticket Emission components with DBMS}: the \texttt{Ticket Emission Module} will be implemented and integrated with the \texttt{Check Report Module} and with the API to access both the officer accounts database (to retrieve the signature) and the one to access the data warehouse (to retrieve the correct report being written in the ticket).
-%ticket emission needs check report and dbms api 7
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/TicektEmissionIntegrationChart2}
+		\caption{Ticket emission with check report}
+\end{figure}
 \item \texttt{Ticket Emission components with Mailing Service}: to correctly send the compilated ticket to the VLA through an API.
-%ticket emission needs mailing service 7
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/TicektEmissionIntegrationChart3}
+		\caption{Ticket emission with email service}
+\end{figure}
 \item \texttt{Data Mining components with DBMS}: as the \texttt{Authority Update Module} needs to mine data from the reports data warehouse through an API.
-%autho update with dbms
-\item \texttt{Data Mining components with external services}: the \texttt{Update Modules} at the client will allow unpacking and visualization of updates through the Maps and GSP services. 
-%update modules with gps and maps
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/StatisticIntegrationChart1}
+		\caption{Update module}
+\end{figure}
+\item \texttt{Data Mining components with external services}: the \texttt{Update Modules} at the client will allow unpacking and visualization of updates through the Maps services. 
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/StatisticIntegrationChart2}
+		\caption{Update module}
+\end{figure}
 \item \texttt{Data Mining components between}: the already existing REST interfaces present in all interacting components (except the SafeStreets server) will be enriched with the methods to forwards and fetch the updates.
-%update needs authority update
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/Integration/StatisticIntegrationChart3}
+		\caption{Authority update module}
+\end{figure}
 \end{enumerate}
 \subsection{Testing plan}
 Testing will follow the order of implementation and integration described above.
@@ -675,6 +723,7 @@ Each unit of work defined in the previous section will be thoroughly tested befo
 				20/11/2019 & Deployment view & 2 \\ \hline
 24/11/2019 & Sequence diagram & 5 \\ \hline
 26/11/2019 & Patterns and architectural styles & 2 \\ \hline
+26/11/2019 & Implementation, integration and testing & 4 \\ \hline
 				Total & & ** \\ \hline
 			\end{tabular}
 		\end{center}
@@ -686,6 +735,8 @@ Each unit of work defined in the previous section will be thoroughly tested befo
 				14/11/2019 & Purpose and Scope & 1 \\ \hline
 				19/11/2019 & Component view & 5 \\ \hline
 				21/11/2019 & Requirement Traceability & 3 \\ \hline
+				26/11/2019 & Implementation, integration and testing & 4 \\ \hline
+				27/11/2019 & Integration charts & 3 \\ \hline
 				Total & & ** \\ \hline
 			\end{tabular}
 \end{center}
