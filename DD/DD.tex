@@ -145,6 +145,7 @@ These components provide the Mobile Application the following interfaces: Report
 					        \includegraphics[width=0.9\paperwidth]{Images/CivilianMobileServicesProjection}
 					\end{adjustwidth}
 			\end{figure}
+\newpage
 \textbf{Module Functionalities}
 \begin{itemize}
 	\item \texttt{Report Module}: this module manages the reports done by Civilians and their sending to the Authority's Web server. It will allow the user to take photos of the violation, enter a description of it, timestamp it and attach geolocation coordinates thanks to the GPS API, and also handle all the communication needed for the plate recognition algorithm to work.
@@ -163,8 +164,8 @@ which might eventually result in a ticket being compiled. The Officer Authentica
 					        \includegraphics[width=0.9\paperwidth]{Images/OfficerMobileServicesProjection}
 					\end{adjustwidth}
 			\end{figure}
+\newpage
 \textbf{Module Functionalities}
-Pretty much the same as the Civilian Mobile Services:
 \begin{itemize}
 	\item \texttt{Report Module}: works in the same way as the Civilian's one, as officers will also be able to report violations.
 	\item \texttt{Update Module}: just as the Civilian's one, but enriched with more updates that should only be accessible to law enforcement agents, such as the most egregious offenders list, newly added reports to the map, etc.
@@ -181,6 +182,7 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 					        \includegraphics[width=0.9\paperwidth]{Images/AuthoritiesServicesProjection}
 					\end{adjustwidth}
 			\end{figure}
+\newpage
 \textbf{Module Functionalities}
 \begin{itemize}
 	\item \texttt{Validation Report Module}: this module handles the functionality for validating reports by the authority's personnel and the subsequent adding to the DW.  Also the issuing of bans which is performable while invalidating reports.
@@ -707,10 +709,11 @@ We identified pairs of elements (components and external services) which need to
 		\caption{Authority update module}
 \end{figure}
 \end{enumerate}
+\newpage
 \subsection{Testing plan}
 Testing will follow the order of implementation and integration described above.
-Each unit of work defined in the previous section will be thoroughly tested before implementing the successive one to avoid undetected problems while integration is being performed: all the modules which have to be integrated will be tested so that their own functionalities are sure to work correctly, to ensure that if new problems arise they must be caused by the newly written code.
-
+Each unit of work defined in the previous section will be thoroughly tested before implementing the successive one to avoid undetected problems while integration is being performed: all the modules which have to be integrated will be tested so that their own functionalities are sure to work correctly, to ensure that if new problems arise they must be caused by the newly written code. Some modules will be tested with particular attention, especially the ones regarding the Ticket Emission and Reports, to avoid wrong tickets being compiled and enforcing a certain amount of accuracy with the plate recognition, as we feel those are the most sensitive features of the application.
+\newpage
 \section{EFFORT SPENT}
 \begin{itemize}
 \item {Davide Cocco}
