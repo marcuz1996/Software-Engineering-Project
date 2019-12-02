@@ -311,7 +311,29 @@ As having multiple ADSs mine the same data and produce the same reports is, comp
 It will be important to ensure concurrent accesses to the databases do not violate integrity constraints. Mutual exclusion and distributed commit protocols are known to be as important as they are difficult to implement, thus we decided to utilize \texttt{Hibernate} (which is based on \texttt{jDBC}) as our framework to manage read and write accesses, as it is known to guarantee mutual exclusion and sufficient parallelism in distributed transaction. This way no time and effort will be used by the developers to code these functionalities directly from Java primitives.
 \subsubsection{Update propagation strategy}
 The leader, after mining the updates, will stamp each one of them with a vector clock to perform \underline{causally ordered multicast} (so that no updates are temporally misplaced by the final users), and follow a \texttt{push based anti-entropy propagation strategy} to spread the updates to all the ADSs in his network, that will do the same by forwarding them to their connected web servers. At this point, every time a client needs an update, it may be after a timer going off or some condition being satisfied, it can simply fetch the update from its connected web server (this time it's \texttt{pull based} to avoid wasting of resources). The web server knows what kind of actor is trying to retrieve the updates and will only give out the permitted ones. 
-\section{USER INTERFACE DESIGN: Provide an overview on how the user interface(s) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}
+\section{USER INTERFACE DESIGN}
+INTROOOOOOOOOOOO
+\\
+\subsection{Civilian UX}
+When civilians open the app on their mobile phone the first page that they visualize is the Start Menu. thrught this menu they can do the authentication (both login and registration).
+Regarding the registration they must insert their data and confirm the email received, for login they have to insert their authentication data. Once they are logged in they can visualize the map, the statistics or update their datas. In the map menu they can make a report by sending a photo while in the statistics menu they can visualize the statistic datas about their report, the HFVZ and thte global reports.
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/UX/CivilianUX}
+\end{figure}
+\subsection{Officer UX}
+When an officer opens the app on his mobile phone the first page that he can visualize is the Start Menu. Trought this menu he can do the login by using his badge ID and the password communicate by email. if he is doing the first login is required to choose a PIN the in a second moment he have to use to certificate the ticket emission. if he isn't doing the first login he can visualize the Map and the statistics. He can visualize the same statistics of the civilians and one other that is the Repeat Offenders. On the map he can do or check a report throught the relative button; moreover if he checks a report and the violation occured he must send a traffic ticket segnalation to the VGA by compiling the form which required the insertion of his PIN. But if the violation not occours he sends the violation rejection to the authority which in a second time will take action against the reporter.
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/UX/OfficerUX}
+\end{figure}
+\subsection{Authority UX}
+The authorities work on a web application. by that application they can add the officers of their barrack to the SafeStreets system and send to them an email whit the purpose of safestreets program and the password to do, within the badge ID, the login. The authorities must also check the photo sent by users' reports and confirm or reject them. They can also send  a request of ban for a civilian to the SafeStreets staff. Finally they can visualize the same statistics of the officers.
+\begin{figure}[H]
+		\centering
+			\includegraphics[width=1.0\linewidth]{Images/UX/AuthorityUX}
+\end{figure}
+\newpage
 \section{REQUIREMENTS TRACEABILITY}
 In this section is highlighted the link between the requirements stated in the RASD and the components listed in the section 2.2.\\\\
 

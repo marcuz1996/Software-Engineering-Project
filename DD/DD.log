@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.30)  29 NOV 2019 17:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  2 DEC 2019 11:51
 entering extended mode
 **./DD.tex
 (DD.tex
-LaTeX2e <2019-10-01> patch level 1
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
-Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.clo"
-File: size12.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
+LaTeX2e <2018-12-01>
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.clo"
+File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@section=\count81
@@ -19,16 +19,15 @@ File: size12.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty"
+) ("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.st
+y"
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
-
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\latin1.def"
+ ("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\latin1.def"
 File: latin1.def 2018/08/11 v1.3c Input encoding file
-))
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
+)) ("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty
+"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count88
 \float@exts=\toks16
@@ -36,43 +35,47 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks17
 \@floatcapt=\box28
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty
-"
-Package: amsmath 2019/04/01 v2.17c AMS math features
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.st
+y"
+Package: amsmath 2018/12/01 v2.17b AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.sty
-"
+
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.st
+y"
 Package: amstext 2000/06/29 v2.01 AMS text
- ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
 "
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen103
 ))
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
+"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
-) ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.st
-y"
+)
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
+"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count89
-LaTeX Info: Redefining \frac on input line 227.
+LaTeX Info: Redefining \frac on input line 223.
 \uproot@=\count90
 \leftroot@=\count91
-LaTeX Info: Redefining \overline on input line 389.
+LaTeX Info: Redefining \overline on input line 385.
 \classnum@=\count92
 \DOTSCASE@=\count93
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
 \Mathstrutbox@=\box29
 \strutbox@=\box30
 \big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \macc@depth=\count94
 \c@MaxMatrixCols=\count95
 \dotsspace@=\muskip10
@@ -93,62 +96,61 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2855.
-LaTeX Info: Redefining \] on input line 2856.
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.s
-ty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.
+sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb.st
-y"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb.s
+ty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.s
-ty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
+sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
-"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
+y"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.s
-ty"
-Package: graphics 2019/10/08 v1.3c Standard LaTeX Graphics (DPC,SPQR)
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
+sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphi
-cs.cfg"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
+ics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex
-.def"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdfte
+x.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.s
-ty"
-Package: hyperref 2019/09/28 v7.00a Hypertext links for LaTeX
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.
+sty"
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-h
-yperref.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-
+hyperref.sty"
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-g
-eneric.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-
+generic.sty"
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -162,7 +164,7 @@ Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -184,96 +186,96 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\ifxetex.s
-ty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\ifxetex.
+sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\auxhook.st
-y"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\auxhook.s
+ty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.
-sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions
+.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen114
 \Hy@linkcounter=\count101
 \Hy@pagecounter=\count102
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def
-"
-File: pd1enc.def 2019/09/28 v7.00a Hyperref: PDFDocEncoding definition (HO)
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc.de
+f"
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count103
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\hyperref.c
-fg"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\hyperref.
+cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4540.
-Package hyperref Info: Link nesting OFF on input line 4545.
-Package hyperref Info: Hyper index ON on input line 4548.
-Package hyperref Info: Plain pages OFF on input line 4555.
-Package hyperref Info: Backreferencing OFF on input line 4560.
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4793.
+Package hyperref Info: Bookmarks ON on input line 4772.
 \c@Hy@tempcnt=\count104
- ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+ ("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5152.
+LaTeX Info: Redefining \url on input line 5125.
 \XeTeXLinkMargin=\dimen115
 \Fld@menulength=\count105
 \Field@Width=\dimen116
 \Fld@charsize=\dimen117
-Package hyperref Info: Hyper figures OFF on input line 6423.
-Package hyperref Info: Link nesting OFF on input line 6428.
-Package hyperref Info: Hyper index ON on input line 6431.
-Package hyperref Info: backreferencing OFF on input line 6438.
-Package hyperref Info: Link coloring OFF on input line 6443.
-Package hyperref Info: Link coloring with OCG OFF on input line 6448.
-Package hyperref Info: PDF/A mode OFF on input line 6453.
-LaTeX Info: Redefining \ref on input line 6493.
-LaTeX Info: Redefining \pageref on input line 6497.
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
 \Hy@abspage=\count106
 \c@Item=\count107
 \c@Hfootnote=\count108
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdftex.de
-f"
-File: hpdftex.def 2019/09/28 v7.00a Hyperref driver for pdfTeX
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdftex.d
+ef"
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
 \Fld@listcount=\count109
 \c@bookmark@seq@number=\count110
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\rerunfilec
-heck.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\rerunfile
+check.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip46
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/changepage\changepa
-ge.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/changepage\changep
+age.sty"
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count111
 \cp@tempcnt=\count112
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.sty
-"
-Package: caption 2019/09/01 v3.3d Customizing captions (AR)
-
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.st
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.st
 y"
-Package: caption3 2019/09/01 v1.8d caption3 kernel (AR)
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.s
+ty"
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
 \captionmargin=\dimen118
 \captionmargin@=\dimen119
@@ -302,8 +304,8 @@ Package caption Info: hyperref package is loaded.
 \sf@top=\skip50
 \sf@bottom=\skip51
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/placeins\placeins.s
-ty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/placeins\placeins.
+sty"
 Package: placeins 2005/04/18  v 2.2
 ) (DD.aux)
 \openout1 = `DD.aux'.
@@ -323,8 +325,8 @@ LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
-f.mkii"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
+df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count122
 \scratchdimen=\dimen126
@@ -338,12 +340,12 @@ f.mkii"
 \makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks25
 )
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
-ase.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-
+base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty
-"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.st
+y"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -356,12 +358,12 @@ G,.JBIG2,.JB2,.eps]
 \AtBeginShipoutBox=\box32
 Package hyperref Info: Link coloring OFF on input line 25.
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.st
-y"
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
+ty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\gettitle
-string.sty"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\gettitl
+estring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count128
@@ -376,42 +378,37 @@ LaTeX Info: Redefining \nameref on input line 25.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<Images/polimi.jpg, id=179, 602.25pt x 479.7925pt>
+<Images/polimi.jpg, id=191, 602.25pt x 479.7925pt>
 File: Images/polimi.jpg Graphic file (type jpg)
 <use Images/polimi.jpg>
 Package pdftex.def Info: Images/polimi.jpg  used on input line 29.
 (pdftex.def)             Requested size: 390.0pt x 310.712pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 
-
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
-
-
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-[1
+) [1
 
-{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Images/pol
-imi.jpg>] (DD.toc [2])
+{C:/Users/lolga/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Images/po
+limi.jpg>] (DD.toc [2])
 \tf@toc=\write4
 \openout4 = `DD.toc'.
 
  [3]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-9.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
 
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+("C:\Users\lolga\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
 
 [4] [5] [6]
-<Images/highlevel.png, id=259, 1171.37625pt x 735.74875pt>
+<Images/highlevel.png, id=270, 1171.37625pt x 735.74875pt>
 File: Images/highlevel.png Graphic file (type png)
 <use Images/highlevel.png>
 Package pdftex.def Info: Images/highlevel.png  used on input line 95.
@@ -422,12 +419,12 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 95--96
  []
 
 [7 <./Images/highlevel.png>] [8] [9]
-<Images/ComponentDiagram.png, id=276, 814.04124pt x 606.265pt>
+<Images/ComponentDiagram.png, id=287, 814.04124pt x 606.265pt>
 File: Images/ComponentDiagram.png Graphic file (type png)
 <use Images/ComponentDiagram.png>
 Package pdftex.def Info: Images/ComponentDiagram.png  used on input line 135.
 (pdftex.def)             Requested size: 390.0pt x 290.45808pt.
-<Images/CivilianMobileServicesProjection.png, id=277, 1366.10374pt x 784.9325pt
+<Images/CivilianMobileServicesProjection.png, id=288, 1366.10374pt x 784.9325pt
 >
 File: Images/CivilianMobileServicesProjection.png Graphic file (type png)
 <use Images/CivilianMobileServicesProjection.png>
@@ -441,7 +438,7 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 145--146
 
 [10 <./Images/ComponentDiagram.png>] [11 <./Images/CivilianMobileServicesProjec
 tion.png>] [12]
-<Images/OfficerMobileServicesProjection.png, id=295, 1337.99875pt x 784.9325pt>
+<Images/OfficerMobileServicesProjection.png, id=306, 1337.99875pt x 784.9325pt>
 
 File: Images/OfficerMobileServicesProjection.png Graphic file (type png)
 <use Images/OfficerMobileServicesProjection.png>
@@ -454,7 +451,7 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 164--165
  []
 
 [13 <./Images/OfficerMobileServicesProjection.png>] [14]
-<Images/AuthoritiesServicesProjection.png, id=307, 1520.68124pt x 1025.8325pt>
+<Images/AuthoritiesServicesProjection.png, id=318, 1520.68124pt x 1025.8325pt>
 File: Images/AuthoritiesServicesProjection.png Graphic file (type png)
 <use Images/AuthoritiesServicesProjection.png>
 Package pdftex.def Info: Images/AuthoritiesServicesProjection.png  used on inpu
@@ -466,7 +463,7 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 182--183
  []
 
 [15 <./Images/AuthoritiesServicesProjection.png>] [16]
-<Images/OverallComponent.png, id=318, 3037.3475pt x 1720.4275pt>
+<Images/OverallComponent.png, id=329, 3037.3475pt x 1720.4275pt>
 File: Images/OverallComponent.png Graphic file (type png)
 <use Images/OverallComponent.png>
 Package pdftex.def Info: Images/OverallComponent.png  used on input line 200.
@@ -477,13 +474,13 @@ Overfull \hbox (35.36688pt too wide) in paragraph at lines 200--201
  []
 
 [17 <./Images/OverallComponent.png>]
-<Images/firstTier.png, id=325, 825.0825pt x 947.54pt>
+<Images/firstTier.png, id=336, 825.0825pt x 947.54pt>
 File: Images/firstTier.png Graphic file (type png)
 <use Images/firstTier.png>
 Package pdftex.def Info: Images/firstTier.png  used on input line 210.
 (pdftex.def)             Requested size: 358.50836pt x 411.7139pt.
  [18 <./Images/firstTier.png>]
-<Images/secondTier.png, id=332, 955.57pt x 554.07pt>
+<Images/secondTier.png, id=343, 955.57pt x 554.07pt>
 File: Images/secondTier.png Graphic file (type png)
 <use Images/secondTier.png>
 Package pdftex.def Info: Images/secondTier.png  used on input line 216.
@@ -494,13 +491,13 @@ Overfull \hbox (28.25368pt too wide) in paragraph at lines 216--217
  []
 
 [19 <./Images/secondTier.png>]
-<Images/thirdTier.png, id=340, 994.71625pt x 1215.54124pt>
+<Images/thirdTier.png, id=351, 994.71625pt x 1215.54124pt>
 File: Images/thirdTier.png Graphic file (type png)
 <use Images/thirdTier.png>
 Package pdftex.def Info: Images/thirdTier.png  used on input line 222.
 (pdftex.def)             Requested size: 358.50836pt x 438.0953pt.
  [20 <./Images/thirdTier.png>]
-<Images/deploymentView.png, id=347, 2197.20876pt x 916.42375pt>
+<Images/deploymentView.png, id=358, 2197.20876pt x 916.42375pt>
 File: Images/deploymentView.png Graphic file (type png)
 <use Images/deploymentView.png>
 Package pdftex.def Info: Images/deploymentView.png  used on input line 230.
@@ -511,27 +508,27 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 230--231
  []
 
 [21 <./Images/deploymentView.png>]
-<Images/Registration_sequence.png, id=354, 629.35126pt x 653.44125pt>
+<Images/Registration_sequence.png, id=365, 629.35126pt x 653.44125pt>
 File: Images/Registration_sequence.png Graphic file (type png)
 <use Images/Registration_sequence.png>
 Package pdftex.def Info: Images/Registration_sequence.png  used on input line 2
 40.
 (pdftex.def)             Requested size: 298.75394pt x 310.1884pt.
  [22 <./Images/Registration_sequence.png>]
-<Images/Off_registration.png, id=361, 1111.15125pt x 1006.76125pt>
+<Images/Off_registration.png, id=372, 1111.15125pt x 1006.76125pt>
 File: Images/Off_registration.png Graphic file (type png)
 <use Images/Off_registration.png>
 Package pdftex.def Info: Images/Off_registration.png  used on input line 248.
 (pdftex.def)             Requested size: 448.1309pt x 406.0309pt.
 
 [23 <./Images/Off_registration.png>]
-<Images/Civilian_report.png, id=368, 1641.13126pt x 1076.02pt>
+<Images/Civilian_report.png, id=379, 1641.13126pt x 1076.02pt>
 File: Images/Civilian_report.png Graphic file (type png)
 <use Images/Civilian_report.png>
 Package pdftex.def Info: Images/Civilian_report.png  used on input line 256.
 (pdftex.def)             Requested size: 448.1309pt x 293.81303pt.
  [24 <./Images/Civilian_report.png>]
-<Images/invalidation_banning.png, id=375, 1182.4175pt x 1287.81125pt>
+<Images/invalidation_banning.png, id=386, 1182.4175pt x 1287.81125pt>
 File: Images/invalidation_banning.png Graphic file (type png)
 <use Images/invalidation_banning.png>
 Package pdftex.def Info: Images/invalidation_banning.png  used on input line 26
@@ -539,13 +536,13 @@ Package pdftex.def Info: Images/invalidation_banning.png  used on input line 26
 (pdftex.def)             Requested size: 448.1309pt x 488.07645pt.
 
 [25] [26 <./Images/invalidation_banning.png>]
-<Images/update_sending.png, id=387, 1438.37375pt x 745.78625pt>
+<Images/update_sending.png, id=398, 1438.37375pt x 745.78625pt>
 File: Images/update_sending.png Graphic file (type png)
 <use Images/update_sending.png>
 Package pdftex.def Info: Images/update_sending.png  used on input line 272.
 (pdftex.def)             Requested size: 448.1309pt x 232.35208pt.
  [27 <./Images/update_sending.png>]
-<Images/automated_ticket.png, id=394, 746.79pt x 584.1825pt>
+<Images/automated_ticket.png, id=405, 746.79pt x 584.1825pt>
 File: Images/automated_ticket.png Graphic file (type png)
 <use Images/automated_ticket.png>
 Package pdftex.def Info: Images/automated_ticket.png  used on input line 280.
@@ -557,195 +554,212 @@ tt/m/n/12 push based anti-entropy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+Underfull \hbox (badness 10000) in paragraph at lines 315--317
+
+ []
+
+<Images/UX/CivilianUX.png, id=420, 2179.14125pt x 1267.73625pt>
+File: Images/UX/CivilianUX.png Graphic file (type png)
+<use Images/UX/CivilianUX.png>
+Package pdftex.def Info: Images/UX/CivilianUX.png  used on input line 322.
+(pdftex.def)             Requested size: 390.0pt x 226.88663pt.
+[31]
+<Images/UX/OfficerUX.png, id=426, 2580.64125pt x 983.675pt>
+File: Images/UX/OfficerUX.png Graphic file (type png)
+<use Images/UX/OfficerUX.png>
+Package pdftex.def Info: Images/UX/OfficerUX.png  used on input line 328.
+(pdftex.def)             Requested size: 390.0pt x 148.6556pt.
+ [32 <./Images/UX/CivilianUX.png>]
+<Images/UX/AuthorityUX.png, id=433, 1396.21625pt x 1355.0625pt>
+File: Images/UX/AuthorityUX.png Graphic file (type png)
+<use Images/UX/AuthorityUX.png>
+Package pdftex.def Info: Images/UX/AuthorityUX.png  used on input line 334.
+(pdftex.def)             Requested size: 390.0pt x 378.50514pt.
+ [33 <./Images/UX/OfficerUX.png>]
+[34 <./Images/UX/AuthorityUX.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
-[31] [32] [33] [34] [35] [36] [37] [38] [39]
-Overfull \hbox (4.95598pt too wide) in paragraph at lines 629--630
+[35] [36] [37] [38] [39] [40] [41]
+Overfull \hbox (4.95598pt too wide) in paragraph at lines 651--652
 []\OT1/cmtt/m/n/12 Ticket emission components\OT1/cmr/m/n/12 : All the mod-ules
  re-quired to make ticket
  []
 
-[40]
-<Images/Integration/BasicIntegrationChart1.png, id=451, 532.99126pt x 92.345pt>
+[42]
+<Images/Integration/BasicIntegrationChart1.png, id=479, 532.99126pt x 92.345pt>
 
 File: Images/Integration/BasicIntegrationChart1.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart1.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart1.png  used on
- input line 649.
+ input line 671.
 (pdftex.def)             Requested size: 390.0pt x 67.5719pt.
 
-Overfull \hbox (15.20865pt too wide) in paragraph at lines 645--651
+Overfull \hbox (15.20865pt too wide) in paragraph at lines 667--673
 []\OT1/cmtt/m/n/12 Basic Components with DBMS\OT1/cmr/m/n/12 : we'll start by b
 uild-ing the three databases
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--651
+Underfull \hbox (badness 10000) in paragraph at lines 667--673
 
  []
 
-<Images/Integration/BasicIntegrationChart2.png, id=452, 532.99126pt x 273.02pt>
+<Images/Integration/BasicIntegrationChart2.png, id=480, 532.99126pt x 273.02pt>
 
 File: Images/Integration/BasicIntegrationChart2.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart2.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart2.png  used on
- input line 654.
+ input line 676.
 (pdftex.def)             Requested size: 390.0pt x 199.77786pt.
-<Images/Integration/BasicIntegrationChart3.png, id=453, 723.70375pt x 92.345pt>
+<Images/Integration/BasicIntegrationChart3.png, id=481, 723.70375pt x 92.345pt>
 
 File: Images/Integration/BasicIntegrationChart3.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart3.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart3.png  used on
- input line 659.
+ input line 681.
 (pdftex.def)             Requested size: 390.0pt x 49.76408pt.
-<Images/Integration/BasicIntegrationChart4.png, id=454, 733.74126pt x 273.02pt>
+[43 <./Images/Integration/BasicIntegrationChart1.png>]
+<Images/Integration/BasicIntegrationChart4.png, id=490, 733.74126pt x 273.02pt>
 
 File: Images/Integration/BasicIntegrationChart4.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart4.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart4.png  used on
- input line 666.
+ input line 688.
 (pdftex.def)             Requested size: 390.0pt x 145.1165pt.
 
-Overfull \hbox (1.42635pt too wide) in paragraph at lines 662--668
+Overfull \hbox (1.42635pt too wide) in paragraph at lines 684--690
 []\OT1/cmtt/m/n/12 Basic Components with external services\OT1/cmr/m/n/12 : the
  GUIs of each client
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--668
+Underfull \hbox (badness 10000) in paragraph at lines 684--690
 
  []
 
-[41 <./Images/Integration/BasicIntegrationChart1.png> <./Images/Integration/Bas
-icIntegrationChart2.png> <./Images/Integration/BasicIntegrationChart3.png>]
-<Images/Integration/BasicIntegrationChart5.png, id=466, 502.87875pt x 92.345pt>
+[44 <./Images/Integration/BasicIntegrationChart2.png> <./Images/Integration/Bas
+icIntegrationChart3.png>]
+<Images/Integration/BasicIntegrationChart5.png, id=500, 502.87875pt x 92.345pt>
 
 File: Images/Integration/BasicIntegrationChart5.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart5.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart5.png  used on
- input line 672.
+ input line 694.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
-<Images/Integration/TicektEmissionIntegrationChart1.png, id=467, 824.07875pt x 
+<Images/Integration/TicektEmissionIntegrationChart1.png, id=501, 824.07875pt x 
 92.345pt>
 File: Images/Integration/TicektEmissionIntegrationChart1.png Graphic file (type
  png)
 <use Images/Integration/TicektEmissionIntegrationChart1.png>
 Package pdftex.def Info: Images/Integration/TicektEmissionIntegrationChart1.png
-  used on input line 678.
+  used on input line 700.
 (pdftex.def)             Requested size: 390.0pt x 43.70227pt.
 
-Overfull \hbox (4.70746pt too wide) in paragraph at lines 675--680
+Overfull \hbox (4.70746pt too wide) in paragraph at lines 697--702
 []\OT1/cmtt/m/n/12 Ticket Emission components with Basic Components\OT1/cmr/m/n
 /12 : we will start
  []
 
-[42 <./Images/Integration/BasicIntegrationChart4.png> <./Images/Integration/Bas
-icIntegrationChart5.png>]
-<Images/Integration/TicektEmissionIntegrationChart2.png, id=479, 502.87875pt x 
+<Images/Integration/TicektEmissionIntegrationChart2.png, id=502, 502.87875pt x 
 92.345pt>
 File: Images/Integration/TicektEmissionIntegrationChart2.png Graphic file (type
  png)
 <use Images/Integration/TicektEmissionIntegrationChart2.png>
 Package pdftex.def Info: Images/Integration/TicektEmissionIntegrationChart2.png
-  used on input line 684.
+  used on input line 706.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 
-Overfull \hbox (22.33017pt too wide) in paragraph at lines 681--686
+Overfull \hbox (22.33017pt too wide) in paragraph at lines 703--708
 []\OT1/cmtt/m/n/12 Ticket Emission components with DBMS\OT1/cmr/m/n/12 : the \O
 T1/cmtt/m/n/12 Ticket Emission Module
  []
 
-<Images/Integration/TicektEmissionIntegrationChart3.png, id=480, 502.87875pt x 
+[45 <./Images/Integration/BasicIntegrationChart4.png> <./Images/Integration/Bas
+icIntegrationChart5.png> <./Images/Integration/TicektEmissionIntegrationChart1.
+png>]
+<Images/Integration/TicektEmissionIntegrationChart3.png, id=515, 502.87875pt x 
 92.345pt>
 File: Images/Integration/TicektEmissionIntegrationChart3.png Graphic file (type
  png)
 <use Images/Integration/TicektEmissionIntegrationChart3.png>
 Package pdftex.def Info: Images/Integration/TicektEmissionIntegrationChart3.png
-  used on input line 690.
+  used on input line 712.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
-<Images/Integration/StatisticIntegrationChart1.png, id=481, 502.87875pt x 92.34
+<Images/Integration/StatisticIntegrationChart1.png, id=516, 502.87875pt x 92.34
 5pt>
 File: Images/Integration/StatisticIntegrationChart1.png Graphic file (type png)
 
 <use Images/Integration/StatisticIntegrationChart1.png>
 Package pdftex.def Info: Images/Integration/StatisticIntegrationChart1.png  use
-d on input line 696.
+d on input line 718.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 
-Overfull \hbox (16.92586pt too wide) in paragraph at lines 693--698
+Overfull \hbox (16.92586pt too wide) in paragraph at lines 715--720
 []\OT1/cmtt/m/n/12 Data Mining components with DBMS\OT1/cmr/m/n/12 : as the \OT
 1/cmtt/m/n/12 Authority Update Module
  []
 
-[43 <./Images/Integration/TicektEmissionIntegrationChart1.png> <./Images/Integr
-ation/TicektEmissionIntegrationChart2.png> <./Images/Integration/TicektEmission
-IntegrationChart3.png>]
-<Images/Integration/StatisticIntegrationChart2.png, id=496, 502.87875pt x 92.34
+<Images/Integration/StatisticIntegrationChart2.png, id=517, 502.87875pt x 92.34
 5pt>
 File: Images/Integration/StatisticIntegrationChart2.png Graphic file (type png)
 
 <use Images/Integration/StatisticIntegrationChart2.png>
 Package pdftex.def Info: Images/Integration/StatisticIntegrationChart2.png  use
-d on input line 702.
+d on input line 724.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 
-Overfull \hbox (30.46349pt too wide) in paragraph at lines 699--704
+Overfull \hbox (30.46349pt too wide) in paragraph at lines 721--726
 []\OT1/cmtt/m/n/12 Data Mining components with external services\OT1/cmr/m/n/12
  : the \OT1/cmtt/m/n/12 Update Modules
  []
 
-<Images/Integration/StatisticIntegrationChart3.png, id=497, 502.87875pt x 92.34
+[46 <./Images/Integration/TicektEmissionIntegrationChart2.png> <./Images/Integr
+ation/TicektEmissionIntegrationChart3.png> <./Images/Integration/StatisticInteg
+rationChart1.png>]
+<Images/Integration/StatisticIntegrationChart3.png, id=532, 502.87875pt x 92.34
 5pt>
 File: Images/Integration/StatisticIntegrationChart3.png Graphic file (type png)
 
 <use Images/Integration/StatisticIntegrationChart3.png>
 Package pdftex.def Info: Images/Integration/StatisticIntegrationChart3.png  use
-d on input line 708.
+d on input line 730.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
-[44 <./Images/Integration/StatisticIntegrationChart1.png> <./Images/Integration
-/StatisticIntegrationChart2.png> <./Images/Integration/StatisticIntegrationChar
-t3.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 748.
- [45]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 748.
+ [47 <./Images/Integration/StatisticIntegrationChart2.png> <./Images/Integratio
+n/StatisticIntegrationChart3.png>] [48]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 771.
+ [49]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 771.
  (DD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 748.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 748.
-
-
-Package rerunfilecheck Warning: File `DD.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DD.out':
-(rerunfilecheck)             Before: B59C5DEA695E024C2FB70272F9FEEC91;3485
-(rerunfilecheck)             After:  B37314571AAD5B3D4ED40069471C8A7D;3441.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 748.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 771.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 771.
+Package rerunfilecheck Info: File `DD.out' has not changed.
+(rerunfilecheck)             Checksum: 3188B24E59E9F39E56C565A9BB852D83;3436.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 771.
  ) 
 Here is how much of TeX's memory you used:
- 7959 strings out of 492453
- 124337 string characters out of 3120542
- 210146 words of memory out of 3000000
- 12080 multiletter control sequences out of 15000+200000
+ 7603 strings out of 492946
+ 118892 string characters out of 3126388
+ 206645 words of memory out of 3000000
+ 11250 multiletter control sequences out of 15000+200000
  13533 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,6n,48p,1435b,442s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/User/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DD.pdf (45 pages, 978700 bytes).
+ 44i,6n,42p,1435b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolga/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolga/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on DD.pdf (49 pages, 1229811 bytes).
 PDF statistics:
- 562 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 493 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
+ 532 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,11 +34,14 @@
 \contentsline {subsubsection}{\numberline {2.7.2}Bully Election algorithm}{31}{subsubsection.2.7.2}% 
 \contentsline {subsubsection}{\numberline {2.7.3}Distributed Transactions and Mutual Exclusion}{31}{subsubsection.2.7.3}% 
 \contentsline {subsubsection}{\numberline {2.7.4}Update propagation strategy}{31}{subsubsection.2.7.4}% 
-\contentsline {section}{\numberline {3}USER INTERFACE DESIGN: Provide an overview on how the user interface(s) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}{32}{section.3}% 
-\contentsline {section}{\numberline {4}REQUIREMENTS TRACEABILITY}{32}{section.4}% 
-\contentsline {section}{\numberline {5}Implementation, Integration and Test Plan}{39}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Implementation Plan}{39}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Integration plan}{41}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Testing plan}{44}{subsection.5.3}% 
-\contentsline {section}{\numberline {6}EFFORT SPENT}{45}{section.6}% 
-\contentsline {section}{\numberline {7}References}{45}{section.7}% 
+\contentsline {section}{\numberline {3}USER INTERFACE DESIGN}{31}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Civilian UX}{32}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Officer UX}{32}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Authority UX}{33}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}REQUIREMENTS TRACEABILITY}{35}{section.4}% 
+\contentsline {section}{\numberline {5}Implementation, Integration and Test Plan}{41}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Implementation Plan}{41}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Integration plan}{43}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Testing plan}{48}{subsection.5.3}% 
+\contentsline {section}{\numberline {6}EFFORT SPENT}{49}{section.6}% 
+\contentsline {section}{\numberline {7}References}{49}{section.7}% 

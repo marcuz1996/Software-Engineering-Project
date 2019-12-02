@@ -34,11 +34,14 @@
 \BOOKMARK [3][-]{subsubsection.2.7.2}{Bully Election algorithm}{subsection.2.7}% 34
 \BOOKMARK [3][-]{subsubsection.2.7.3}{Distributed Transactions and Mutual Exclusion}{subsection.2.7}% 35
 \BOOKMARK [3][-]{subsubsection.2.7.4}{Update propagation strategy}{subsection.2.7}% 36
-\BOOKMARK [1][-]{section.3}{USER INTERFACE DESIGN: Provide an overview on how the user interface\(s\) of your system will look like; if you have included this part in the RASD, you can simply refer to what you have already done, possibly, providing here some extensions if applicable.}{}% 37
-\BOOKMARK [1][-]{section.4}{REQUIREMENTS TRACEABILITY}{}% 38
-\BOOKMARK [1][-]{section.5}{Implementation, Integration and Test Plan}{}% 39
-\BOOKMARK [2][-]{subsection.5.1}{Implementation Plan}{section.5}% 40
-\BOOKMARK [2][-]{subsection.5.2}{Integration plan}{section.5}% 41
-\BOOKMARK [2][-]{subsection.5.3}{Testing plan}{section.5}% 42
-\BOOKMARK [1][-]{section.6}{EFFORT SPENT}{}% 43
-\BOOKMARK [1][-]{section.7}{References}{}% 44
+\BOOKMARK [1][-]{section.3}{USER INTERFACE DESIGN}{}% 37
+\BOOKMARK [2][-]{subsection.3.1}{Civilian UX}{section.3}% 38
+\BOOKMARK [2][-]{subsection.3.2}{Officer UX}{section.3}% 39
+\BOOKMARK [2][-]{subsection.3.3}{Authority UX}{section.3}% 40
+\BOOKMARK [1][-]{section.4}{REQUIREMENTS TRACEABILITY}{}% 41
+\BOOKMARK [1][-]{section.5}{Implementation, Integration and Test Plan}{}% 42
+\BOOKMARK [2][-]{subsection.5.1}{Implementation Plan}{section.5}% 43
+\BOOKMARK [2][-]{subsection.5.2}{Integration plan}{section.5}% 44
+\BOOKMARK [2][-]{subsection.5.3}{Testing plan}{section.5}% 45
+\BOOKMARK [1][-]{section.6}{EFFORT SPENT}{}% 46
+\BOOKMARK [1][-]{section.7}{References}{}% 47
