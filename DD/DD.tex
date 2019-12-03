@@ -37,7 +37,7 @@
 \section{INTRODUCTION}
 \subsection{Purpose}
 This \texttt{Design Document (DD)} for the SafeStreets software will provide a functional description of the system by describing its architecture. 
-It will eventually by used by the development team as a blueprint to guide the engineering of the application.
+It will eventually be used by the development team as a blueprint to guide the engineering of the application.
 \subsection{Scope}
 The main objective of the S2B will be assisting (thus not substituting) authorities and officers in handling traffic violations though a crowd-sourced platform in which civilians can participate. 
 A mobile application will allow users, both civilians and officers, to report violations through the use of the camera and the GPS, sending the data to authorities who will process such reports. 
@@ -53,6 +53,7 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 \subsubsection{Acronyms}
 \begin{itemize}
 \item \texttt{S2B:} software to be.
+\item \texttt{RASD:} Requirement Analysis and Specification Document.
 \item \texttt{HFVZ:} high violation frequency zone.
 \item \texttt{GPS:} Global Positioning System.
 \item \texttt{GDPR:} General Data Protection Regulation.
@@ -311,27 +312,33 @@ As having multiple ADSs mine the same data and produce the same reports is, comp
 It will be important to ensure concurrent accesses to the databases do not violate integrity constraints. Mutual exclusion and distributed commit protocols are known to be as important as they are difficult to implement, thus we decided to utilize \texttt{Hibernate} (which is based on \texttt{jDBC}) as our framework to manage read and write accesses, as it is known to guarantee mutual exclusion and sufficient parallelism in distributed transaction. This way no time and effort will be used by the developers to code these functionalities directly from Java primitives.
 \subsubsection{Update propagation strategy}
 The leader, after mining the updates, will stamp each one of them with a vector clock to perform \underline{causally ordered multicast} (so that no updates are temporally misplaced by the final users), and follow a \texttt{push based anti-entropy propagation strategy} to spread the updates to all the ADSs in his network, that will do the same by forwarding them to their connected web servers. At this point, every time a client needs an update, it may be after a timer going off or some condition being satisfied, it can simply fetch the update from its connected web server (this time it's \texttt{pull based} to avoid wasting of resources). The web server knows what kind of actor is trying to retrieve the updates and will only give out the permitted ones. 
+\newpage
 \section{USER INTERFACE DESIGN}
-INTROOOOOOOOOOOO
+As various mockups of the design of the clients were already included in chapter 3 of the \texttt{Requirement Analysis and Specification Document}, we decided to include the User Experience diagrams which describe the ways with which the various actors interact with their GUIs. For further details on how the clients will work, it is possible to refer to the Statecharts in chapter 2 of the RASD.
 \\
 \subsection{Civilian UX}
-When civilians open the app on their mobile phone the first page that they visualize is the Start Menu. thrught this menu they can do the authentication (both login and registration).
-Regarding the registration they must insert their data and confirm the email received, for login they have to insert their authentication data. Once they are logged in they can visualize the map, the statistics or update their datas. In the map menu they can make a report by sending a photo while in the statistics menu they can visualize the statistic datas about their report, the HFVZ and thte global reports.
+When civilians launch the app on their mobile phone the first page they visualize is the Start Menu. Here they can authenticate themselves (both login and registration).
+Regarding the registration they must insert their data and confirm the email received, while for login they have to insert their authentication data. Once they are logged in they can visualize the map, the statistics or modify their login data. In the map menu they can compile a report with the previously described procedure, while in the statistics menu they can visualize the data received through the updates, about their report, HFVZs and data about all the reports.
 \begin{figure}[H]
 		\centering
 			\includegraphics[width=1.0\linewidth]{Images/UX/CivilianUX}
 \end{figure}
+\newpage
 \subsection{Officer UX}
-When an officer opens the app on his mobile phone the first page that he can visualize is the Start Menu. Trought this menu he can do the login by using his badge ID and the password communicate by email. if he is doing the first login is required to choose a PIN the in a second moment he have to use to certificate the ticket emission. if he isn't doing the first login he can visualize the Map and the statistics. He can visualize the same statistics of the civilians and one other that is the Repeat Offenders. On the map he can do or check a report throught the relative button; moreover if he checks a report and the violation occured he must send a traffic ticket segnalation to the VGA by compiling the form which required the insertion of his PIN. But if the violation not occours he sends the violation rejection to the authority which in a second time will take action against the reporter.
+The mobile application seen by officers is pretty much the same as the one seen by civilians. Officers can login by using their badge ID and the password communicated by email (this is triggered by the Authority which added the officer). For the first login, the officer is required to choose a PIN so he will be able to eventually confirm reports for ticket emission. After this, he can visualize the Map and the statistics. The statistics are the same of the civilians, plus the Repeat Offenders. On the map he can complie or check a report throught the relative buttons; moreover, if he checks a report and the violation occured he can allow the sending of a traffic ticket to the VLA by compiling the form which requires the insertion of his PIN. If the violation doesn't match the report data, or is no longer present, the officer can reject the report and prompt the ADS to remove it from the map.
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/UX/OfficerUX}
+\begin{adjustwidth}{-25mm}{-25mm}
+					        \includegraphics[width=1\linewidth]{Images/UX/OfficerUX}
+					\end{adjustwidth}		
+	
 \end{figure}
+\newpage
 \subsection{Authority UX}
-The authorities work on a web application. by that application they can add the officers of their barrack to the SafeStreets system and send to them an email whit the purpose of safestreets program and the password to do, within the badge ID, the login. The authorities must also check the photo sent by users' reports and confirm or reject them. They can also send  a request of ban for a civilian to the SafeStreets staff. Finally they can visualize the same statistics of the officers.
+The authorities work on a web application. From this application they can add officers to the SafeStreets system by sending them an email with the purpose of program and an automatically generated password to allow officers to login along with their badge ID. The authoritiescan  also check the data sent by users' reports and confirm or reject them. They can also send a ban request for a civilian to the SafeStreets staff. They can also visualize the same statistics of the officers.
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/UX/AuthorityUX}
+			\includegraphics[width=0.75\linewidth]{Images/UX/AuthorityUX}
 \end{figure}
 \newpage
 \section{REQUIREMENTS TRACEABILITY}
