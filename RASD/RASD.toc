@@ -71,7 +71,7 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Signatures}{41}{subsubsection.4.2.1}% 
 \contentsline {subsubsection}{\numberline {4.2.2}Facts}{43}{subsubsection.4.2.2}% 
 \contentsline {subsubsection}{\numberline {4.2.3}Assertions}{45}{subsubsection.4.2.3}% 
-\contentsline {subsubsection}{\numberline {4.2.4}Results}{46}{subsubsection.4.2.4}% 
-\contentsline {subsubsection}{\numberline {4.2.5}Metamodel}{47}{subsubsection.4.2.5}% 
+\contentsline {subsubsection}{\numberline {4.2.4}Predicates}{46}{subsubsection.4.2.4}% 
+\contentsline {subsubsection}{\numberline {4.2.5}Results}{47}{subsubsection.4.2.5}% 
 \contentsline {subsubsection}{\numberline {4.2.6}Generated Worlds}{48}{subsubsection.4.2.6}% 
-\contentsline {section}{\numberline {5}EFFORT SPENT}{49}{section.5}% 
+\contentsline {section}{\numberline {5}EFFORT SPENT}{50}{section.5}% 
