@@ -89,7 +89,7 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 	\item {\textbf[}\textbf{G6.1}{\textbf]}: only allow authorities to visualize relevant data for law enforcement purposes.
 	\end{itemize}
 \end{itemize}
-\subsection{Definitions,	Acronyms,	Abbreviations} 
+\subsection{Definitions, Acronyms, Abbreviations} 
 \subsubsection{Definitions}
  \begin{itemize}
 \item \texttt{Violation | Offence:} we will strictly refer to any kind of static traffic violation, especially parking violations. 
@@ -117,9 +117,10 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 			\end{itemize}
 \subsection{Revision history} 
 \begin{itemize}
-\item \textbf{1/12/2019}: Alloy section revisited and improved.
+\item \textbf{01/12/2019}: Alloy section revisited and improved.
+\item \textbf{03/12/2019}: Complete revision of the document for consistency, spell checking, alloy and mockup improved.
 \end{itemize}
-\subsection{Reference	Documents} 
+\subsection{Reference Documents} 
 \begin{itemize}
 				\item Specification Document "Mandatory Project Assignment A.Y. 2019/2020"
 				\item 830-1993 - IEEE Recommended Practice for Software Requirements
@@ -128,7 +129,7 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 				\item UML diagrams: https://www.uml­diagrams.org/
 				\item "Notes for the Distributed Systems course" A.Y. 2019/2020
 			\end{itemize}
-\subsection{Document	Structure} 
+\subsection{Document Structure} 
 \begin{enumerate}
 			\item \texttt{Introduction}: the first section is a general description of the system's scope and its goals. It also includes the revision history of the document and its references. Definitions and abbreviations used along the paper will be provided.
 			\item \texttt{Overall Description}: this section includes shared phenomena, requirements and domain assumptions. It also clarifies users' needs.
@@ -138,8 +139,8 @@ The system will be designed to avoid any kind of voluntary or unpredictable beha
 			\item \texttt{References}: this section includes references about papers/documents used to support this document.
 		\end{enumerate}
 \newpage
-\section{OVERALL	DESCRIPTION}
-\subsection{Product	perspective} 
+\section{OVERALL DESCRIPTION}
+\subsection{Product perspective} 
 This class diagram shows a bird's eye view of the system. We decided to include more details such as methods to immediately give an idea of how every component will work in the S2B, but this diagram will in no way be the actual implementation of the system, rather a simplified representation:
 \begin{figure}[H]
 				\centering
@@ -168,7 +169,7 @@ These state diagrams describe the possibilities of each actor and how their beva
 				\centering
 				\includegraphics[width=.75\textwidth,keepaspectratio]{Images/authority_states}
 			\end{figure}
-\subsection{Product	functions}
+\subsection{Product functions}
 The goals to be accomplished require the following functions:
  \begin{itemize}
 \item \texttt{Registration and login management:} while civilians will be able to register and login in standard fashion through email and password, officers will be added by authorities through their client: an automatically generated password will be sent to their email, and they will be able to access through their badge ID and such password. This way it is impossible for civilians to log in as an officer, as they would have to know both the badge number and the password contained in the officer's personal email.
@@ -236,113 +237,124 @@ The goals to be accomplished require the following functions:
 \item {\textbf[}\textbf{D15}{\textbf]}: Every registered officer's signature is stored at the authority in an image file.
 \end{itemize}
 \newpage
-\section{SPECIFIC	REQUIREMENTS}
-\subsection{External	Interface	Requirements} 
-\subsubsection{User	Interfaces}
+\section{SPECIFIC REQUIREMENTS}
+\subsection{External Interface Requirements} 
+\subsubsection{User Interfaces}
 The following mockups give a basic idea of how the Mobile Application and the Web Application are supposed to look like.
 \begin {itemize}
 	\item \textbf{Civilian}: they can access SafeStreets functionalities through the mobile application.					
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Main Page}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/SchermataIniziale.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/SchermataIniziale.png}}\quad
 			\subfloat [][\emph {Login}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Login.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/Login.png}}\quad
 			\subfloat [][\emph {Data update}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/UpdateData.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/UpdateData.png}}
 			\caption{Login, Registration}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Main menu}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/User_Menu.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/user/User_Menu.png}}\quad
 			\subfloat [][\emph {Statistics menu}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/UserStatisticsMenu.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/user/UserStatisticsMenu.png}}
 			\caption{User's Menu}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Your reports}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/UserStatistics_Reports.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/user/UserStatistics_Reports.png}}\quad
 			\subfloat [][\emph {HFVZ}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_HFVZ.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/Statistics_HFVZ.png}}\quad
 			\subfloat [][\emph {Global Reports}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_GlobalReports.png}}	
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/Statistics_GlobalReports.png}}	
 			\caption{User's Statistics}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Map report}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Report.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/Report.png}}\quad
 			\subfloat [][\emph {Make report}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/user/ReportPhoto.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/user/ReportPhoto.png}}
 			\caption{Report}
 		\end{figure}
-\newpage
 	\item \textbf {Officer}: over than civilian functionalities, they can also investigate the reports and sign automated tickets.
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Main Page}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/SchermataIniziale.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/SchermataIniziale.png}}\quad
 			\subfloat [][\emph {Login}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/LoginOfficer.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/LoginOfficer.png}}\quad
 			\subfloat [][\emph {Officer PIN}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/OfficerPIN.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/OfficerPIN.png}}
 			\caption{Login, Registration, PIN}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Main menu}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/MenuOfficer.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/MenuOfficer.png}}\quad
 			\subfloat [][\emph {Statistics menu}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/OfficerStatisticsMenu.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/OfficerStatisticsMenu.png}}
 			\caption{Officer's Menu}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Your checks}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/OfficerStatistics_YourChecks.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/OfficerStatistics_YourChecks.png}}\quad
 			\subfloat [][\emph {HFVZ}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_HFVZ.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/Statistics_HFVZ.png}}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Global Reports}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/Statistics_GlobalReports.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/Statistics_GlobalReports.png}}\quad
 			\subfloat [][\emph {Repeat Offenders}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/Statistics_RepeatViolations.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/Statistics_RepeatViolations.png}}
 			\caption{Officer's Statistics}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Check violation}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/CheckViolation.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/CheckViolation.png}}\quad
 			\subfloat [][\emph {Under investigation}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/UnderInvestigation.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/UnderInvestigation.png}}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat [][\emph {Violation confirmed}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/ViolationConfirmed.png}}\quad
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/ViolationConfirmed.png}}\quad
 			\subfloat [][\emph {Violation Rejected}]
-			{\includegraphics[width=0.3\linewidth]{Images/Mockup/officer/ViolationNotConfirmed.png}}
+			{\includegraphics[width=0.25\linewidth]{Images/Mockup/officer/ViolationNotConfirmed.png}}
 			\caption{Investigation}
 		\end{figure}
+\newpage
 	\item \textbf{Authority}: SafeStreets provides a Web Application for law enforcement authorities where they can validate reports, request bans, toggle the automated ticket emission functionalities on or off, and most importantly add new officers.
 		\begin{figure}[H]
 			\centering
-			{\includegraphics[width=1\linewidth, height=.5\linewidth]{Images/Mockup/AuthorityWebApp.png}}
-			\caption{Web App}
+			{\includegraphics[width=1\linewidth]{Images/Mockup/authority/AuthorityWebApp.png}}
+			\caption{Web App Menu}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			{\includegraphics[width=0.8\linewidth]{Images/Mockup/authority/AuthorityWebApp_OfficerRegistration}}
+			\caption{Officer Registration}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			{\includegraphics[width=0.8\linewidth]{Images/Mockup/authority/AuthorityWebApp_ReceivedReports}}
+			\caption{Received Reports}
 		\end{figure}
 \end{itemize}
-\subsubsection{Hardware	Interfaces}
+\newpage
+\subsubsection{Hardware Interfaces}
 Since the application must run over the Internet, all the hardware shall require to connect network will be an hardware interface for the system, both
 server and client side.
 \begin{itemize}
 \item Server-side: e.g. Modem, WAN - LAN, Ethernet Cross-Cable.
 \item Client-side: e.g. Wi-Fi 802.11ac+ antenna, 3G/4G antenna. 
 \end{itemize}
-\subsubsection{Software	Interfaces}
+\subsubsection{Software Interfaces}
 SafeStreets will provide a very basic API for authorities to customize data about tickets and fines (so that the functionality can fit various legislations) and other minor parameters such as report expiration time.
 The \texttt{Google Maps API} will be used to implement the map and geolocalization services. 
 \texttt{Hibernate} will be used to handle database accesses in all components, thus providing a way to interact with the chosen DBMS.
@@ -794,9 +806,9 @@ Also includes the first login in which the 5 digit pin is compiled, to complete 
 				
 			\end{figure}
 
-\subsection{Performance	Requirements}
+\subsection{Performance Requirements}
 In general, the software should be an helpful tool for authorities and thus its efficient use strongly depends on their ability to use it readily. By assuming reliable links and decent performance of network protocol communications, mailing services etc. the throughput of the system mostly depends on the personnel operating the web application and the officer (as reports cannot be converted into fines without their validation). In the presence of multiple reports and multiple authorities processing them, like what would possibly happen in big cities, the system has nonetheless to guarantee the time bounds specified in the requirements for the sending of new processed data, and especially swiftly notify new reports. Reports must be guaranteed to expire after a time limit has expired, to make sure that no effort is wasted by officers in checking old ones. 
-\subsection{Design	Constraints}
+\subsection{Design Constraints}
 \subsubsection{Hardware Limitations}
 		\begin{itemize}
 			\item \texttt{Mobile App}: 
@@ -805,9 +817,9 @@ In general, the software should be an helpful tool for authorities and thus its 
 				\end{itemize}
 			\item \texttt{Web App}: modern web browser (e.g. Google Chrome / Safari) able to support a Rich Internet Application, Internet connection.
 		\end{itemize}
-\subsubsection{Standards	compliance}
+\subsubsection{Standards compliance}
 The system uses the International System of Units as it system of measurements and the sensitive data will be treated according to the General Data Protection Regulation rules.
-\subsection{Software	 System	 Attributes} 
+\subsection{Software System Attributes} 
 \subsubsection{Reliability}
 The system should always be able to process reports and store them in the data warehouse, but according to G1 the priority is assisting law enforcers and not substituting the existing procedures, thus transient and occasional deviations can be accepted. Reports can be processed by multiple authorities' servers if the previous one fail (e.g. every police barrack has a server), so replication will be used to guarantee both availability and reliability.
 \subsubsection{Availability}
@@ -904,7 +916,7 @@ Things that can be noticed:
 \item all the reports accepted have been confirmed by the authority.
 \end{itemize}
 \newpage
-\section{EFFORT	SPENT}
+\section{EFFORT SPENT}
 \begin{itemize}
 \item {Davide Cocco}
  \begin{center}
@@ -938,8 +950,8 @@ Things that can be noticed:
 				20/10/2019 & Use case diagrams & 2\\ \hline
 				22/10/2019 & Mockups & 4\\ \hline	
 				9/11/2019 & Alloy & 5\\ \hline
-				1/12/2019 & Alloy & 3\\ \hline
-				3/12/2019 & Alloy & 7\\ \hline
+				1/12/2019 & Mockup revision & 3\\ \hline
+				3/12/2019 & Final revision & 7\\ \hline
 				Total & & 29.5 \\ \hline
 			\end{tabular}
 \end{center}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  2 DEC 2019 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.11)  3 DEC 2019 21:22
 entering extended mode
 **./DD.tex
 (DD.tex
@@ -411,10 +411,10 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 <Images/highlevel.png, id=270, 1171.37625pt x 735.74875pt>
 File: Images/highlevel.png Graphic file (type png)
 <use Images/highlevel.png>
-Package pdftex.def Info: Images/highlevel.png  used on input line 95.
+Package pdftex.def Info: Images/highlevel.png  used on input line 96.
 (pdftex.def)             Requested size: 537.75343pt x 337.77493pt.
 
-Overfull \hbox (5.48967pt too wide) in paragraph at lines 95--96
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 96--97
 [][] 
  []
 
@@ -422,17 +422,17 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 95--96
 <Images/ComponentDiagram.png, id=287, 814.04124pt x 606.265pt>
 File: Images/ComponentDiagram.png Graphic file (type png)
 <use Images/ComponentDiagram.png>
-Package pdftex.def Info: Images/ComponentDiagram.png  used on input line 135.
+Package pdftex.def Info: Images/ComponentDiagram.png  used on input line 136.
 (pdftex.def)             Requested size: 390.0pt x 290.45808pt.
 <Images/CivilianMobileServicesProjection.png, id=288, 1366.10374pt x 784.9325pt
 >
 File: Images/CivilianMobileServicesProjection.png Graphic file (type png)
 <use Images/CivilianMobileServicesProjection.png>
 Package pdftex.def Info: Images/CivilianMobileServicesProjection.png  used on i
-nput line 145.
+nput line 146.
 (pdftex.def)             Requested size: 537.75343pt x 308.98495pt.
 
-Overfull \hbox (5.48967pt too wide) in paragraph at lines 145--146
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 146--147
 [][] 
  []
 
@@ -443,10 +443,10 @@ tion.png>] [12]
 File: Images/OfficerMobileServicesProjection.png Graphic file (type png)
 <use Images/OfficerMobileServicesProjection.png>
 Package pdftex.def Info: Images/OfficerMobileServicesProjection.png  used on in
-put line 164.
+put line 165.
 (pdftex.def)             Requested size: 537.75343pt x 315.47655pt.
 
-Overfull \hbox (5.48967pt too wide) in paragraph at lines 164--165
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 165--166
 [][] 
  []
 
@@ -455,10 +455,10 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 164--165
 File: Images/AuthoritiesServicesProjection.png Graphic file (type png)
 <use Images/AuthoritiesServicesProjection.png>
 Package pdftex.def Info: Images/AuthoritiesServicesProjection.png  used on inpu
-t line 182.
+t line 183.
 (pdftex.def)             Requested size: 537.75343pt x 362.77216pt.
 
-Overfull \hbox (5.48967pt too wide) in paragraph at lines 182--183
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 183--184
 [][] 
  []
 
@@ -466,10 +466,10 @@ Overfull \hbox (5.48967pt too wide) in paragraph at lines 182--183
 <Images/OverallComponent.png, id=329, 3037.3475pt x 1720.4275pt>
 File: Images/OverallComponent.png Graphic file (type png)
 <use Images/OverallComponent.png>
-Package pdftex.def Info: Images/OverallComponent.png  used on input line 200.
+Package pdftex.def Info: Images/OverallComponent.png  used on input line 201.
 (pdftex.def)             Requested size: 567.63065pt x 321.50305pt.
 
-Overfull \hbox (35.36688pt too wide) in paragraph at lines 200--201
+Overfull \hbox (35.36688pt too wide) in paragraph at lines 201--202
 [][] 
  []
 
@@ -477,16 +477,16 @@ Overfull \hbox (35.36688pt too wide) in paragraph at lines 200--201
 <Images/firstTier.png, id=336, 825.0825pt x 947.54pt>
 File: Images/firstTier.png Graphic file (type png)
 <use Images/firstTier.png>
-Package pdftex.def Info: Images/firstTier.png  used on input line 210.
+Package pdftex.def Info: Images/firstTier.png  used on input line 211.
 (pdftex.def)             Requested size: 358.50836pt x 411.7139pt.
  [18 <./Images/firstTier.png>]
 <Images/secondTier.png, id=343, 955.57pt x 554.07pt>
 File: Images/secondTier.png Graphic file (type png)
 <use Images/secondTier.png>
-Package pdftex.def Info: Images/secondTier.png  used on input line 216.
+Package pdftex.def Info: Images/secondTier.png  used on input line 217.
 (pdftex.def)             Requested size: 418.25368pt x 242.51494pt.
 
-Overfull \hbox (28.25368pt too wide) in paragraph at lines 216--217
+Overfull \hbox (28.25368pt too wide) in paragraph at lines 217--218
  [][] 
  []
 
@@ -494,100 +494,99 @@ Overfull \hbox (28.25368pt too wide) in paragraph at lines 216--217
 <Images/thirdTier.png, id=351, 994.71625pt x 1215.54124pt>
 File: Images/thirdTier.png Graphic file (type png)
 <use Images/thirdTier.png>
-Package pdftex.def Info: Images/thirdTier.png  used on input line 222.
+Package pdftex.def Info: Images/thirdTier.png  used on input line 223.
 (pdftex.def)             Requested size: 358.50836pt x 438.0953pt.
  [20 <./Images/thirdTier.png>]
 <Images/deploymentView.png, id=358, 2197.20876pt x 916.42375pt>
 File: Images/deploymentView.png Graphic file (type png)
 <use Images/deploymentView.png>
-Package pdftex.def Info: Images/deploymentView.png  used on input line 230.
+Package pdftex.def Info: Images/deploymentView.png  used on input line 231.
 (pdftex.def)             Requested size: 537.75343pt x 224.28107pt.
 
-Overfull \hbox (5.48967pt too wide) in paragraph at lines 230--231
+Overfull \hbox (5.48967pt too wide) in paragraph at lines 231--232
  [] 
  []
 
 [21 <./Images/deploymentView.png>]
-<Images/Registration_sequence.png, id=365, 629.35126pt x 653.44125pt>
+<Images/Registration_sequence.png, id=365, 746.79pt x 696.6025pt>
 File: Images/Registration_sequence.png Graphic file (type png)
 <use Images/Registration_sequence.png>
 Package pdftex.def Info: Images/Registration_sequence.png  used on input line 2
-40.
-(pdftex.def)             Requested size: 298.75394pt x 310.1884pt.
+41.
+(pdftex.def)             Requested size: 298.75394pt x 278.67857pt.
  [22 <./Images/Registration_sequence.png>]
 <Images/Off_registration.png, id=372, 1111.15125pt x 1006.76125pt>
 File: Images/Off_registration.png Graphic file (type png)
 <use Images/Off_registration.png>
-Package pdftex.def Info: Images/Off_registration.png  used on input line 248.
+Package pdftex.def Info: Images/Off_registration.png  used on input line 249.
 (pdftex.def)             Requested size: 448.1309pt x 406.0309pt.
 
 [23 <./Images/Off_registration.png>]
 <Images/Civilian_report.png, id=379, 1641.13126pt x 1076.02pt>
 File: Images/Civilian_report.png Graphic file (type png)
 <use Images/Civilian_report.png>
-Package pdftex.def Info: Images/Civilian_report.png  used on input line 256.
+Package pdftex.def Info: Images/Civilian_report.png  used on input line 257.
 (pdftex.def)             Requested size: 448.1309pt x 293.81303pt.
  [24 <./Images/Civilian_report.png>]
 <Images/invalidation_banning.png, id=386, 1182.4175pt x 1287.81125pt>
 File: Images/invalidation_banning.png Graphic file (type png)
 <use Images/invalidation_banning.png>
 Package pdftex.def Info: Images/invalidation_banning.png  used on input line 26
-4.
+5.
 (pdftex.def)             Requested size: 448.1309pt x 488.07645pt.
 
 [25] [26 <./Images/invalidation_banning.png>]
 <Images/update_sending.png, id=398, 1438.37375pt x 745.78625pt>
 File: Images/update_sending.png Graphic file (type png)
 <use Images/update_sending.png>
-Package pdftex.def Info: Images/update_sending.png  used on input line 272.
+Package pdftex.def Info: Images/update_sending.png  used on input line 273.
 (pdftex.def)             Requested size: 448.1309pt x 232.35208pt.
  [27 <./Images/update_sending.png>]
 <Images/automated_ticket.png, id=405, 746.79pt x 584.1825pt>
 File: Images/automated_ticket.png Graphic file (type png)
 <use Images/automated_ticket.png>
-Package pdftex.def Info: Images/automated_ticket.png  used on input line 280.
+Package pdftex.def Info: Images/automated_ticket.png  used on input line 281.
 (pdftex.def)             Requested size: 448.1309pt x 350.55676pt.
  [28 <./Images/automated_ticket.png>] [29] [30]
-Overfull \hbox (1.18776pt too wide) in paragraph at lines 313--314
+Overfull \hbox (1.18776pt too wide) in paragraph at lines 314--315
 \OT1/cmr/m/n/12 po-rally mis-placed by the fi-nal users), and fol-low a \OT1/cm
 tt/m/n/12 push based anti-entropy
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 315--317
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 317--319
 
  []
 
-<Images/UX/CivilianUX.png, id=420, 2179.14125pt x 1267.73625pt>
+<Images/UX/CivilianUX.png, id=425, 2179.14125pt x 1267.73625pt>
 File: Images/UX/CivilianUX.png Graphic file (type png)
 <use Images/UX/CivilianUX.png>
-Package pdftex.def Info: Images/UX/CivilianUX.png  used on input line 322.
+Package pdftex.def Info: Images/UX/CivilianUX.png  used on input line 324.
 (pdftex.def)             Requested size: 390.0pt x 226.88663pt.
-[31]
-<Images/UX/OfficerUX.png, id=426, 2580.64125pt x 983.675pt>
+[32 <./Images/UX/CivilianUX.png>]
+<Images/UX/OfficerUX.png, id=432, 2580.64125pt x 983.675pt>
 File: Images/UX/OfficerUX.png Graphic file (type png)
 <use Images/UX/OfficerUX.png>
-Package pdftex.def Info: Images/UX/OfficerUX.png  used on input line 328.
-(pdftex.def)             Requested size: 390.0pt x 148.6556pt.
- [32 <./Images/UX/CivilianUX.png>]
-<Images/UX/AuthorityUX.png, id=433, 1396.21625pt x 1355.0625pt>
+Package pdftex.def Info: Images/UX/OfficerUX.png  used on input line 332.
+(pdftex.def)             Requested size: 532.26376pt x 202.88547pt.
+ [33 <./Images/UX/OfficerUX.png>]
+<Images/UX/AuthorityUX.png, id=439, 1396.21625pt x 1355.0625pt>
 File: Images/UX/AuthorityUX.png Graphic file (type png)
 <use Images/UX/AuthorityUX.png>
-Package pdftex.def Info: Images/UX/AuthorityUX.png  used on input line 334.
-(pdftex.def)             Requested size: 390.0pt x 378.50514pt.
- [33 <./Images/UX/OfficerUX.png>]
-[34 <./Images/UX/AuthorityUX.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Package pdftex.def Info: Images/UX/AuthorityUX.png  used on input line 341.
+(pdftex.def)             Requested size: 292.5pt x 283.86852pt.
+ [34 <./Images/UX/AuthorityUX.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
 [35] [36] [37] [38] [39] [40] [41]
-Overfull \hbox (4.95598pt too wide) in paragraph at lines 651--652
+Overfull \hbox (4.95598pt too wide) in paragraph at lines 658--659
 []\OT1/cmtt/m/n/12 Ticket emission components\OT1/cmr/m/n/12 : All the mod-ules
  re-quired to make ticket
  []
@@ -598,16 +597,16 @@ Overfull \hbox (4.95598pt too wide) in paragraph at lines 651--652
 File: Images/Integration/BasicIntegrationChart1.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart1.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart1.png  used on
- input line 671.
+ input line 678.
 (pdftex.def)             Requested size: 390.0pt x 67.5719pt.
 
-Overfull \hbox (15.20865pt too wide) in paragraph at lines 667--673
+Overfull \hbox (15.20865pt too wide) in paragraph at lines 674--680
 []\OT1/cmtt/m/n/12 Basic Components with DBMS\OT1/cmr/m/n/12 : we'll start by b
 uild-ing the three databases
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 667--673
+Underfull \hbox (badness 10000) in paragraph at lines 674--680
 
  []
 
@@ -616,14 +615,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 667--673
 File: Images/Integration/BasicIntegrationChart2.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart2.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart2.png  used on
- input line 676.
+ input line 683.
 (pdftex.def)             Requested size: 390.0pt x 199.77786pt.
 <Images/Integration/BasicIntegrationChart3.png, id=481, 723.70375pt x 92.345pt>
 
 File: Images/Integration/BasicIntegrationChart3.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart3.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart3.png  used on
- input line 681.
+ input line 688.
 (pdftex.def)             Requested size: 390.0pt x 49.76408pt.
 [43 <./Images/Integration/BasicIntegrationChart1.png>]
 <Images/Integration/BasicIntegrationChart4.png, id=490, 733.74126pt x 273.02pt>
@@ -631,16 +630,16 @@ Package pdftex.def Info: Images/Integration/BasicIntegrationChart3.png  used on
 File: Images/Integration/BasicIntegrationChart4.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart4.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart4.png  used on
- input line 688.
+ input line 695.
 (pdftex.def)             Requested size: 390.0pt x 145.1165pt.
 
-Overfull \hbox (1.42635pt too wide) in paragraph at lines 684--690
+Overfull \hbox (1.42635pt too wide) in paragraph at lines 691--697
 []\OT1/cmtt/m/n/12 Basic Components with external services\OT1/cmr/m/n/12 : the
  GUIs of each client
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--690
+Underfull \hbox (badness 10000) in paragraph at lines 691--697
 
  []
 
@@ -651,7 +650,7 @@ icIntegrationChart3.png>]
 File: Images/Integration/BasicIntegrationChart5.png Graphic file (type png)
 <use Images/Integration/BasicIntegrationChart5.png>
 Package pdftex.def Info: Images/Integration/BasicIntegrationChart5.png  used on
- input line 694.
+ input line 701.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 <Images/Integration/TicektEmissionIntegrationChart1.png, id=501, 824.07875pt x 
 92.345pt>
@@ -659,10 +658,10 @@ File: Images/Integration/TicektEmissionIntegrationChart1.png Graphic file (type
  png)
 <use Images/Integration/TicektEmissionIntegrationChart1.png>
 Package pdftex.def Info: Images/Integration/TicektEmissionIntegrationChart1.png
-  used on input line 700.
+  used on input line 707.
 (pdftex.def)             Requested size: 390.0pt x 43.70227pt.
 
-Overfull \hbox (4.70746pt too wide) in paragraph at lines 697--702
+Overfull \hbox (4.70746pt too wide) in paragraph at lines 704--709
 []\OT1/cmtt/m/n/12 Ticket Emission components with Basic Components\OT1/cmr/m/n
 /12 : we will start
  []
@@ -673,10 +672,10 @@ File: Images/Integration/TicektEmissionIntegrationChart2.png Graphic file (type
  png)
 <use Images/Integration/TicektEmissionIntegrationChart2.png>
 Package pdftex.def Info: Images/Integration/TicektEmissionIntegrationChart2.png
-  used on input line 706.
+  used on input line 713.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 
-Overfull \hbox (22.33017pt too wide) in paragraph at lines 703--708
+Overfull \hbox (22.33017pt too wide) in paragraph at lines 710--715
 []\OT1/cmtt/m/n/12 Ticket Emission components with DBMS\OT1/cmr/m/n/12 : the \O
 T1/cmtt/m/n/12 Ticket Emission Module
  []
@@ -690,7 +689,7 @@ File: Images/Integration/TicektEmissionIntegrationChart3.png Graphic file (type
  png)
 <use Images/Integration/TicektEmissionIntegrationChart3.png>
 Package pdftex.def Info: Images/Integration/TicektEmissionIntegrationChart3.png
-  used on input line 712.
+  used on input line 719.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 <Images/Integration/StatisticIntegrationChart1.png, id=516, 502.87875pt x 92.34
 5pt>
@@ -698,10 +697,10 @@ File: Images/Integration/StatisticIntegrationChart1.png Graphic file (type png)
 
 <use Images/Integration/StatisticIntegrationChart1.png>
 Package pdftex.def Info: Images/Integration/StatisticIntegrationChart1.png  use
-d on input line 718.
+d on input line 725.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 
-Overfull \hbox (16.92586pt too wide) in paragraph at lines 715--720
+Overfull \hbox (16.92586pt too wide) in paragraph at lines 722--727
 []\OT1/cmtt/m/n/12 Data Mining components with DBMS\OT1/cmr/m/n/12 : as the \OT
 1/cmtt/m/n/12 Authority Update Module
  []
@@ -712,10 +711,10 @@ File: Images/Integration/StatisticIntegrationChart2.png Graphic file (type png)
 
 <use Images/Integration/StatisticIntegrationChart2.png>
 Package pdftex.def Info: Images/Integration/StatisticIntegrationChart2.png  use
-d on input line 724.
+d on input line 731.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
 
-Overfull \hbox (30.46349pt too wide) in paragraph at lines 721--726
+Overfull \hbox (30.46349pt too wide) in paragraph at lines 728--733
 []\OT1/cmtt/m/n/12 Data Mining components with external services\OT1/cmr/m/n/12
  : the \OT1/cmtt/m/n/12 Update Modules
  []
@@ -729,19 +728,26 @@ File: Images/Integration/StatisticIntegrationChart3.png Graphic file (type png)
 
 <use Images/Integration/StatisticIntegrationChart3.png>
 Package pdftex.def Info: Images/Integration/StatisticIntegrationChart3.png  use
-d on input line 730.
+d on input line 737.
 (pdftex.def)             Requested size: 390.0pt x 71.61594pt.
  [47 <./Images/Integration/StatisticIntegrationChart2.png> <./Images/Integratio
 n/StatisticIntegrationChart3.png>] [48]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 771.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 777.
  [49]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 771.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 777.
  (DD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 771.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 771.
-Package rerunfilecheck Info: File `DD.out' has not changed.
-(rerunfilecheck)             Checksum: 3188B24E59E9F39E56C565A9BB852D83;3436.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 771.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 777.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 777.
+
+
+Package rerunfilecheck Warning: File `DD.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DD.out':
+(rerunfilecheck)             Before: 3188B24E59E9F39E56C565A9BB852D83;3436
+(rerunfilecheck)             After:  BD239CA519C20E3C44D2B05BBB93B38A;3389.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 777.
  ) 
 Here is how much of TeX's memory you used:
  7603 strings out of 492946
@@ -751,13 +757,16 @@ Here is how much of TeX's memory you used:
  13533 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,6n,42p,1435b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolga/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolga/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DD.pdf (49 pages, 1229811 bytes).
+pdfTeX warning (dest): name{section.7} has been referenced but does not exist
+, replaced by a fixed one
+
+<C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb><C:/Users/lolga/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolga/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolga/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on DD.pdf (49 pages, 1234135 bytes).
 PDF statistics:
  600 PDF objects out of 1000 (max. 8388607)
  138 named destinations out of 1000 (max. 500000)

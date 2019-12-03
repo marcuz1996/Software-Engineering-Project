@@ -6,72 +6,70 @@
 \contentsline {subsection}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{7}{subsection.1.3}% 
 \contentsline {subsubsection}{\numberline {1.3.1}Definitions}{7}{subsubsection.1.3.1}% 
 \contentsline {subsubsection}{\numberline {1.3.2}Acronyms}{7}{subsubsection.1.3.2}% 
-\contentsline {subsubsection}{\numberline {1.3.3}Abbreviations}{7}{subsubsection.1.3.3}% 
+\contentsline {subsubsection}{\numberline {1.3.3}Abbreviations}{8}{subsubsection.1.3.3}% 
 \contentsline {subsection}{\numberline {1.4}Revision history}{8}{subsection.1.4}% 
 \contentsline {subsection}{\numberline {1.5}Reference Documents}{8}{subsection.1.5}% 
 \contentsline {subsection}{\numberline {1.6}Document Structure}{8}{subsection.1.6}% 
-\contentsline {section}{\numberline {2}OVERALL DESCRIPTION}{9}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Product perspective}{9}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Civilian}{10}{subsection.2.2}% 
-\contentsline {subsection}{\numberline {2.3}Officer}{10}{subsection.2.3}% 
-\contentsline {subsection}{\numberline {2.4}Authority}{10}{subsection.2.4}% 
-\contentsline {subsection}{\numberline {2.5}Product functions}{11}{subsection.2.5}% 
-\contentsline {subsection}{\numberline {2.6}User characteristics}{12}{subsection.2.6}% 
-\contentsline {subsection}{\numberline {2.7}Domain assumptions}{13}{subsection.2.7}% 
-\contentsline {section}{\numberline {3}SPECIFIC REQUIREMENTS}{14}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}External Interface Requirements}{14}{subsection.3.1}% 
-\contentsline {subsubsection}{\numberline {3.1.1}User Interfaces}{14}{subsubsection.3.1.1}% 
-\contentsline {subsubsection}{\numberline {3.1.2}Hardware Interfaces}{20}{subsubsection.3.1.2}% 
-\contentsline {subsubsection}{\numberline {3.1.3}Software Interfaces}{20}{subsubsection.3.1.3}% 
-\contentsline {subsubsection}{\numberline {3.1.4}Communication Interfaces}{20}{subsubsection.3.1.4}% 
-\contentsline {subsection}{\numberline {3.2}Scenarios}{20}{subsection.3.2}% 
-\contentsline {subsubsection}{\numberline {3.2.1}User registration}{20}{subsubsection.3.2.1}% 
-\contentsline {subsubsection}{\numberline {3.2.2}Correct violation reporting}{20}{subsubsection.3.2.2}% 
-\contentsline {subsubsection}{\numberline {3.2.3}Wrong violation reporting}{21}{subsubsection.3.2.3}% 
-\contentsline {subsubsection}{\numberline {3.2.4}Officer registration}{21}{subsubsection.3.2.4}% 
-\contentsline {subsubsection}{\numberline {3.2.5}Correct Ticket Emission}{21}{subsubsection.3.2.5}% 
-\contentsline {subsubsection}{\numberline {3.2.6}Wrong report discarded by an officer}{22}{subsubsection.3.2.6}% 
-\contentsline {subsection}{\numberline {3.3}Requirements}{22}{subsection.3.3}% 
-\contentsline {subsubsection}{\numberline {3.3.1}G1: Allow future users to easily register and login.}{22}{subsubsection.3.3.1}% 
-\contentsline {subsubsection}{\numberline {3.3.2}G2: Allow users to notify authorities of traffic violations through the use of the camera.}{23}{subsubsection.3.3.2}% 
-\contentsline {subsubsection}{\numberline {3.3.3}G3: Store relevant info about the violation in the data warehouse.}{24}{subsubsection.3.3.3}% 
-\contentsline {subsubsection}{\numberline {3.3.4}G4: Assist authorities in the process of law enforcement.}{24}{subsubsection.3.3.4}% 
-\contentsline {subsubsection}{\numberline {3.3.5}G5: Guarantee security.}{25}{subsubsection.3.3.5}% 
-\contentsline {subsubsection}{\numberline {3.3.6}G6: Guarantee privacy to users.}{26}{subsubsection.3.3.6}% 
-\contentsline {subsection}{\numberline {3.4}Use case Diagram}{27}{subsection.3.4}% 
-\contentsline {subsection}{\numberline {3.5}Use cases}{28}{subsection.3.5}% 
-\contentsline {subsubsection}{\numberline {3.5.1}Civilian Visitor Registration}{28}{subsubsection.3.5.1}% 
-\contentsline {subsubsection}{\numberline {3.5.2}Civilian Login}{28}{subsubsection.3.5.2}% 
-\contentsline {subsubsection}{\numberline {3.5.3}Officer Registration}{29}{subsubsection.3.5.3}% 
-\contentsline {subsubsection}{\numberline {3.5.4}Officer Login}{29}{subsubsection.3.5.4}% 
-\contentsline {subsubsection}{\numberline {3.5.5}Violation reporting}{30}{subsubsection.3.5.5}% 
-\contentsline {subsubsection}{\numberline {3.5.6}Ticket confirmation}{30}{subsubsection.3.5.6}% 
-\contentsline {subsubsection}{\numberline {3.5.7}Report validation}{31}{subsubsection.3.5.7}% 
-\contentsline {subsubsection}{\numberline {3.5.8}Report invalidation with warning}{31}{subsubsection.3.5.8}% 
-\contentsline {subsection}{\numberline {3.6}Sequence diagrams}{32}{subsection.3.6}% 
-\contentsline {subsubsection}{\numberline {3.6.1}Visitor to Civilian Registration}{32}{subsubsection.3.6.1}% 
-\contentsline {subsubsection}{\numberline {3.6.2}Officer Registration}{33}{subsubsection.3.6.2}% 
-\contentsline {subsubsection}{\numberline {3.6.3}Correct violation report}{34}{subsubsection.3.6.3}% 
-\contentsline {subsubsection}{\numberline {3.6.4}Invalid violation with subsequent banning}{35}{subsubsection.3.6.4}% 
-\contentsline {subsubsection}{\numberline {3.6.5}Automated Ticket}{36}{subsubsection.3.6.5}% 
-\contentsline {subsubsection}{\numberline {3.6.6}Update sending}{37}{subsubsection.3.6.6}% 
-\contentsline {subsection}{\numberline {3.7}Performance Requirements}{37}{subsection.3.7}% 
-\contentsline {subsection}{\numberline {3.8}Design Constraints}{37}{subsection.3.8}% 
-\contentsline {subsubsection}{\numberline {3.8.1}Hardware Limitations}{37}{subsubsection.3.8.1}% 
-\contentsline {subsubsection}{\numberline {3.8.2}Standards compliance}{38}{subsubsection.3.8.2}% 
-\contentsline {subsection}{\numberline {3.9}Software System Attributes}{38}{subsection.3.9}% 
-\contentsline {subsubsection}{\numberline {3.9.1}Reliability}{38}{subsubsection.3.9.1}% 
-\contentsline {subsubsection}{\numberline {3.9.2}Availability}{38}{subsubsection.3.9.2}% 
-\contentsline {subsubsection}{\numberline {3.9.3}Security}{38}{subsubsection.3.9.3}% 
-\contentsline {subsubsection}{\numberline {3.9.4}Maintainability}{39}{subsubsection.3.9.4}% 
-\contentsline {subsubsection}{\numberline {3.9.5}Scalability}{39}{subsubsection.3.9.5}% 
-\contentsline {section}{\numberline {4}FORMAL ANALYSIS USING ALLOY}{40}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Purpose of the analysis}{40}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Analysis}{41}{subsection.4.2}% 
-\contentsline {subsubsection}{\numberline {4.2.1}Signatures}{41}{subsubsection.4.2.1}% 
-\contentsline {subsubsection}{\numberline {4.2.2}Facts}{43}{subsubsection.4.2.2}% 
-\contentsline {subsubsection}{\numberline {4.2.3}Assertions}{45}{subsubsection.4.2.3}% 
-\contentsline {subsubsection}{\numberline {4.2.4}Predicates}{46}{subsubsection.4.2.4}% 
-\contentsline {subsubsection}{\numberline {4.2.5}Results}{47}{subsubsection.4.2.5}% 
-\contentsline {subsubsection}{\numberline {4.2.6}Generated Worlds}{48}{subsubsection.4.2.6}% 
-\contentsline {section}{\numberline {5}EFFORT SPENT}{50}{section.5}% 
+\contentsline {section}{\numberline {2}OVERALL DESCRIPTION}{10}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Product perspective}{10}{subsection.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}State Diagrams}{11}{subsubsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.2}Product functions}{12}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}User characteristics}{13}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Domain assumptions}{15}{subsection.2.4}% 
+\contentsline {section}{\numberline {3}SPECIFIC REQUIREMENTS}{16}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}External Interface Requirements}{16}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}User Interfaces}{16}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Hardware Interfaces}{24}{subsubsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.3}Software Interfaces}{24}{subsubsection.3.1.3}% 
+\contentsline {subsubsection}{\numberline {3.1.4}Communication Interfaces}{24}{subsubsection.3.1.4}% 
+\contentsline {subsection}{\numberline {3.2}Scenarios}{24}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}User registration}{24}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Correct violation reporting}{25}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}Wrong violation reporting}{25}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}Officer registration}{25}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.5}Correct Ticket Emission}{26}{subsubsection.3.2.5}% 
+\contentsline {subsubsection}{\numberline {3.2.6}Wrong report discarded by an officer}{26}{subsubsection.3.2.6}% 
+\contentsline {subsection}{\numberline {3.3}Requirements}{26}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}G1: Allow future users to easily register and login.}{26}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}G2: Allow users to notify authorities of traffic violations through the use of the camera.}{27}{subsubsection.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}G3: Store relevant info about the violation in the data warehouse.}{28}{subsubsection.3.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.4}G4: Assist authorities in the process of law enforcement.}{28}{subsubsection.3.3.4}% 
+\contentsline {subsubsection}{\numberline {3.3.5}G5: Guarantee security.}{29}{subsubsection.3.3.5}% 
+\contentsline {subsubsection}{\numberline {3.3.6}G6: Guarantee privacy to users.}{31}{subsubsection.3.3.6}% 
+\contentsline {subsection}{\numberline {3.4}Use case Diagram}{32}{subsection.3.4}% 
+\contentsline {subsection}{\numberline {3.5}Use cases}{33}{subsection.3.5}% 
+\contentsline {subsubsection}{\numberline {3.5.1}Civilian Visitor Registration}{33}{subsubsection.3.5.1}% 
+\contentsline {subsubsection}{\numberline {3.5.2}Civilian Login}{33}{subsubsection.3.5.2}% 
+\contentsline {subsubsection}{\numberline {3.5.3}Officer Registration}{34}{subsubsection.3.5.3}% 
+\contentsline {subsubsection}{\numberline {3.5.4}Officer First Login}{35}{subsubsection.3.5.4}% 
+\contentsline {subsubsection}{\numberline {3.5.5}Violation reporting}{36}{subsubsection.3.5.5}% 
+\contentsline {subsubsection}{\numberline {3.5.6}Ticket confirmation}{37}{subsubsection.3.5.6}% 
+\contentsline {subsubsection}{\numberline {3.5.7}Report validation}{37}{subsubsection.3.5.7}% 
+\contentsline {subsubsection}{\numberline {3.5.8}Report invalidation with warning}{38}{subsubsection.3.5.8}% 
+\contentsline {subsection}{\numberline {3.6}Sequence diagrams}{39}{subsection.3.6}% 
+\contentsline {subsubsection}{\numberline {3.6.1}Visitor to Civilian Registration}{39}{subsubsection.3.6.1}% 
+\contentsline {subsubsection}{\numberline {3.6.2}Officer Registration}{40}{subsubsection.3.6.2}% 
+\contentsline {subsubsection}{\numberline {3.6.3}Civilian login and correct violation report}{41}{subsubsection.3.6.3}% 
+\contentsline {subsubsection}{\numberline {3.6.4}Invalid violation with subsequent banning}{42}{subsubsection.3.6.4}% 
+\contentsline {subsubsection}{\numberline {3.6.5}Automated Ticket}{43}{subsubsection.3.6.5}% 
+\contentsline {subsubsection}{\numberline {3.6.6}Update sending}{44}{subsubsection.3.6.6}% 
+\contentsline {subsection}{\numberline {3.7}Performance Requirements}{44}{subsection.3.7}% 
+\contentsline {subsection}{\numberline {3.8}Design Constraints}{45}{subsection.3.8}% 
+\contentsline {subsubsection}{\numberline {3.8.1}Hardware Limitations}{45}{subsubsection.3.8.1}% 
+\contentsline {subsubsection}{\numberline {3.8.2}Standards compliance}{45}{subsubsection.3.8.2}% 
+\contentsline {subsection}{\numberline {3.9}Software System Attributes}{45}{subsection.3.9}% 
+\contentsline {subsubsection}{\numberline {3.9.1}Reliability}{45}{subsubsection.3.9.1}% 
+\contentsline {subsubsection}{\numberline {3.9.2}Availability}{45}{subsubsection.3.9.2}% 
+\contentsline {subsubsection}{\numberline {3.9.3}Security}{45}{subsubsection.3.9.3}% 
+\contentsline {subsubsection}{\numberline {3.9.4}Maintainability}{46}{subsubsection.3.9.4}% 
+\contentsline {subsubsection}{\numberline {3.9.5}Scalability}{46}{subsubsection.3.9.5}% 
+\contentsline {section}{\numberline {4}FORMAL ANALYSIS USING ALLOY}{47}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Purpose of the analysis}{47}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Analysis}{48}{subsection.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}Signatures}{48}{subsubsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Facts}{50}{subsubsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3}Assertions}{52}{subsubsection.4.2.3}% 
+\contentsline {subsubsection}{\numberline {4.2.4}Predicates}{53}{subsubsection.4.2.4}% 
+\contentsline {subsubsection}{\numberline {4.2.5}Results}{54}{subsubsection.4.2.5}% 
+\contentsline {subsubsection}{\numberline {4.2.6}Generated Worlds}{55}{subsubsection.4.2.6}% 
+\contentsline {section}{\numberline {5}EFFORT SPENT}{56}{section.5}% 
