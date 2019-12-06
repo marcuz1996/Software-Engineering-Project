@@ -71,7 +71,7 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 \subsubsection{Abbreviations}
 \begin{itemize}
 	\item {[Gn]}: n-goal.
-	\item {[Rn]}: n-requirment.
+	\item {[Rn]}: n-requirement.
 	\item {[Dn]}: n-domain assumption
 	\item {App}: application.
 \end{itemize}
@@ -80,12 +80,11 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 \subsection{Document Structure}
 \begin{itemize}
 \item \textbf{Introduction}: includes the purpose and scope of the document along with some relevant definitions and acronyms used throughout the document.
-\item \textbf{Architectural design}: this section is focused on the main components used for this system and the relationship between them, providing information about their
+\item \textbf{Architectural design}: this section is focused on the main components used for this system and the relationships between them, providing information about their
 deployment and how they operate. it also focuses on the architectural styles and the design patterns adopted for designing the system.
-\item \textbf{User interface design}: this section provides an overview on how the User Interface will look like, but it will be omitted due to the presence of this chapter in the RASD.
+\item \textbf{User interface design}: this section provides an overview on how the User Interface will work with UX diagrams.
 \item \textbf{Requirements traceability}: in this sections the requirements highlighted in the RASD document will be associated with the design elements explained in this document.
-\item \textbf{Implementation, integration and test plan}: in this section we identify the order in which we plan to implement the subcomponents of the system and the order in which we plan to
-integrate and test them.
+\item \textbf{Implementation, integration and test plan}: in this section we identify the order in which we plan to implement, test and integrate the subcomponents of the system.
 \end{itemize}
 \newpage
 \section{ARCHITECTURAL DESIGN}
@@ -106,7 +105,7 @@ The three logical layers of the S2B are distributed in a \textbf{three-tier arch
 include sensitive data to be made unreadable by civilians). 
 \end{itemize}
 Moreover, both clients must be able to "unpack" the received updates' representations into a format understandable to the user.
-\item \textbf{Application layer:} the hypermedia at the mobile application moves from a state to another thanks to the updates received by the authorities' web servers (which are themselves sent to the authorities by the ADS, and then are periodically spread to the clients in the network). While the web server constitutes an interface protected by a DMZ (to isolate it from the ADS) which clients are forced to invoke when applicative functions are needed, the ADS hosts the update producing and ticket emission functionalities. It is important to denote the fact that since every Authority owns a web server, calls received from the mobile units can be handled by any of the authorities for load balancing.  Thus we can say that both the Web server located at the authorities' location and the applicative functions of the ADS constitute this layer. 
+\item \textbf{Application layer:} the hypermedia at the mobile application moves from a state to another thanks to the updates received by the authorities' web servers (which are themselves sent to the authorities by the ADS, and then are periodically spread to the clients in the network). While the web server constitutes an interface protected by a DMZ which clients are forced to invoke when applicative functions are needed, the ADS hosts the update producing and ticket emission functionalities. It is important to denote the fact that since every Authority owns a web server, calls received from the mobile units can be handled by any of the authorities for load balancing.  Thus we can say that both the Web server located at the authorities' location and the applicative functions of the ADS constitute this layer. 
 \item \textbf{Data layer:} three instances where data access is needed:
 \begin{itemize}
 \item for managing the civilian accounts and bans, at the SafeStreets server;
@@ -138,8 +137,8 @@ First we highlight a distinction between Client side and Server side:
 \end{figure}
 
 \subsubsection{Civilian Mobile Services Projection}
-Civilian Mobile Services subsystem is made of four components: Report Module, Update Module, Data Manage Module and Civilian Authentication Module.
-These components provide the Mobile Application the following interfaces: ReportHandler, UpdateHandler, DataManager and AuthenticationHandler. The Modules also communicate with the map, gps services and two DBMS; the first one allows to collect the mined data about reports in the data warehouse, the latter manages user accesses of any form.
+Civilian Mobile Services subsystem is made of four components: Report Module, Update Module, Data Manager Module and Civilian Authentication Module.
+These components provide the Mobile Application the following interfaces: ReportHandler, UpdateHandler, DataManager and CivilianAuthenticationHandler. The Modules also communicate with the map, gps and email services, in the end with a DBMS; the first one allows to collect the mined data about reports in the data warehouse, the latter manages user accesses of any form.
 \begin{figure}[H]
 				\centering
 					\begin{adjustwidth}{-25mm}{-25mm}
@@ -150,7 +149,7 @@ These components provide the Mobile Application the following interfaces: Report
 \textbf{Module Functionalities}
 \begin{itemize}
 	\item \texttt{Report Module}: this module manages the reports done by Civilians and their sending to the Authority's Web server. It will allow the user to take photos of the violation, enter a description of it, timestamp it and attach geolocation coordinates thanks to the GPS API, and also handle all the communication needed for the plate recognition algorithm to work.
-	\item \texttt{Update Module}: this module handles the receiving and visualizing of the mined data about HFVZs, through the Map API.
+	\item \texttt{Update Module}: this module handles the receiving and visualizing of the mined data, among them info about HFVZs, through the Map API.
 	\item \texttt{Data Manager Module}: this module allows civilians to manage their personal data (for instance changing their e-mail address or password).
 	\item \texttt{Civilian Authentication Module}: this module handles the registration and login requests by civilians, and thus providing the effects of an eventual ban.
 \end{itemize}
@@ -194,7 +193,7 @@ The Authorities Web Services are carried out by the Web Server and the ADS, whic
 \end{itemize}
 \newpage
 \subsubsection{Complete Component Diagram}
-This diagram shows the interactions between all the subsystems of the application for better clarity. The presence of multiple REST APIs instead of a single comprehensive one has been modeled to show the different connections between modules without ambiguity.
+This diagram shows the interactions between all the subsystems of the application for better clarity. The presence of multiple REST APIs instead of a single comprehensive one has been modeled to show the different connections between modules without ambiguity. At the left of the diagram, all the interfaces are directly connected to the actors' clients.
 \begin{figure}[H]
 				\centering
 					\begin{adjustwidth}{-25mm}{-25mm}
@@ -241,7 +240,7 @@ In this section we analyze the sequence diagram of the RASD expanded with furthe
 					        \includegraphics[width=0.5\paperwidth]{Images/Registration_sequence}
 \end{adjustwidth}
 \end{figure}
-This sequence diagram describes the complete (and in this case correct) registration procedure of a civilian, starting from the mobile app which sends the registration form through a HTTP Post message. This is received by the SafeStreets server thanks to their REST interface, and through the Hibernate API the software is able to interact with the MySQL DBMS which inserts the new tuple in the table for civilians account (after thorough encryption). We're able to determine thanks to the result of the Hibernate method if the operation has been correctly perform, and notify the mobile application of such outcome, and use the E-mail API to send a mail to the user. Once the registration has been confirmed, the server asks MySQL to update the tuple with some confirmation of the completed registration. All these processes are performed by the \texttt{Civilian Authentication Module} at the mobile app and SafeStreets server. The standard login procedure will be included in another diagram.
+This sequence diagram describes the complete registration procedure of a civilian with no exceptions occurring, starting from the mobile app which sends the registration form through a HTTP Post message. This is received by the SafeStreets server thanks to their REST interface, and through the Hibernate API the software is able to interact with the MySQL DBMS which inserts the new tuple in the table for civilians account (after thorough encryption). We're able to determine if the operation has been correctly performed thanks to the result of the Hibernate method, and notify the mobile application of such outcome, and use the E-mail API to send a mail to the user. Once the registration has been confirmed, the server asks MySQL to update the tuple with some confirmation of the completed registration. All these processes are performed by the \texttt{Civilian Authentication Module} at the mobile app and SafeStreets server. The standard login procedure will be included in another diagram.
 \subsubsection{Officer Registration}
 \begin{figure}[H]
 \begin{adjustwidth}{-25mm}{-25mm}
@@ -257,7 +256,7 @@ This one describes the full procedure of adding a new officer from the Authority
 					        \includegraphics[width=0.75\paperwidth]{Images/Civilian_report}
 \end{adjustwidth}
 \end{figure}
-The use case starts with the civilian successfully logging into the application through the standard procedure managed by the \texttt{Civilian Authentication Module}. The civilian decides to report a violation: chooses the type of violation and is subsequently prompted to take a photo of it. After that, he can start framing the plate with his camera: the various frames are sent to the Authority's Web server which analyses them until a plate number is recognized \textbf{(this is the only application logic executed directly on the web server and not on the ADS for reduced latency)}. The Mobile Application then uses OS functionalities to stamp the report with time and coordinates, and the whole packet of data about the violation is sent to the web server through the REST interface. This entire process is handled by the \texttt{Report Modules} at the Mobile Application and at the Authority's web server. The personnel at the Authority's client can then validate it, triggering an exchange of messages with the ADS which culminates in the insertion of the report in the Data Warehouse. This final part is managed by the {Validation Report Module}. The newly added report will be subject to data mining and included in future updates sent by the ADS, but this will be included in another diagram.
+The use case starts with the civilian successfully logging into the application through the standard procedure managed by the \texttt{Civilian Authentication Module}. The civilian decides to report a violation: chooses the type of violation and is subsequently prompted to take a photo of it. After that, he can start framing the plate with his camera: the various frames are sent to the Authority's Web server which analyses them until a plate number is recognized \textit{(this is the only application logic executed directly on the web server and not on the ADS for reduced latency)}. The Mobile Application then uses OS functionalities to stamp the report with time and coordinates, and the whole packet of data about the violation is sent to the web server through the REST interface. This entire process is handled by the \texttt{Report Modules} at the Mobile Application and at the Authority's web server. The personnel at the Authority's client can then validate it, triggering an exchange of messages with the ADS which culminates in the insertion of the report in the Data Warehouse. This final part is managed by the {Validation Report Module}. The newly added report will be subject to data mining and included in future updates sent by the ADS, but this will be included in another diagram.
 \subsubsection{Report Invalidation and Banning}
 \begin{figure}[H]
 \begin{adjustwidth}{-25mm}{-25mm}
@@ -288,7 +287,7 @@ SafeStreets will make use of some Application Programming Interfaces to simplify
 \begin{itemize}
 \item \texttt{Maps API} to have a visual representation of users' reports and HFVZs, to help Officers in finding a report that coud be confirmed or rejected. For our purpose the Google Maps API is perfectly suitable, since it can be embedded in both Android and iOS applications.
 \item \texttt{GPS API} to geolocate the reports made by users and  avoid the possibility of forging the location, which could happen if users manually enters it. GPS will also provide the application with precise timestamps for the reports.
-\item \texttt{REST API} every distributed component will be provided with a REST API, especially mobile clients will exploit it to interact with the web server at the Authority's location, which is the only layer visible to them. Also the SafeStreets data server's services and the ADS's will be invokable through a REST interface. Spring Boot, which uses Apache Tomcat as a web server, could be used as a versatile, easy to implement solution to build a functioning REST architecture across all subsystems.
+\item \texttt{REST API} as every distributed component will be provided with one, especially mobile clients will exploit it to interact with the web server at the Authority's location, which is the only layer visible to them. Also the SafeStreets data server's services and the ADS's will be invokable through a REST interface. Spring Boot, which uses Apache Tomcat as a web server, could be used as a versatile, easy to implement solution to build a functioning REST architecture across all subsystems.
 \item \texttt{DBMS API} will be used to read and write all the database components:
 \begin{itemize}
 \item one at the SafeStreets server which manages civilian accounts;
@@ -309,7 +308,7 @@ We decided to utilize \texttt{Model-View-Controller} as the pattern to model the
 \subsubsection{Bully Election algorithm}
 As having multiple ADSs mine the same data and produce the same reports is, computationally speaking, a waste of resources, we decided the ADSs will be arranged in a rooted tree network with synchronous communication and a leader ADS as root. This leader will be elected through the \texttt{Bully election algorithm} which is generally considered an efficient enogh solution and doesn't use too much overhead to accomplish the task. IDs to servers will be assigned in ascending order based on the performance of the physical machine, so that the algorithm tries to elect the most performing server.
 \subsubsection{Distributed Transactions and Mutual Exclusion}
-It will be important to ensure concurrent accesses to the databases do not violate integrity constraints. Mutual exclusion and distributed commit protocols are known to be as important as they are difficult to implement, thus we decided to utilize \texttt{Hibernate} (which is based on \texttt{jDBC}) as our framework to manage read and write accesses, as it is known to guarantee mutual exclusion and sufficient parallelism in distributed transaction. This way no time and effort will be used by the developers to code these functionalities directly from Java primitives.
+It will be important to ensure concurrent accesses to the databases do not violate integrity constraints. Mutual exclusion and distributed commit protocols are known to be as important as they are difficult to implement, thus we decided to utilize \texttt{Hibernate} (which is based on \texttt{JDBC}) as our framework to manage read and write accesses, as it is known to guarantee mutual exclusion and sufficient parallelism in distributed transaction. This way no time and effort will be used by the developers to code these functionalities directly from Java primitives.
 \subsubsection{Update propagation strategy}
 The leader, after mining the updates, will stamp each one of them with a vector clock to perform \underline{causally ordered multicast} (so that no updates are temporally misplaced by the final users), and follow a \texttt{push based anti-entropy propagation strategy} to spread the updates to all the ADSs in his network, that will do the same by forwarding them to their connected web servers. At this point, every time a client needs an update, it may be after a timer going off or some condition being satisfied, it can simply fetch the update from its connected web server (this time it's \texttt{pull based} to avoid wasting of resources). The web server knows what kind of actor is trying to retrieve the updates and will only give out the permitted ones. 
 \newpage
@@ -321,11 +320,11 @@ When civilians launch the app on their mobile phone the first page they visualiz
 Regarding the registration they must insert their data and confirm the email received, while for login they have to insert their authentication data. Once they are logged in they can visualize the map, the statistics or modify their login data. In the map menu they can compile a report with the previously described procedure, while in the statistics menu they can visualize the data received through the updates, about their report, HFVZs and data about all the reports.
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/UX/CivilianUX}
+			\includegraphics[width=1.2\linewidth]{Images/UX/CivilianUX}
 \end{figure}
 \newpage
 \subsection{Officer UX}
-The mobile application seen by officers is pretty much the same as the one seen by civilians. Officers can login by using their badge ID and the password communicated by email (this is triggered by the Authority which added the officer). For the first login, the officer is required to choose a PIN so he will be able to eventually confirm reports for ticket emission. After this, he can visualize the Map and the statistics. The statistics are the same of the civilians, plus the Repeat Offenders. On the map he can complie or check a report throught the relative buttons; moreover, if he checks a report and the violation occured he can allow the sending of a traffic ticket to the VLA by compiling the form which requires the insertion of his PIN. If the violation doesn't match the report data, or is no longer present, the officer can reject the report and prompt the ADS to remove it from the map.
+The mobile application seen by officers is pretty much the same as the one seen by civilians. Officers can login by using their badge ID and the password communicated by email (this is triggered by the Authority which added the officer). For the first login, the officer is required to choose a PIN so he will be able to eventually confirm reports for ticket emission. After this, he can visualize the Map and the statistics. The statistics are the same of the civilians, plus the Repeat Offenders. On the map he can compile or check a report throught the relative buttons; moreover, if he checks a report and the violation occured he can allow the sending of a traffic ticket to the VLA by compiling the form which requires the insertion of his PIN. If the violation doesn't match the report data, or is no longer present, the officer can reject the report and prompt the ADS to remove it from the map.
 \begin{figure}[H]
 		\centering
 \begin{adjustwidth}{-25mm}{-25mm}
@@ -353,7 +352,7 @@ In this section is highlighted the link between the requirements stated in the R
 	\end{itemize}
 	\item \texttt{Component}
 	\begin{itemize}
-		\item Officer Registration Module 	\item Officer Authentication Module 	\item civilian Authentication Module
+		\item Officer Registration Module 	\item Officer Authentication Module 	\item Civilian Authentication Module
 	\end{itemize}
 \end{itemize}
 \textbf{	[R2]: Data has to be correctly queried server-side everytime, to make sure no duplicate accounts are created or no unregistered visitors log in. }
@@ -366,7 +365,7 @@ In this section is highlighted the link between the requirements stated in the R
 	\begin{itemize}
 		\item Officer Registration Module
 		\item Officer Authentication Module
-		\item civilian Authentication Module
+		\item Civilian Authentication Module
 	\end{itemize}
 \end{itemize}
 \textbf{[R3]: Send confirmation emails within at most one minute after the registration confirmation receipt (or the new officer being added). }
@@ -377,7 +376,7 @@ In this section is highlighted the link between the requirements stated in the R
 	\end{itemize}
 	\item \texttt{Component}
 	\begin{itemize}
-		\item Officer Registration Module 	\item civilian Authentication Module
+		\item Officer Registration Module 	\item Civilian Authentication Module
 	\end{itemize}
 \end{itemize}
 \textbf{[R4]: Confirm user registration within at most one minute after the email link has been clicked.}
@@ -389,7 +388,7 @@ In this section is highlighted the link between the requirements stated in the R
 	\item \texttt{Component}
 	\begin{itemize}
 		\item Officer Registration Module
-		\item civilian Authentication Module
+		\item Civilian Authentication Module
 	\end{itemize}
 \end{itemize}
 \textbf{[R5]: Force the user to allow the S2B to access the device's camera and GPS.}
@@ -425,6 +424,7 @@ In this section is highlighted the link between the requirements stated in the R
 	\end{itemize}
 	\item \texttt{Component}
 	\begin{itemize}
+	\item Report Module
 		\item Validation Report Module
 	\end{itemize}
 \end{itemize}
@@ -448,8 +448,8 @@ In this section is highlighted the link between the requirements stated in the R
 		\item G5.1
 	\end{itemize}
 	\item \texttt{Component}
-	\begin{itemize}
-		\item Validation Report Module		\end{itemize}
+	\begin{itemize}	
+	\item Validation Report Module		\end{itemize}
 \end{itemize}
 \textbf{[R10]: Acknowledgments from the authority's server must be received within 10 seconds.}
 \begin{itemize}
@@ -636,7 +636,7 @@ In this section is highlighted the link between the requirements stated in the R
 \end{itemize}
 \section{Implementation, Integration and Test Plan}
 		\subsection{Implementation Plan}
-		The implementation of our system will be done following a bottom-up approach that will facilitate a high deployment coverage in early phases. The order in which our implementation will be carried out, takes in account different factors such as the complexity of the modules and how they are interconnected with one another and we must take in consideration the possibility of discovering flaws and bugs in our designed system that will require to be fixed as soon as possible in order to prevent further additional costs and difficulties in debugging. It will also be vital to distinguish basic application features which will appear in the MVP of the application. All the hardware components (specified in the deployment view) are assumed to be installed and working for this section of the document, these are the various routes which will route the HTTP messages of the RESTful architecture, and the machines and devices which will run the clients and the various servers: in particular, some of these components (such as the clients and maybe even some Authority web servers) won't be property of SafeStreets, but of the various actors, as we will only take care of installing the ADSs and the SafeStreets servers. Also the various external APIs (such as the Google Maps API and the mailing services) are assumed to be working and available, but we will talk about how they will be integrated further in the document.
+		The implementation of our system will be done following a bottom-up approach that will facilitate a high deployment coverage in early phases. The order in which our implementation will be carried out, takes in account different factors such as the complexity of the modules and how they are interconnected with one another and we must take in consideration the possibility of discovering flaws and bugs in our designed system that will require to be fixed as soon as possible in order to prevent further additional costs and difficulties in debugging.\\ It will also be vital to distinguish basic application features which will appear in the MVP of the application, as we'd rather follow the lean approach to development instead of a waterfall solution. All the hardware components (specified in the deployment view) are assumed to be installed and working for this section of the document, these are the various routes which will route the HTTP messages of the RESTful architecture, and the machines and devices which will run the clients and the various servers: in particular, some of these components (such as the clients and maybe even some Authority web servers) won't be property of SafeStreets, but of the various actors, as we will only take care of installing the ADSs and the SafeStreets servers.\\ Also the various external APIs (such as the Google Maps API and the mailing services) are assumed to be working and available, but we will talk about how they will be integrated further in the document.
 Other than that, the \texttt{Requirement Analysis and Specification Document} and \texttt{Design Document} will have to be in their final form and approved by stakeholders before any actual hands-on hardware and software work is done.
 		We will order the actual software implementation by defining three various macro-groups of modules in order of relevance, this way:
 		\begin{itemize}
@@ -661,46 +661,45 @@ It is therefore evident that all data access functionalities will have to be com
 \item \texttt{Ticket Emission Module}.
 \end{itemize}
 These modules will also have to be integrated with the E-mail service which is needed to send tickets to the VLA, but not with the other external services, which are surely needed to compile reports, but not directly to compile tickets.
-\item \texttt{Data Mining components}: The modules required for mining the report data warehouse and producing updates to send the clients. Although this is surely an useful functionalities as it improves the user experience and facilitates law enforcement, we feel it is the most difficult to implement and the less necessary, therefore it will be not included in the MVP, but released later with updated versions of the application. The modules are:
+\item \texttt{Data Mining components}: The modules required for mining the report data warehouse and producing updates to send the clients. Although this is surely an useful functionality as it improves the user experience and facilitates law enforcement, we feel it is the most difficult to implement and the less necessary, therefore it will be not included in the MVP, but released later with updated versions of the application. The modules are:
 \begin{itemize}
 \item \texttt{Authority Update Module};
 \item \texttt{Update Module}.
 \end{itemize}
 These modules need the Maps service and the GPS service to allow some of the updates concerning the map to be correctly visualized.
 \end{itemize}
+\newpage
 \subsection{Integration plan}
 We identified pairs of elements (components and external services) which need to be integrated together (in the chart the component before the arrow "is necessary" for the one after the arrowhead). In order of development:
 \begin{enumerate}
 \item \texttt{Basic Components with DBMS}: we'll start by building the three databases for reports, civilians, and officers. After that every component which directly accesses data (the ADSs and the SafeStreets server) will get his own Hibernate API to access the databases. 
+\item \texttt{Basic Components with external services}: the GUIs of each client (the most minimal possible version) will be implemented and will be made able to utilize the Maps service and GPS service to compile reports (which we won't be able to send yet). The SafeStreets server and the ADSs will be provided with an API to utilize the Mail service.
 \\
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart1}
-		\caption{Civilian authentication}
+			\includegraphics[width=0.85\linewidth]{Images/Integration/BasicIntegrationChart1}
+		\caption{Steps 1 and 2 combined}
 \end{figure}
-\begin{figure}[H]
-		\centering
-			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart2}
-		\caption{Officer authentication}
-\end{figure}
+
+\item \texttt{Basic Components between themselves}: and after that, this views will be integrated with their models (held in the ADSs and SafeStreets server) through a REST interface. A REST interface for receiving and sending messages will be implemented at each interacting component.The Authority's web server will be implemented offering a layer of REST communication (also the supervised learning algorithm to recognise plates) between clients and the ADS. After this, all the modules of the Basic Components groups will be up and working, as users will be able to login and report violations successfully.
 \begin{figure}[H]
 		\centering
 			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart3}
 		\caption{Data manager}
 \end{figure}
-\item \texttt{Basic Components with external services}: the GUIs of each client (the most minimal possible version) will be implemented and will be made able to utilize the Maps service and GPS service to compile reports (which we won't be able to send yet). The SafeStreets server and the ADSs will be provided with an API to utilize the Mail service.
-\\
 \begin{figure}[H]
 		\centering
 			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart4}
 		\caption{Report}
 \end{figure}
-\item \texttt{Basic Components between themselves}: and after that, this views will be integrated with their models (held in the ADSs and SafeStreets server) through a REST interface. A REST interface for receiving and sending messages will be implemented at each interacting component.The Authority's web server will be implemented offering a layer of REST communication (also the supervised learning algorithm to recognise plates) between clients and the ADS. After this, all the modules of the Basic Components groups will be up and working, as users will be able to login and report violations successfully.
+
+
 \begin{figure}[H]
 		\centering
 			\includegraphics[width=1.0\linewidth]{Images/Integration/BasicIntegrationChart5}
 		\caption{Validation report}
 \end{figure}
+\newpage
 \item \texttt{Ticket Emission components with Basic Components}: we will start by developing the \texttt{Check Report Module} and integrating it with the \texttt{Officer Authentication Module} so that officers can successfully enter their pin when checking violations and get it authenticated.
 \begin{figure}[H]
 		\centering
@@ -713,35 +712,37 @@ We identified pairs of elements (components and external services) which need to
 			\includegraphics[width=1.0\linewidth]{Images/Integration/TicektEmissionIntegrationChart2}
 		\caption{Ticket emission with check report}
 \end{figure}
+\newpage
 \item \texttt{Ticket Emission components with Mailing Service}: to correctly send the compilated ticket to the VLA through an API.
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/Integration/TicektEmissionIntegrationChart3}
+			\includegraphics[width=0.8\linewidth]{Images/Integration/TicektEmissionIntegrationChart3}
 		\caption{Ticket emission with email service}
 \end{figure}
 \item \texttt{Data Mining components with DBMS}: as the \texttt{Authority Update Module} needs to mine data from the reports data warehouse through an API.
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/Integration/StatisticIntegrationChart1}
-		\caption{Update module}
+			\includegraphics[width=.8\linewidth]{Images/Integration/StatisticIntegrationChart1}
+		\caption{Authority Update module}
 \end{figure}
 \item \texttt{Data Mining components with external services}: the \texttt{Update Modules} at the client will allow unpacking and visualization of updates through the Maps services. 
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/Integration/StatisticIntegrationChart2}
+			\includegraphics[width=.8\linewidth]{Images/Integration/StatisticIntegrationChart2}
 		\caption{Update module}
 \end{figure}
-\item \texttt{Data Mining components between}: the already existing REST interfaces present in all interacting components (except the SafeStreets server) will be enriched with the methods to forwards and fetch the updates.
+\item \texttt{Data Mining components between themselves}: the already existing REST interfaces present in all interacting components (except the SafeStreets server) will be enriched with the methods to forwards and fetch the updates.
 \begin{figure}[H]
 		\centering
-			\includegraphics[width=1.0\linewidth]{Images/Integration/StatisticIntegrationChart3}
+			\includegraphics[width=.8\linewidth]{Images/Integration/StatisticIntegrationChart3}
 		\caption{Authority update module}
 \end{figure}
 \end{enumerate}
 \newpage
 \subsection{Testing plan}
 Testing will follow the order of implementation and integration described above.
-Each unit of work defined in the previous section will be thoroughly tested before implementing the successive one to avoid undetected problems while integration is being performed: all the modules which have to be integrated will be tested so that their own functionalities are sure to work correctly, to ensure that if new problems arise they must be caused by the newly written code. Some modules will be tested with particular attention, especially the ones regarding the Ticket Emission and Reports, to avoid wrong tickets being compiled and enforcing a certain amount of accuracy with the plate recognition, as we feel those are the most sensitive features of the application.
+Each unit of work defined in the previous section will be thoroughly tested before implementing the successive one to avoid undetected problems while integration is being performed: all the modules which have to be integrated will be tested so that their own functionalities are sure to work correctly, to ensure that if new problems arise they must be caused by the newly written code.
+\\Some modules will be tested with particular attention, especially the ones regarding the Ticket Emission and Reports, to avoid wrong tickets being compiled and enforcing a certain amount of accuracy with the plate recognition, as we feel those are the most sensitive features of the application.
 \newpage
 \section{EFFORT SPENT}
 \begin{itemize}
@@ -753,10 +754,11 @@ Each unit of work defined in the previous section will be thoroughly tested befo
 				14/11/2019 & High level components & 3 \\ \hline
 				19/11/2019 & Component view & 4 \\ \hline
 				20/11/2019 & Deployment view & 2 \\ \hline
-24/11/2019 & Sequence diagram & 5 \\ \hline
-26/11/2019 & Patterns and architectural styles & 2 \\ \hline
-26/11/2019 & Implementation, integration and testing & 4 \\ \hline
-				Total & & ** \\ \hline
+				24/11/2019 & Sequence diagram & 5 \\ \hline
+				26/11/2019 & Patterns and architectural styles & 2 \\ \hline
+				26/11/2019 & Implementation, integration and testing & 4 \\ \hline
+				6/12/2019 & Revision & 4 \\ \hline
+				Total & & 24 \\ \hline
 			\end{tabular}
 		\end{center}
 \item {Marco Gasperini}
@@ -770,7 +772,8 @@ Each unit of work defined in the previous section will be thoroughly tested befo
 				26/11/2019 & Implementation, integration and testing & 4 \\ \hline
 				27/11/2019 & Integration charts & 3 \\ \hline
 				02/12/2019 & UX diagrams & 4 \\ \hline
-				Total & & ** \\ \hline
+				6/12/2019 & Revision & 4 \\ \hline
+				Total & & 24 \\ \hline
 			\end{tabular}
 \end{center}
 \end{itemize}
