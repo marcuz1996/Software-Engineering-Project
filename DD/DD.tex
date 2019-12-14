@@ -76,6 +76,9 @@ the municipality's VLA as soon as an officer personally convalidates a violation
 	\item {App}: application.
 \end{itemize}
 \subsection{Revision History}
+\begin{itemize}
+	\item \textbf{14/12/2019}: enriched testing plan.
+\end{itemize}
 \subsection{Reference Documents}
 \subsection{Document Structure}
 \begin{itemize}
@@ -740,9 +743,13 @@ We identified pairs of elements (components and external services) which need to
 \end{enumerate}
 \newpage
 \subsection{Testing plan}
-Testing will follow the order of implementation and integration described above.
+Our testing policy will be deeply rooted in the model of \textbf{bottom-up development} we intend to apply: starting from the most basic units towards the integration of modules, following the order already specified in the previous chapter.
 Each unit of work defined in the previous section will be thoroughly tested before implementing the successive one to avoid undetected problems while integration is being performed: all the modules which have to be integrated will be tested so that their own functionalities are sure to work correctly, to ensure that if new problems arise they must be caused by the newly written code.
-\\Some modules will be tested with particular attention, especially the ones regarding the Ticket Emission and Reports, to avoid wrong tickets being compiled and enforcing a certain amount of accuracy with the plate recognition, as we feel those are the most sensitive features of the application.
+\\Some modules will be tested with particular attention, especially the ones regarding the Ticket Emission and Reports, to avoid wrong tickets being compiled and enforcing a certain amount of accuracy with the plate recognition, as we feel those are the most sensitive features of the application.\\
+\textbf{Test Driven Development} will be applied to make sure every non-trivial section of code is thoroughly tested immediately after being written: in particolar, \textbf{Unit Tests} with libraries such as \texttt{JUnit} will be run on newly written components before integrating them. After making sure the logic behind the component's functionalities is sound, tests on the web services will be run before integration through softwares like \texttt{Postman} which allow for the simulation of HTTP calls.\\
+As all components share the same data formats and representations in their REST architectures, \textbf{Integration Testing} will be performed through stubs at each module following the same bottom-up approach. 
+In the end, \textbf{Validation Testing} will be performed to check if the software meets all the specified requirements.\\
+
 \newpage
 \section{EFFORT SPENT}
 \begin{itemize}
@@ -758,7 +765,8 @@ Each unit of work defined in the previous section will be thoroughly tested befo
 				26/11/2019 & Patterns and architectural styles & 2 \\ \hline
 				26/11/2019 & Implementation, integration and testing & 4 \\ \hline
 				6/12/2019 & Revision & 4 \\ \hline
-				Total & & 24 \\ \hline
+				14/12/2019 & Revision & 1 \\ \hline
+				Total & & 25 \\ \hline
 			\end{tabular}
 		\end{center}
 \item {Marco Gasperini}
@@ -773,7 +781,8 @@ Each unit of work defined in the previous section will be thoroughly tested befo
 				27/11/2019 & Integration charts & 3 \\ \hline
 				02/12/2019 & UX diagrams & 4 \\ \hline
 				6/12/2019 & Revision & 4 \\ \hline
-				Total & & 24 \\ \hline
+				14/12/2019 & Revision & 1 \\ \hline
+				Total & & 25 \\ \hline
 			\end{tabular}
 \end{center}
 \end{itemize}
